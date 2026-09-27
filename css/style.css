@@ -982,6 +982,7 @@ body.has-cursor-view .cursor-dot {
   grid-template-columns: 1.15fr 0.85fr;
   position: relative;
   will-change: transform, border-color;
+  cursor: pointer;
 }
 
 /* Staggered Scroll Reveal with Inset Clip-Path */
@@ -1043,6 +1044,9 @@ body.has-cursor-view .cursor-dot {
   justify-content: center;
   min-height: 380px;
   perspective: 1000px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .project-media-inner {

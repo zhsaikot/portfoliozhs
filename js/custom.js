@@ -287,6 +287,52 @@
   }
 
   /* ------------------------------------------------------------------------
+     08b. FULL-SURFACE PROJECT CARD CLICK NAVIGATION (Desktop & Mobile)
+     Clicking anywhere on the project card (image, background, info)
+     smoothly navigates to the project's dedicated case study page,
+     while allowing the "Quick Specs" modal trigger to open normally.
+     ------------------------------------------------------------------------ */
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', function (e) {
+      // If user clicked the Quick Specs button or any button inside, do nothing here
+      if (e.target.closest('button[data-project]') || e.target.closest('button')) {
+        return;
+      }
+
+      // If user is selecting text, do not trigger navigation
+      const selection = window.getSelection();
+      if (selection && selection.toString().length > 0) {
+        return;
+      }
+
+      // If user clicked directly on an anchor (e.g. .project-media or title link or case study btn)
+      // the anchor's own click handler takes care of it
+      if (e.target.closest('a')) {
+        return;
+      }
+
+      const targetUrl = card.getAttribute('data-url') || (card.querySelector('.project-title a') ? card.querySelector('.project-title a').getAttribute('href') : null);
+      if (targetUrl) {
+        // If meta/ctrl key, open in new tab
+        if (e.metaKey || e.ctrlKey) {
+          window.open(targetUrl, '_blank');
+          return;
+        }
+
+        const pageTransitionVeil = document.querySelector('.page-transition-veil');
+        if (pageTransitionVeil && !prefersReducedMotion) {
+          pageTransitionVeil.classList.add('active');
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 380);
+        } else {
+          window.location.href = targetUrl;
+        }
+      }
+    });
+  });
+
+  /* ------------------------------------------------------------------------
      09. HERO AMBIENT LIGHTING FOLLOWING CURSOR (Silky Lerp RAF)
      ------------------------------------------------------------------------ */
   const heroGlowPrimary = document.querySelector('.hero-ambient-glow');
