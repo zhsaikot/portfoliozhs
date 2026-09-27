@@ -1379,13 +1379,12 @@ ul, ol {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform var(--transition-smooth);
-  will-change: clip-path, transform;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-smooth);
 }
 
-.about-portrait-card.is-revealed {
-  clip-path: inset(0 0 0 0);
+.about-portrait-card:hover {
+  border-color: var(--border-accent);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 1px var(--accent);
 }
 
 .about-portrait-card img {
@@ -2386,10 +2385,6 @@ textarea.form-control {
   .site-header {
     transform: none !important;
     opacity: 1 !important;
-  }
-
-  .about-portrait-card {
-    clip-path: none !important;
   }
 
   .reveal-fade-up {

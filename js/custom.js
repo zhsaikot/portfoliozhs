@@ -322,25 +322,8 @@
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
-
-    // About portrait clip-path reveal
-    if (aboutPortraitCard) {
-      const portraitObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            aboutPortraitCard.classList.add('is-revealed');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.2
-      });
-
-      portraitObserver.observe(aboutPortraitCard);
-    }
   } else {
     revealElements.forEach(el => el.classList.add('is-revealed'));
-    if (aboutPortraitCard) aboutPortraitCard.classList.add('is-revealed');
   }
 
   /* ------------------------------------------------------------------------
