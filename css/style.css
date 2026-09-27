@@ -1,0 +1,1400 @@
+/* Global CSS */
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #071026;
+    font-family: "Poppins", sans-serif;
+    cursor: none;
+    /* hide default cursor */
+}
+
+
+/* Mouse Pointer CSS */
+
+.cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #06b6d4;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #06b6d4;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, border 0.2s ease;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 52px;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: #ffffff;
+    font-size: 32px;
+}
+
+h5 {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+h6 {
+    color: #ffffff;
+}
+
+p {
+    color: #f3f3f3;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+section {
+    padding: 100px 20px 100px 20px;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.sectionTitle {
+    padding-bottom: 60px;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    display: flex;
+}
+
+.row {
+    width: 1400px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* horizontal center */
+    align-items: center;
+}
+
+i {
+    color: yellow;
+}
+
+.divider {
+    width: 75%;
+    height: 3px;
+    background-color: #06b6d4;
+    display: flex;
+    justify-self: center;
+}
+
+
+/*Button CSS*/
+
+.btn {
+    padding: 11px 26px;
+    background: linear-gradient(90deg, #06b6d4, #7c3aed);
+    border: 0;
+    border-radius: 50px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #ffffff !important;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.secondBtn {
+    padding: 10px 25px;
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.secondBtn a {
+    text-decoration: none;
+    color: #071026 !important;
+}
+
+.secondBtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #ffffff66, transparent);
+    transition: 0.5s;
+}
+
+.secondBtn:hover::before {
+    left: 100%;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.container-3 {
+    width: 33%;
+    float: left;
+}
+
+.container-4 {
+    width: 25%;
+    float: left;
+}
+
+.container-2 {
+    width: 50%;
+    float: left;
+}
+
+.content {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+
+/* Header */
+
+.header {
+    height: 65px;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* Brand */
+
+.brand {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(90deg, #06b6d4, #7c3aed);
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    color: #071026;
+}
+
+
+/* Desktop nav */
+
+.desktop-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.desktop-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+/* Hamburger button */
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    position: relative;
+    transition: 0.3s;
+}
+
+.hamburger .bar::before,
+.hamburger .bar::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: white;
+    position: absolute;
+    left: 0;
+    transition: 0.3s;
+}
+
+.hamburger .bar::before {
+    top: -8px;
+}
+
+.hamburger .bar::after {
+    top: 8px;
+}
+
+
+/* Hamburger active (X icon) */
+
+.hamburger.active .bar {
+    background: transparent;
+}
+
+.hamburger.active .bar::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.hamburger.active .bar::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+
+/* Mobile menu */
+
+.mobile-menu {
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 65px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: 0.25s ease;
+}
+
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+/* When open */
+
+.mobile-menu.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+
+/* Responsive */
+
+@media (max-width: 820px) {
+    .desktop-nav {
+        display: none;
+    }
+    .hamburger {
+        display: flex;
+    }
+}
+
+
+/* Home section */
+
+#home {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    padding-top: 100px;
+}
+
+#particleCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#home .container,
+#home .content,
+#home img,
+#home h1,
+#home p,
+#home button {
+    position: relative;
+    z-index: 1;
+    /* to stay above particles */
+}
+
+#home p {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+#home .secondBtn {
+    margin-left: 20px;
+}
+
+
+/* Image container */
+
+.introImage .content {
+    width: 300px;
+    /* Square size (adjust if needed) */
+    height: 380px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(124, 58, 237, 0.35);
+}
+
+
+/* Neon outline */
+
+.introImage .content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 5px;
+    background: linear-gradient( 270deg, #06b6d4, #7c3aed, #06b6d4);
+    background-size: 400% 400%;
+    animation: neonImageBorder 6s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+
+/* Image styling */
+
+.introImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures square crop */
+    border-radius: 18px;
+    position: relative;
+    z-index: 1;
+    margin: 4px;
+}
+
+
+/* Neon animation */
+
+@keyframes neonImageBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/*#home {
+    width: auto;
+    height: 600px;
+}*/
+
+#home .introImage {
+    justify-items: end;
+}
+
+
+/* About section */
+
+#about {
+    background-color: #0f172a;
+}
+
+#about .about-card {
+    background: rgba(255, 255, 255, 0.08);
+    /* Transparent glass layer */
+    backdrop-filter: blur(14px) saturate(180%);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-radius: 22px;
+    padding: 30px 25px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    /* Base shadow for depth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 18px rgba(124, 58, 237, 0.15);
+    /* Smooth Apple-style transitions */
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+}
+
+
+/* Neon animated outline */
+
+.about-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 2px;
+    /* Neon gradient border */
+    background: linear-gradient(135deg, #06b6d4, #7c3aed);
+    /* Mask to create hollow neon border */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.45;
+    transition: opacity 0.35s ease;
+}
+
+
+/* Hover boost */
+
+.about-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.55), 0 0 30px rgba(124, 58, 237, 0.35);
+}
+
+.about-card:hover::before {
+    opacity: 1;
+}
+
+#about .container-2 h2 {
+    margin-bottom: 20px;
+}
+
+#about svg {
+    width: auto;
+    height: 60px;
+}
+
+
+/* Neon border animation */
+
+@keyframes neonBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Skills section */
+
+#skills .sectionTitle {}
+
+#skills .skills-card {
+    background: rgba(255, 255, 255, 0.08);
+    /* Transparent glass layer */
+    backdrop-filter: blur(14px) saturate(180%);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-radius: 22px;
+    padding: 30px 25px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    /* Base shadow for depth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 18px rgba(124, 58, 237, 0.15);
+    /* Smooth Apple-style transitions */
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+}
+
+
+/* Neon outline using ::before */
+
+.skills-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 2px;
+    /* Neon gradient border */
+    background: linear-gradient(135deg, #06b6d4, #7c3aed);
+    /* Mask to create hollow neon border */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.45;
+    transition: opacity 0.35s ease;
+}
+
+
+/* Hover: stronger neon + slight lift */
+
+.skills-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.55), 0 0 30px rgba(124, 58, 237, 0.35);
+}
+
+
+/* Hover: neon border intensifies */
+
+.skills-card:hover::before {
+    opacity: 1;
+}
+
+#skills h4 {
+    color: #ffffff;
+}
+
+#skills p {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#skills svg {
+    width: auto;
+    height: 60px;
+}
+
+
+/* Progress bar */
+
+.progress {
+    padding: 3px;
+    margin: 8px 0;
+    border-radius: 30px;
+    background: #0f172a;
+    box-shadow: inset 0 1px 2px #0f172a, 0 1px #ffffff14;
+}
+
+.progress-bar {
+    height: 10px;
+    border-radius: 30px;
+    background-image: linear-gradient(to bottom, #ffffff4d, #ffffff0d);
+    transition: 0.4s linear;
+    transition-property: width, background-color;
+}
+
+
+/* Progress Bar 1 */
+
+.skills-card .progress-moved .progress-bar {
+    width: 99%;
+    background-color: #f97316;
+    animation: progressAnimation1 6s;
+}
+
+@keyframes progressAnimation1 {
+    0% {
+        width: 5%;
+        background-color: #f19d61;
+    }
+    100% {
+        width: 99%;
+        background-color: #f97316;
+    }
+}
+
+#skills .skills-card svg {
+    fill: #f97316;
+}
+
+
+/* Progress Bar 2*/
+
+.skills-card-2 .progress-moved .progress-bar {
+    width: 95%;
+    background-color: #3b82f6;
+    animation: progressAnimation2 6s;
+}
+
+@keyframes progressAnimation2 {
+    0% {
+        width: 5%;
+        background-color: #8db9ff;
+    }
+    100% {
+        width: 95%;
+        background-color: #3b82f6;
+    }
+}
+
+#skills .skills-card-2 svg {
+    fill: #3b82f6;
+}
+
+
+/* Progress Bar 3*/
+
+.skills-card-3 .progress-moved .progress-bar {
+    width: 65%;
+    background-color: #eab308;
+    animation: progressAnimation3 6s;
+}
+
+@keyframes progressAnimation3 {
+    0% {
+        width: 5%;
+        background-color: #fadb7d;
+    }
+    100% {
+        width: 65%;
+        background-color: #eab308;
+    }
+}
+
+#skills .skills-card-3 svg {
+    fill: #eab308;
+}
+
+
+/* Progress Bar 4*/
+
+.skills-card-4 .progress-moved .progress-bar {
+    width: 98%;
+    background-color: #06b6d4;
+    animation: progressAnimation4 6s;
+}
+
+@keyframes progressAnimation4 {
+    0% {
+        width: 5%;
+        background-color: #9bb6ff;
+    }
+    100% {
+        width: 98%;
+        background-color: #06b6d4;
+    }
+}
+
+#skills .skills-card-4 svg {
+    fill: #06b6d4;
+}
+
+
+/* Progress Bar 5*/
+
+.skills-card-5 .progress-moved .progress-bar {
+    width: 95%;
+    background-color: #f1f1f1;
+    animation: progressAnimation5 6s;
+}
+
+@keyframes progressAnimation5 {
+    0% {
+        width: 5%;
+        background-color: #cecece;
+    }
+    100% {
+        width: 95%;
+        background-color: #f1f1f1;
+    }
+}
+
+#skills .skills-card-5 svg {
+    fill: #f1f1f1;
+}
+
+
+/* Progress Bar 6*/
+
+.skills-card-6 .progress-moved .progress-bar {
+    width: 88%;
+    background-color: #60a5fa;
+    animation: progressAnimation6 6s;
+}
+
+@keyframes progressAnimation6 {
+    0% {
+        width: 5%;
+        background-color: #a5ceff;
+    }
+    100% {
+        width: 88%;
+        background-color: #60a5fa;
+    }
+}
+
+#skills .skills-card-6 svg {
+    fill: #60a5fa;
+}
+
+
+/* Progress Bar 7*/
+
+.skills-card-7 .progress-moved .progress-bar {
+    width: 92%;
+    background-color: #9333ea;
+    animation: progressAnimation7 6s;
+}
+
+@keyframes progressAnimation7 {
+    0% {
+        width: 5%;
+        background-color: #d3aafa;
+    }
+    100% {
+        width: 92%;
+        background-color: #9333ea;
+    }
+}
+
+#skills .skills-card-7 svg {
+    fill: #9333ea !important;
+}
+
+
+/* Progress Bar 8*/
+
+.skills-card-8 .progress-moved .progress-bar {
+    width: 90%;
+    background-color: #ec4899;
+    animation: progressAnimation8 6s;
+}
+
+@keyframes progressAnimation8 {
+    0% {
+        width: 5%;
+        background-color: #f7a0cb;
+    }
+    100% {
+        width: 90%;
+        background-color: #ec4899;
+    }
+}
+
+#skills .skills-card-8 svg {
+    fill: #ec4899 !important;
+}
+
+
+/* Portfolio section */
+
+#portfolio {
+    background-color: #0f172a;
+}
+
+#portfolio .portfolio-set {
+    padding-top: 5px;
+}
+
+#portfolio img {
+    position: relative;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#portfolio .title-button-col {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    justify-content: space-between;
+}
+
+#portfolio .title-button-col .btn {
+    padding: 8px 16px;
+    font-size: 13px;
+    margin-left: ;
+}
+
+#portfolio .portfolio-card {
+    background: rgba(255, 255, 255, 0.08);
+    /* Transparent glass layer */
+    backdrop-filter: blur(14px) saturate(180%);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-radius: 22px;
+    padding: 30px 25px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    /* Base shadow for depth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 18px rgba(124, 58, 237, 0.15);
+    /* Smooth Apple-style transitions */
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+}
+
+
+/* Neon outline using ::before */
+
+.portfolio-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 2px;
+    /* Neon gradient border */
+    background: linear-gradient(135deg, #06b6d4, #7c3aed);
+    /* Mask to create hollow neon border */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.45;
+    transition: opacity 0.35s ease;
+}
+
+
+/* Hover: stronger neon + slight lift */
+
+.portfolio-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.55), 0 0 30px rgba(124, 58, 237, 0.35);
+}
+
+
+/* Hover: neon border intensifies */
+
+.portfolio-card:hover::before {
+    opacity: 1;
+}
+
+#portfolio h6 {
+    margin-top: 10px;
+}
+
+#portfolio .cms {
+    background-color: #06b5d4af;
+    padding: 5px 10px;
+    margin-right: 8px;
+    border-radius: 50px;
+}
+
+#portfolio .tools {
+    background-color: #9233eaad;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+
+/* Upwork section */
+
+#upwork .inner-section {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 1000px;
+    background-color: #2b3e6b;
+    border-radius: 10px;
+}
+
+#upwork .upwork-btn {
+    padding: 11px 26px;
+    background: linear-gradient(90deg, #16a34a, #20ca5e);
+    border: 0;
+    border-radius: 50px;
+    font-size: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s ease;
+    outline: none;
+}
+
+.upwork-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.upwork-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.upwork-btn:hover::before {
+    left: 100%;
+}
+
+.upwork-btn span {
+    margin-left: 10px;
+    font-size: 20px !important;
+}
+
+#upwork svg {
+    width: auto;
+    height: 60px;
+}
+
+#upwork h5 {
+    color: #fadb7d;
+}
+
+
+/* Upwork rating CSS */
+
+.rating {
+    --star-size: 25px;
+    --star-color: rgba(255, 255, 255, 0.25);
+    --star-fill: #facc15;
+    font-size: var(--star-size);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+    position: relative;
+    display: inline-block;
+}
+
+.rating::before {
+    content: "★★★★★";
+    letter-spacing: 4px;
+    background: linear-gradient( 90deg, var(--star-fill) calc(var(--rating) / 5 * 100%), var(--star-color) calc(var(--rating) / 5 * 100%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rating-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    margin-top: -5px !important;
+}
+
+#upwork .upwork-icon-container {
+    width: 20%;
+}
+
+#upwork .upwork-text-container {
+    width: 79%;
+}
+
+#upwork .upwork-text-container p {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#upwork .upwork-card {
+    background: rgba(255, 255, 255, 0.08);
+    /* Transparent glass layer */
+    backdrop-filter: blur(14px) saturate(180%);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-radius: 22px;
+    padding: 30px 25px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    /* Base shadow for depth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 18px rgba(124, 58, 237, 0.15);
+    /* Smooth Apple-style transitions */
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+}
+
+
+/* Neon animated outline */
+
+.upwork-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    padding: 2px;
+    /* Neon gradient border */
+    background: linear-gradient(135deg, #06b6d4, #7c3aed);
+    /* Mask to create hollow neon border */
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.45;
+    transition: opacity 0.35s ease;
+}
+
+
+/* Hover boost */
+
+.upwork-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.55), 0 0 30px rgba(124, 58, 237, 0.35);
+}
+
+.upwork-card:hover::before {
+    opacity: 1;
+}
+
+
+/* Contact section */
+
+#contact {
+    background-color: #0f172a;
+}
+
+#contact .container-2 p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+/* Contact info heading box */
+
+#contact h6 {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Neon animated outline */
+
+#contact h6::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient( 270deg, #06b6d4, #7c3aed, #06b6d4);
+    background-size: 400% 400%;
+    animation: neonContactBorder 6s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+
+/* Icon wrapper */
+
+#contact h6 span {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #7c3aed;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.45);
+}
+
+
+/* SVG icons */
+
+#contact h6 svg {
+    width: 22px;
+    height: 22px;
+}
+
+
+/* Links/text */
+
+#contact h6 a {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+}
+
+#contact h6 a:hover {
+    color: #06b6d4;
+}
+
+
+/* Neon animation */
+
+@keyframes neonContactBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#contact .social-icons svg {
+    width: auto;
+    height: 25px;
+    margin-bottom: -7px;
+    font-weight: 200;
+}
+
+#contact .social-icons {
+    margin-top: 30px;
+}
+
+#contact .social-icons span {
+    background-color: #fff;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+#contact .social-icons span:hover {
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 5px 10px #06b6d4, 0 0 30px #7c3aed;
+}
+
+
+/* Contact WhatsApp */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color: #16a34a;
+    border-radius: 50%;
+    padding: 10px 8px 4px 10px;
+    /* Neon Glow */
+    box-shadow: 0 0 10px rgba(22, 163, 74, 0.6), 0 0 25px rgba(22, 163, 74, 0.5), 0 0 45px rgba(22, 163, 74, 0.4);
+    animation: whatsappGlow 2s ease-in-out infinite alternate;
+}
+
+.whatsapp-float::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 2px solid rgba(22, 163, 74, 0.6);
+    animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 16px;
+        right: 16px;
+        padding: 9px 8px 4px 10px;
+        width: 52px;
+        height: 52px;
+        box-shadow: 0 0 8px rgba(22, 163, 74, 0.6), 0 0 20px rgba(22, 163, 74, 0.5);
+    }
+}
+
+
+/* Glass form container */
+
+#contactForm {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: 24px;
+    padding: 40px 35px;
+    max-width: 520px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-right: 0;
+}
+
+
+/* Neon animated outline (always active) */
+
+#contactForm::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient( 270deg, #06b6d4, #7c3aed, #06b6d4);
+    background-size: 400% 400%;
+    animation: neonFormBorder 6s linear infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.85;
+    pointer-events: none;
+}
+
+
+/* Form group spacing */
+
+#contactForm .form-group {
+    margin-bottom: 22px;
+}
+
+
+/* Labels */
+
+#contactForm label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 6px;
+}
+
+
+/* Inputs & textarea */
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+
+/* Placeholder text */
+
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* Focus state (Apple-style glow) */
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(124, 58, 237, 0.8);
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.25), 0 0 20px rgba(124, 58, 237, 0.35);
+}
+
+
+/* Submit button */
+
+#contactForm .btn-submit {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #06b6d4, #7c3aed);
+    border: none;
+    border-radius: 50px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+/* Form message */
+
+#formMessage {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+
+/* Neon animation */
+
+@keyframes neonFormBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
