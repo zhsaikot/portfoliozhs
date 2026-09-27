@@ -20,7 +20,6 @@ Personal portfolio for **MD. Ziaul Hasan** — WordPress Developer & Web Designe
 - **Axis IT Ltd** — WordPress Team Leader (April 2024 – February 2026, Mirpur, Dhaka · Hybrid)
 - **Axis IT Ltd** — Web Developer (January 2024 – April 2024, Mirpur, Dhaka · Hybrid)
 - **bdCallingIT** — Web Developer (August 2022 – January 2024, Banashree, Dhaka)
-- **Bdcalling IT Ltd** — Expert (August 2022 – January 2024, Dhaka)
 - **Freelance** — Web Designer (January 2020 – July 2022, Tangail, Dhaka)
 - **Anika Computer Sakhipur** — Senior Instructor (August 2020 – May 2022, Sakhipur, Tangail)
 
