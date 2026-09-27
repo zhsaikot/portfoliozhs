@@ -1,39 +1,39 @@
-# MD. Ziaul Hasan — Digital Studio & Portfolio
+# MD. Ziaul Hasan — Portfolio
 
-> "I build high-performance websites that make businesses look better, work better, and convert better."
+> "WordPress development, modern web design, website maintenance, and performance optimization for businesses and clients."
 
-Personal digital studio portfolio for **MD. Ziaul Hasan** — Senior WordPress Developer, Web Designer, and Digital Experience Builder serving international clients across the United States, United Kingdom, Canada, and Europe.
+Personal portfolio for **MD. Ziaul Hasan** — WordPress Developer & Web Designer specializing in WordPress, Elementor, ACF, JetEngine, WooCommerce, website maintenance, and speed optimization.
 
 ## ✦ Core Specializations
 
-- **Custom WordPress Development** — Clean architecture, bespoke themes, performance hardening, and ACF Pro integration.
-- **Advanced Elementor & Crocoblock** — Complex relational data structures, JetEngine custom post types, dynamic listings, and filtering.
-- **WooCommerce & E-Commerce** — High-converting checkout flows, catalog filtering, and Stripe/PayPal integrations.
-- **UI/UX Design & Frontend Engineering** — Editorial Swiss-inspired layouts, responsive typography, and micro-interactions.
-- **Core Web Vitals & Speed Optimization** — Sub-second LCP, zero layout shift (CLS 0.00), and 95+ PageSpeed scores.
-- **Course & Video Funnels** — Kajabi, WordPress LMS, and automated checkout conversion funnels.
+- **WordPress Development** — Clean theme architecture, custom templates, responsive implementation, and ACF integration.
+- **Elementor & Elementor Pro** — Pixel-perfect responsive page builds, global theme styling, and interactive layouts.
+- **Dynamic WordPress & Crocoblock** — Custom post types, taxonomies, JetEngine relational fields, and dynamic filters.
+- **WooCommerce & E-Commerce** — High-performing store setups, custom product layouts, and streamlined checkout UX.
+- **Website Speed Optimization** — Core Web Vitals audits, asset minification, image compression, and performance tuning.
+- **Website Maintenance & Retainers** — Core and plugin updates, scheduled backups, security checks, and reliable technical support.
 
-## ✦ Technical Highlights
+## ✦ Professional Experience Highlights
 
-- **Visual Direction:** Luxury Dark Studio aesthetic (`#0B0B0B`) with refined Champagne Gold accents (`#E5C378`).
-- **Typography:** Modern editorial sans-serif (*Plus Jakarta Sans*) with responsive fluid scaling (`clamp()`).
-- **Performance:** 100% dependency-free vanilla architecture (zero heavy bloated frameworks, zero external script blockers).
-- **Interactions:**
-  - Trailing dual-ring desktop custom cursor with magnetic button attraction and context-aware "VIEW" badge.
-  - Interactive Project Case Study dynamic drawer with deep-dive technical specifications.
-  - Scroll-triggered reveal animations via `IntersectionObserver`.
-  - Continuous hardware-accelerated technology marquee.
-  - Fully accessible full-screen mobile navigation with scroll locking and Escape key handling.
-  - Full support for `prefers-reduced-motion: reduce`.
-- **SEO & Structured Data:** Semantic HTML5 landmarks, Open Graph cards, Twitter metadata, and Schema.org `Person` & `ProfessionalService` JSON-LD.
+- **OrangeToolz.com** — WordPress Developer (July 2026 – Present, Dhaka · On-site)
+- **Upwork** — Web Designer (January 2024 – Present, Remote · Global Clients)
+- **Axis IT Ltd** — WordPress Team Leader (April 2024 – February 2026, Mirpur, Dhaka · Hybrid)
+- **Axis IT Ltd** — Web Developer (January 2024 – April 2024, Mirpur, Dhaka · Hybrid)
+- **bdCallingIT** — Web Developer (August 2022 – January 2024, Banashree, Dhaka)
+- **Bdcalling IT Ltd** — Expert (August 2022 – January 2024, Dhaka)
+- **Freelance** — Web Designer (January 2020 – July 2022, Tangail, Dhaka)
+- **Anika Computer Sakhipur** — Senior Instructor (August 2020 – May 2022, Sakhipur, Tangail)
 
-## ✦ Direct Inquiries
+## ✦ Direct Inquiries & Profiles
 
-- **Portfolio Website:** [mdziaulhasan.com](https://mdziaulhasan.com/)
-- **Upwork:** [Top Rated Freelancer Profile](https://www.upwork.com/freelancers/~010293154926636989)
+- **Website:** [mdziaulhasan.com](https://mdziaulhasan.com/)
+- **LinkedIn:** [linkedin.com/in/mdziaulhasan](https://www.linkedin.com/in/mdziaulhasan/)
+- **Upwork:** [Upwork Freelancer Profile](https://www.upwork.com/freelancers/~010293154926636989)
+- **GitHub:** [github.com/zhsaikot](https://github.com/zhsaikot)
+- **Instagram:** [instagram.com/zhsaikot](https://www.instagram.com/zhsaikot/)
 - **Email:** zhsaikot@gmail.com
 - **WhatsApp:** +8801303387509
-- **Location:** Dhaka, Bangladesh (Operating across global timezones)
+- **Location:** Dhaka, Bangladesh
 
 ---
 © 2026 MD. Ziaul Hasan. All rights reserved.

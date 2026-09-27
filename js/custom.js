@@ -508,7 +508,7 @@
         'Zero-Bloat Core Web Vitals optimization achieving 99.4% Performance grade',
         'Fully responsive bespoke typography and editorial layouts across all viewports'
       ],
-      results: 'Achieved an average page load time of 0.78 seconds, a 3.4x lift in member inquiry completions, and 100% positive executive stakeholder feedback.'
+      results: 'Delivered an intuitive, responsive reservation flow with fast page load performance, positive stakeholder feedback, and simplified booking management.'
     },
     'novatech': {
       title: 'NovaTech Analytics',
@@ -518,17 +518,17 @@
       technologies: 'WordPress, Elementor Pro, Vanilla JavaScript, CSS3 Animations, Core Web Vitals',
       image: 'images/project-novatech.svg',
       pageUrl: 'case-study-novatech.html',
-      overview: 'NovaTech Analytics delivers machine learning telemetry infrastructure for Fortune 500 financial institutions. This redesign transformed a complex technical product into a clear, high-trust commercial conversion engine.',
-      challenge: 'Enterprise B2B buyers were bouncing due to dense technical jargon and slow-loading legacy pages. The company needed to explain high-dimensional mathematical data in seconds while capturing qualified enterprise sales leads.',
-      solution: 'Designed and developed an editorial dark-mode interface with custom interactive SVG graphs and responsive feature matrix tabs. Replaced heavy third-party plugins with custom vanilla JavaScript to guarantee a 98+ Google Lighthouse score.',
+      overview: 'NovaTech Analytics delivers machine learning telemetry infrastructure for financial institutions. This redesign transformed a complex technical product into a clear, high-trust commercial web presence.',
+      challenge: 'Enterprise buyers were encountering dense technical explanations and slow-loading legacy pages. The company needed to communicate complex data clearly while capturing qualified inbound leads.',
+      solution: 'Designed and developed an editorial interface with custom vector graphs and responsive feature tabs. Replaced heavy plugins with clean, lightweight JavaScript to guarantee fast page performance.',
       features: [
         'Interactive telemetry data visualization built in lightweight vector SVG',
-        'Custom lead-routing enterprise quotation funnel integrated with HubSpot',
+        'Custom lead-routing inquiry funnel integrated with modern CRM endpoints',
         'Multi-tab dynamic technical documentation and case study archive',
-        'Pixel-perfect Elementor Pro implementation with custom CSS design tokens',
-        'Performance-hardened asset bundling with lazy-loading and critical CSS inlining'
+        'Pixel-perfect Elementor Pro implementation with custom CSS styling',
+        'Performance-hardened asset bundling with lazy-loading and optimized styling'
       ],
-      results: 'Increased enterprise trial registrations by 142% within 60 days of launch, with an LCP (Largest Contentful Paint) under 0.8 seconds globally.'
+      results: 'Significantly streamlined the enterprise inquiry process, improved mobile PageSpeed performance metrics, and simplified product comprehension.'
     },
     'aesthetix': {
       title: 'Studio Aesthetix',
@@ -538,17 +538,17 @@
       technologies: 'WordPress, Crocoblock, Advanced Custom Fields, Custom JavaScript, CSS Grid',
       image: 'images/project-aesthetix.svg',
       pageUrl: 'case-study-aesthetix.html',
-      overview: 'A boutique European architecture practice needed a portfolio website that functioned like an exquisite museum catalogue—prioritizing negative space, razor-sharp photography, and fluid responsive transitions.',
+      overview: 'A boutique architecture practice needed a portfolio website that functioned like an exquisite museum catalogue—prioritizing negative space, razor-sharp photography, and fluid responsive transitions.',
       challenge: 'High-resolution architectural photography frequently leads to massive payload sizes and stuttering scroll behavior on mobile devices.',
-      solution: 'Implemented responsive image `srcset` pipelines, progressive blur-up lazy loading, and hardware-accelerated CSS transforms. Designed an asymmetric grid layout that automatically adjusts to photograph aspect ratios without awkward cropping.',
+      solution: 'Implemented responsive image srcset pipelines, progressive blur-up lazy loading, and hardware-accelerated CSS transforms. Designed an asymmetric grid layout that automatically adjusts to photograph aspect ratios without awkward cropping.',
       features: [
         'Asymmetric responsive editorial portfolio grid with instant category filtering',
-        'Progressive high-definition image optimization pipeline with zero layout shift (CLS 0.00)',
+        'Progressive high-definition image optimization pipeline with zero layout shift',
         'Full-screen interactive project gallery with keyboard and touch swipe navigation',
         'Custom architectural monograph case study layouts with project blueprint embeds',
         'Fluid clamp typography scaling harmoniously from mobile to 4K displays'
       ],
-      results: 'Delivered a silky 60 FPS browsing experience that directly contributed to the studio securing three international museum design commissions.'
+      results: 'Delivered a smooth, responsive editorial browsing experience that showcases architectural works with precision across all screen sizes.'
     },
     'vanguard': {
       title: 'Vanguard Capital',
@@ -558,37 +558,37 @@
       technologies: 'WordPress, Advanced Custom Fields Pro, Tailwind/Custom CSS, REST API',
       image: 'images/project-vanguard.svg',
       pageUrl: 'case-study-vanguard.html',
-      overview: 'Vanguard Capital represents over $280M in venture assets across North America and Europe. They required an authoritative digital presence that inspires institutional trust and simplifies deal submission.',
-      challenge: 'The platform needed to communicate institutional prestige, handle confidential pitch deck uploads securely, and provide an intuitive dashboard for portfolio founders.',
-      solution: 'Crafted a bespoke, minimalist Swiss-inspired design system with bank-grade form encryption, strict Content Security Policies (CSP), and automated encrypted pitch uploads via WordPress REST API.',
+      overview: 'Vanguard Capital required an authoritative digital presence that inspires institutional trust and simplifies secure inquiry and proposal submission.',
+      challenge: 'The platform needed to communicate institutional prestige, handle confidential inquiry submissions securely, and provide an intuitive portfolio showcase.',
+      solution: 'Crafted a bespoke, minimalist design system with secure form validation, modern security headers, and automated inquiry routing via WordPress REST API.',
       features: [
-        'Executive deal submission portal with end-to-end encrypted file dispatch',
+        'Executive deal submission portal with encrypted file dispatch',
         'Interactive portfolio company database with sector and stage filters',
-        'Executive insights blog with structured Schema.org financial publishing data',
-        'Bank-grade SSL and security hardening against malicious penetration attempts',
-        'Complete bilingual English/German responsive design structure'
+        'Executive insights archive with structured Schema markup',
+        'Security hardening and clean sanitization across all submission endpoints',
+        'Complete bilingual responsive design structure'
       ],
-      results: 'Generated an 85% increase in inbound proprietary deal flow within the first quarter and earned an A+ security audit rating.'
+      results: 'Delivered a polished, secure digital presence with streamlined inquiry routing and structured content presentation.'
     },
     'apex': {
       title: 'Apex Digital Academy',
       subtitle: 'High-Converting Video Coaching & Course Funnel Ecosystem',
       industry: 'Knowledge Commerce & EdTech',
-      services: 'Funnel Architecture, Kajabi & WordPress Integration, Checkout UX',
-      technologies: 'Kajabi, WordPress LMS, Stripe Elements, Video CDN Integration, CSS3',
+      services: 'Funnel Architecture, WordPress LMS & Checkout Integration, UX Design',
+      technologies: 'WordPress LMS, Stripe Checkout, Responsive CSS3, Video Integration',
       image: 'images/project-apex.svg',
       pageUrl: 'case-study-apex.html',
-      overview: 'Apex Digital Academy offers premier cohort-based learning for software engineers and digital architects. This project involved designing and building an end-to-end sales funnel and student learning portal.',
+      overview: 'Apex Digital Academy offers cohort-based technical training. This project involved designing and building an end-to-end course landing page and student portal.',
       challenge: 'The client struggled with low checkout completion rates and fragmented user experiences across disparate video platforms and course managers.',
-      solution: 'Consolidated the learning environment into a frictionless 4-step sales funnel featuring seamless one-click Stripe checkouts, high-speed CDN video streaming, and automated student onboarding.',
+      solution: 'Consolidated the learning environment into a frictionless multi-step sales funnel featuring seamless Stripe checkouts and automated student onboarding.',
       features: [
-        'High-converting 4-stage sales funnel with integrated social proof micro-interactions',
-        'Frictionless checkout experience with Apple Pay, Google Pay, and Stripe Elements',
+        'High-converting multi-stage sales funnel with clean social proof layouts',
+        'Frictionless checkout experience with Apple Pay, Google Pay, and Stripe',
         'Custom student curriculum dashboard with video completion progress tracking',
-        'Automated email trigger sequences connected via webhook automations',
-        'Fast-loading video player with adaptive bitrate delivery'
+        'Automated email notification sequences connected via webhooks',
+        'Fast-loading responsive video embeds with adaptive delivery'
       ],
-      results: 'Boosted overall funnel checkout conversion to 8.4% (industry average is 2.1%) and successfully onboarded over 12,800 active paying students.'
+      results: 'Streamlined the checkout workflow, provided a unified responsive student onboarding portal, and improved course navigation clarity.'
     }
   };
 
