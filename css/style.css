@@ -258,8 +258,8 @@ ul, ol {
 }
 
 .cursor-ring.cursor-view {
-  width: 76px;
-  height: 76px;
+  width: 82px;
+  height: 82px;
   background-color: var(--accent);
   border-color: var(--accent);
   box-shadow: 0 0 25px var(--accent-glow);
@@ -267,6 +267,18 @@ ul, ol {
 
 .cursor-ring.cursor-view .cursor-ring-text {
   opacity: 1;
+  font-size: 8.5px;
+  font-weight: 800;
+  color: #0B0B0B;
+  line-height: 1.15;
+  letter-spacing: 0.8px;
+  text-align: center;
+  max-width: 62px;
+  display: block;
+}
+
+body.has-cursor-view .cursor-dot {
+  opacity: 0 !important;
 }
 
 /* Hide on touch devices */
@@ -489,6 +501,8 @@ ul, ol {
 }
 
 .site-header.scrolled {
+  transform: translateY(0);
+  opacity: 1;
   height: 70px;
   background-color: var(--bg-translucent);
   backdrop-filter: blur(18px);
@@ -800,12 +814,20 @@ ul, ol {
   display: block;
   transform: translateY(105%);
   opacity: 0;
-  transition: transform 0.85s var(--ease-out-expo), opacity 0.85s ease;
+  transition: transform 0.8s var(--ease-out-expo), opacity 0.8s ease;
   will-change: transform, opacity;
 }
 
-.hero-line-inner.gold-line {
-  transition-delay: 0.2s;
+.hero-line-inner.hero-line-1 {
+  transition-delay: 0.22s;
+}
+
+.hero-line-inner.hero-line-2 {
+  transition-delay: 0.30s;
+}
+
+.hero-line-inner.hero-line-3.gold-line {
+  transition-delay: 0.40s;
 }
 
 .hero-loaded .hero-line-inner {
@@ -822,8 +844,9 @@ ul, ol {
   font-weight: 400;
   opacity: 0;
   transform: translateY(20px);
-  transition: transform 0.85s var(--ease-out-expo), opacity 0.85s ease;
-  transition-delay: 0.35s;
+  transition: transform 0.8s var(--ease-out-expo), opacity 0.8s ease;
+  transition-delay: 0.50s;
+  will-change: transform, opacity;
 }
 
 .hero-loaded .hero-supporting-text {
@@ -838,8 +861,9 @@ ul, ol {
   gap: 18px;
   opacity: 0;
   transform: translateY(20px);
-  transition: transform 0.85s var(--ease-out-expo), opacity 0.85s ease;
-  transition-delay: 0.45s;
+  transition: transform 0.8s var(--ease-out-expo), opacity 0.8s ease;
+  transition-delay: 0.62s;
+  will-change: transform, opacity;
 }
 
 .hero-loaded .hero-actions {
@@ -851,7 +875,8 @@ ul, ol {
   opacity: 0;
   transform: translateY(15px);
   transition: transform 0.7s var(--ease-out-expo), opacity 0.7s ease;
-  transition-delay: 0.1s;
+  transition-delay: 0.12s;
+  will-change: transform, opacity;
 }
 
 .hero-loaded .hero-eyebrow-wrapper {
@@ -863,7 +888,8 @@ ul, ol {
   opacity: 0;
   transform: translateY(15px);
   transition: transform 0.7s var(--ease-out-expo), opacity 0.7s ease;
-  transition-delay: 0.55s;
+  transition-delay: 0.74s;
+  will-change: transform, opacity;
 }
 
 .hero-loaded .hero-status-wrapper {
@@ -958,6 +984,50 @@ ul, ol {
   will-change: transform, border-color;
 }
 
+/* Staggered Scroll Reveal with Inset Clip-Path */
+.project-card.reveal-card {
+  opacity: 0;
+  transform: translate3d(0, 44px, 0);
+  clip-path: inset(0 0 6% 0 round var(--radius-lg));
+  transition: opacity 0.85s var(--ease-out-expo),
+              transform 0.85s var(--ease-out-expo),
+              clip-path 0.85s var(--ease-out-expo),
+              border-color var(--transition-base),
+              box-shadow var(--transition-base);
+  will-change: opacity, transform, clip-path;
+}
+
+.project-card.reveal-card.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  clip-path: inset(0 0 0 0 round var(--radius-lg));
+}
+
+/* Screenshot enters slightly before text */
+.project-card.reveal-card .project-media {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.75s var(--ease-out-expo), transform 0.75s var(--ease-out-expo);
+  transition-delay: 0.04s;
+}
+
+.project-card.reveal-card.is-revealed .project-media {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-card.reveal-card .project-info {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.75s var(--ease-out-expo), transform 0.75s var(--ease-out-expo);
+  transition-delay: 0.16s;
+}
+
+.project-card.reveal-card.is-revealed .project-info {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 .project-card:hover {
   border-color: var(--border-accent);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 1px var(--accent);
@@ -1031,11 +1101,15 @@ ul, ol {
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, color var(--transition-fast);
 }
 
 .project-meta-top .industry {
   color: var(--accent);
+}
+
+.project-card:hover .project-meta-top {
+  color: var(--accent-light);
 }
 
 .project-title {
@@ -1051,7 +1125,7 @@ ul, ol {
 
 .project-card:hover .project-title {
   color: var(--accent);
-  transform: translateX(4px);
+  transform: translateY(-3px);
 }
 
 .project-description {
@@ -1107,7 +1181,8 @@ ul, ol {
   color: var(--accent);
 }
 
-.btn-case-study:hover .study-arrow {
+.btn-case-study:hover .study-arrow,
+.project-card:hover .btn-case-study .study-arrow {
   transform: translateX(6px);
 }
 
@@ -1493,15 +1568,36 @@ ul, ol {
   display: grid;
   grid-template-columns: 240px 1fr;
   gap: 32px;
+  position: relative;
+  overflow: hidden;
   transition: border-color var(--transition-base),
               background-color var(--transition-base),
               transform 0.3s var(--ease-smooth);
+}
+
+.experience-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--accent);
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.35s var(--ease-out-expo), opacity 0.35s ease;
 }
 
 .experience-card:hover {
   border-color: var(--border-hover);
   background-color: var(--bg-card-hover);
   transform: translateX(6px);
+}
+
+.experience-card:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .exp-period {
@@ -1518,6 +1614,12 @@ ul, ol {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 4px;
+  transition: color var(--transition-fast), text-shadow var(--transition-fast);
+}
+
+.experience-card:hover .exp-company {
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent-glow);
 }
 
 .exp-location {
@@ -1525,12 +1627,39 @@ ul, ol {
   color: var(--text-muted);
 }
 
+.exp-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.exp-arrow {
+  font-size: 1.15rem;
+  color: var(--accent);
+  opacity: 0;
+  transform: translate(-4px, 4px);
+  transition: opacity 0.25s var(--ease-out-expo), transform 0.25s var(--ease-out-expo);
+  line-height: 1.2;
+}
+
+.experience-card:hover .exp-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
 .exp-role-title {
   font-size: 1.375rem;
   font-weight: 800;
   letter-spacing: -0.01em;
   color: var(--text-primary);
-  margin-bottom: 12px;
+  margin-bottom: 0;
+  transition: color var(--transition-fast);
+}
+
+.experience-card:hover .exp-role-title {
+  color: #FFFFFF;
 }
 
 .exp-responsibilities {
@@ -2387,9 +2516,17 @@ textarea.form-control {
     opacity: 1 !important;
   }
 
-  .reveal-fade-up {
+  .reveal-fade-up,
+  .project-card.reveal-card,
+  .project-card.reveal-card .project-media,
+  .project-card.reveal-card .project-info {
     opacity: 1 !important;
     transform: none !important;
+    clip-path: none !important;
+  }
+
+  .experience-card::before {
+    display: none !important;
   }
 
   .status-dot::after {

@@ -230,11 +230,13 @@
     projectCards.forEach(card => {
       card.addEventListener('mouseenter', () => {
         ring.classList.add('cursor-view');
-        if (ringText) ringText.textContent = 'VIEW';
+        document.body.classList.add('has-cursor-view');
+        if (ringText) ringText.innerHTML = 'VIEW<br>PROJECT ↗';
       });
       card.addEventListener('mouseleave', () => {
         ring.classList.remove('cursor-view');
-        if (ringText) ringText.textContent = '';
+        document.body.classList.remove('has-cursor-view');
+        if (ringText) ringText.innerHTML = '';
       });
     });
 
@@ -247,7 +249,7 @@
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        // Dampened to maximum 6-7px
+        // Bounded to strictly 6-7px
         const moveX = Math.max(-7, Math.min(7, x * 0.18));
         const moveY = Math.max(-7, Math.min(7, y * 0.18));
         btn.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
@@ -285,28 +287,106 @@
   }
 
   /* ------------------------------------------------------------------------
-     09. HERO AMBIENT LIGHTING FOLLOWING CURSOR
+     09. HERO AMBIENT LIGHTING FOLLOWING CURSOR (Silky Lerp RAF)
      ------------------------------------------------------------------------ */
-  const heroGlow = document.querySelector('.hero-ambient-glow');
+  const heroGlowPrimary = document.querySelector('.hero-ambient-glow');
+  const heroGlowSecondary = document.querySelector('.hero-ambient-glow-secondary');
 
-  if (heroSection && heroGlow && isDesktopPointer && !prefersReducedMotion) {
+  if (heroSection && isDesktopPointer && !prefersReducedMotion && (heroGlowPrimary || heroGlowSecondary)) {
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    let isMoving = false;
+
     heroSection.addEventListener('mousemove', (e) => {
       const rect = heroSection.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 36;
+      targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 36;
 
-      const moveX = (x / rect.width - 0.5) * 45;
-      const moveY = (y / rect.height - 0.5) * 45;
-
-      heroGlow.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+      if (!isMoving) {
+        isMoving = true;
+        animateHeroGlow();
+      }
     }, { passive: true });
+
+    heroSection.addEventListener('mouseleave', () => {
+      targetX = 0;
+      targetY = 0;
+    });
+
+    function animateHeroGlow() {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+
+      if (heroGlowPrimary) {
+        heroGlowPrimary.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      }
+      if (heroGlowSecondary) {
+        // Subtle inverted depth parallax
+        heroGlowSecondary.style.transform = `translate3d(${-currentX * 0.5}px, ${-currentY * 0.5}px, 0)`;
+      }
+
+      if (Math.abs(targetX - currentX) > 0.1 || Math.abs(targetY - currentY) > 0.1) {
+        requestAnimationFrame(animateHeroGlow);
+      } else {
+        isMoving = false;
+      }
+    }
   }
 
   /* ------------------------------------------------------------------------
-     10. SCROLL REVEAL & CLIP-PATH OBSERVER
+     10. STATS COUNTER ANIMATION (Trust Section Smooth Number Roll)
      ------------------------------------------------------------------------ */
-  const revealElements = document.querySelectorAll('.reveal-fade-up');
-  const aboutPortraitCard = document.querySelector('.about-portrait-card');
+  const statNumbers = document.querySelectorAll('.stat-number');
+  const trustSection = document.getElementById('trust');
+
+  if (statNumbers.length > 0 && trustSection && !prefersReducedMotion) {
+    let statsAnimated = false;
+
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !statsAnimated) {
+          statsAnimated = true;
+          observer.unobserve(entry.target);
+
+          statNumbers.forEach(stat => {
+            const target = parseFloat(stat.getAttribute('data-target'));
+            const isDecimal = stat.getAttribute('data-decimals') === '1';
+            const duration = 1600;
+            const startTime = performance.now();
+
+            function updateCounter(now) {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease-out expo
+              const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+              const val = target * ease;
+
+              stat.textContent = isDecimal ? val.toFixed(1) : Math.round(val);
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                stat.textContent = isDecimal ? target.toFixed(1) : target;
+              }
+            }
+            requestAnimationFrame(updateCounter);
+          });
+        }
+      });
+    }, {
+      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.15
+    });
+
+    statsObserver.observe(trustSection);
+  }
+
+  /* ------------------------------------------------------------------------
+     11. SCROLL REVEAL & CLIP-PATH OBSERVER
+     ------------------------------------------------------------------------ */
+  const revealElements = document.querySelectorAll('.reveal-fade-up, .reveal-card');
 
   if ('IntersectionObserver' in window && !prefersReducedMotion) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -318,7 +398,7 @@
       });
     }, {
       rootMargin: '0px 0px -50px 0px',
-      threshold: 0.12
+      threshold: 0.10
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
@@ -327,7 +407,7 @@
   }
 
   /* ------------------------------------------------------------------------
-     11. PROCESS TIMELINE PROGRESS TRACKER (Interactive Scroll Drawing)
+     12. PROCESS TIMELINE PROGRESS TRACKER (Interactive Scroll Drawing)
      ------------------------------------------------------------------------ */
   const processSection = document.getElementById('process');
   const processLineFill = document.querySelector('.process-line-fill');
@@ -344,10 +424,10 @@
 
         processLineFill.style.width = `${currentProgress * 100}%`;
 
-        // Highlight steps progressively
+        // Highlight steps progressively with illuminated indicator, title, and description
         processSteps.forEach((step, idx) => {
           const stepThreshold = idx / (processSteps.length - 1);
-          if (currentProgress >= stepThreshold * 0.78) {
+          if (currentProgress >= stepThreshold * 0.82) {
             step.classList.add('active');
           } else {
             step.classList.remove('active');
