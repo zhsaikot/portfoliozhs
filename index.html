@@ -83,6 +83,9 @@
 </head>
 
 <body>
+  <!-- Page Transition Veil -->
+  <div class="page-transition-veil"></div>
+
   <!-- Accessibility Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -160,38 +163,48 @@
       <div class="hero-grid-pattern" aria-hidden="true"></div>
 
       <div class="container hero-content">
-        <!-- Availability Indicator -->
-        <div class="status-pill reveal-fade-up">
-          <span class="status-dot" aria-hidden="true"></span>
-          <span>Available for Select Projects</span>
+        <!-- 1. Small Professional Eyebrow -->
+        <div class="hero-eyebrow-wrapper">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            WORDPRESS DEVELOPER · WEB DESIGNER · DIGITAL EXPERIENCE BUILDER
+          </div>
         </div>
 
-        <!-- Small Professional Eyebrow -->
-        <div class="eyebrow reveal-fade-up delay-1">
-          <span class="eyebrow-dot" aria-hidden="true"></span>
-          WORDPRESS DEVELOPER · WEB DESIGNER · DIGITAL EXPERIENCE BUILDER
-        </div>
-
-        <!-- Dramatic Headline -->
-        <h1 class="hero-headline reveal-fade-up delay-2">
-          I build websites<br>
-          that make businesses<br>
-          <span class="text-accent">look expensive.</span>
+        <!-- 2. Dramatic Headline (Masked Line-by-Line Reveal) -->
+        <h1 class="hero-headline">
+          <span class="hero-line-mask">
+            <span class="hero-line-inner">I BUILD WEBSITES</span>
+          </span>
+          <span class="hero-line-mask">
+            <span class="hero-line-inner">THAT MAKE BUSINESSES</span>
+          </span>
+          <span class="hero-line-mask">
+            <span class="hero-line-inner gold-line text-accent">LOOK EXPENSIVE.</span>
+          </span>
         </h1>
 
-        <!-- Supporting Text -->
-        <p class="hero-supporting-text reveal-fade-up delay-3">
+        <!-- 3. Supporting Text -->
+        <p class="hero-supporting-text">
           Helping businesses turn ideas into fast, modern and conversion-focused digital experiences. Specialized in custom WordPress engineering, Elementor Pro, and WooCommerce for international founders.
         </p>
 
-        <!-- Primary & Secondary CTAs -->
-        <div class="hero-actions reveal-fade-up delay-4">
+        <!-- 4. Primary & Secondary CTAs -->
+        <div class="hero-actions">
           <a href="#work" class="btn btn-primary">
             View My Work <span class="btn-icon" aria-hidden="true">↓</span>
           </a>
           <a href="#contact" class="btn btn-secondary">
             Start a Project <span class="btn-icon-up" aria-hidden="true">↗</span>
           </a>
+        </div>
+
+        <!-- 5. Availability Indicator (Reveals last) -->
+        <div class="hero-status-wrapper" style="margin-top: 36px;">
+          <div class="status-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>Available for Select Projects</span>
+          </div>
         </div>
       </div>
     </section>
@@ -263,7 +276,7 @@
           </div>
           <h2 class="section-title reveal-fade-up delay-1">SELECTED WORK</h2>
           <p class="section-subtitle reveal-fade-up delay-2">
-            A few projects I've designed, developed and delivered for international clients seeking prestige, speed, and tangible conversion.
+            A few projects I've designed, developed and delivered for international clients seeking prestige, speed, and tangible commercial conversion.
           </p>
         </header>
 
@@ -272,7 +285,9 @@
           <article class="project-card reveal-fade-up" data-project="luminary">
             <div class="project-media">
               <span class="project-overlay-badge">Hospitality & Concierge</span>
-              <img src="images/project-luminary.svg" alt="The Luminary Club — Luxury Concierge Website Screenshot" loading="lazy">
+              <div class="project-media-inner">
+                <img src="images/project-luminary.svg" alt="The Luminary Club — Luxury Concierge Website Screenshot" loading="lazy">
+              </div>
             </div>
             <div class="project-info">
               <div>
@@ -281,7 +296,9 @@
                   <span>·</span>
                   <span>Direct Booking System</span>
                 </div>
-                <h3 class="project-title">The Luminary Club</h3>
+                <h3 class="project-title">
+                  <a href="case-study-luminary.html">The Luminary Club</a>
+                </h3>
                 <p class="project-description">
                   A high-end private members concierge and estate reservation platform built with custom WordPress post types, dynamic JetEngine query filters, and a seamless WooCommerce booking flow.
                 </p>
@@ -294,8 +311,11 @@
                 </div>
               </div>
               <div class="project-actions">
-                <button type="button" class="btn-case-study" data-project="luminary">
-                  View Full Case Study <span aria-hidden="true">→</span>
+                <a href="case-study-luminary.html" class="btn-case-study">
+                  Read Case Study <span class="study-arrow" aria-hidden="true">→</span>
+                </a>
+                <button type="button" class="btn-case-study" data-project="luminary" style="border-bottom-style: dashed; font-size: 0.8125rem; color: var(--text-muted);">
+                  Quick Specs 👁
                 </button>
               </div>
             </div>
@@ -305,7 +325,9 @@
           <article class="project-card reveal-fade-up" data-project="novatech">
             <div class="project-media">
               <span class="project-overlay-badge">B2B SaaS Telemetry</span>
-              <img src="images/project-novatech.svg" alt="NovaTech Analytics — Enterprise AI SaaS Website Screenshot" loading="lazy">
+              <div class="project-media-inner">
+                <img src="images/project-novatech.svg" alt="NovaTech Analytics — Enterprise AI SaaS Website Screenshot" loading="lazy">
+              </div>
             </div>
             <div class="project-info">
               <div>
@@ -314,7 +336,9 @@
                   <span>·</span>
                   <span>Conversion Redesign</span>
                 </div>
-                <h3 class="project-title">NovaTech Analytics</h3>
+                <h3 class="project-title">
+                  <a href="case-study-novatech.html">NovaTech Analytics</a>
+                </h3>
                 <p class="project-description">
                   Commercial conversion redesign for a predictive machine learning platform. Re-architected with Elementor Pro, bespoke lightweight vector charts, and 98/100 Core Web Vitals optimization.
                 </p>
@@ -327,8 +351,11 @@
                 </div>
               </div>
               <div class="project-actions">
-                <button type="button" class="btn-case-study" data-project="novatech">
-                  View Full Case Study <span aria-hidden="true">→</span>
+                <a href="case-study-novatech.html" class="btn-case-study">
+                  Read Case Study <span class="study-arrow" aria-hidden="true">→</span>
+                </a>
+                <button type="button" class="btn-case-study" data-project="novatech" style="border-bottom-style: dashed; font-size: 0.8125rem; color: var(--text-muted);">
+                  Quick Specs 👁
                 </button>
               </div>
             </div>
@@ -338,7 +365,9 @@
           <article class="project-card reveal-fade-up" data-project="aesthetix">
             <div class="project-media">
               <span class="project-overlay-badge">Architecture & Spatial</span>
-              <img src="images/project-aesthetix.svg" alt="Studio Aesthetix — Architecture Portfolio Website Screenshot" loading="lazy">
+              <div class="project-media-inner">
+                <img src="images/project-aesthetix.svg" alt="Studio Aesthetix — Architecture Portfolio Website Screenshot" loading="lazy">
+              </div>
             </div>
             <div class="project-info">
               <div>
@@ -347,7 +376,9 @@
                   <span>·</span>
                   <span>Editorial Portfolio</span>
                 </div>
-                <h3 class="project-title">Studio Aesthetix</h3>
+                <h3 class="project-title">
+                  <a href="case-study-aesthetix.html">Studio Aesthetix</a>
+                </h3>
                 <p class="project-description">
                   An editorial monograph portfolio for an award-winning European architecture atelier. Features fluid asymmetric grid layouts, zero-layout-shift responsive imagery, and 60 FPS transitions.
                 </p>
@@ -360,8 +391,11 @@
                 </div>
               </div>
               <div class="project-actions">
-                <button type="button" class="btn-case-study" data-project="aesthetix">
-                  View Full Case Study <span aria-hidden="true">→</span>
+                <a href="case-study-aesthetix.html" class="btn-case-study">
+                  Read Case Study <span class="study-arrow" aria-hidden="true">→</span>
+                </a>
+                <button type="button" class="btn-case-study" data-project="aesthetix" style="border-bottom-style: dashed; font-size: 0.8125rem; color: var(--text-muted);">
+                  Quick Specs 👁
                 </button>
               </div>
             </div>
@@ -371,7 +405,9 @@
           <article class="project-card reveal-fade-up" data-project="vanguard">
             <div class="project-media">
               <span class="project-overlay-badge">Private Wealth & VC</span>
-              <img src="images/project-vanguard.svg" alt="Vanguard Advisory — Private Equity Advisory Platform Screenshot" loading="lazy">
+              <div class="project-media-inner">
+                <img src="images/project-vanguard.svg" alt="Vanguard Advisory — Private Equity Advisory Platform Screenshot" loading="lazy">
+              </div>
             </div>
             <div class="project-info">
               <div>
@@ -380,7 +416,9 @@
                   <span>·</span>
                   <span>Institutional Portal</span>
                 </div>
-                <h3 class="project-title">Vanguard Advisory</h3>
+                <h3 class="project-title">
+                  <a href="case-study-vanguard.html">Vanguard Advisory</a>
+                </h3>
                 <p class="project-description">
                   An institutional web presence and encrypted founder deal-flow portal for a transatlantic venture advisory firm representing over $280M in venture assets across North America and Europe.
                 </p>
@@ -393,8 +431,11 @@
                 </div>
               </div>
               <div class="project-actions">
-                <button type="button" class="btn-case-study" data-project="vanguard">
-                  View Full Case Study <span aria-hidden="true">→</span>
+                <a href="case-study-vanguard.html" class="btn-case-study">
+                  Read Case Study <span class="study-arrow" aria-hidden="true">→</span>
+                </a>
+                <button type="button" class="btn-case-study" data-project="vanguard" style="border-bottom-style: dashed; font-size: 0.8125rem; color: var(--text-muted);">
+                  Quick Specs 👁
                 </button>
               </div>
             </div>
@@ -404,7 +445,9 @@
           <article class="project-card reveal-fade-up" data-project="apex">
             <div class="project-media">
               <span class="project-overlay-badge">EdTech & Funnels</span>
-              <img src="images/project-apex.svg" alt="Apex Digital Academy — High-Converting Course Funnel Screenshot" loading="lazy">
+              <div class="project-media-inner">
+                <img src="images/project-apex.svg" alt="Apex Digital Academy — High-Converting Course Funnel Screenshot" loading="lazy">
+              </div>
             </div>
             <div class="project-info">
               <div>
@@ -413,7 +456,9 @@
                   <span>·</span>
                   <span>High-Ticket Funnel</span>
                 </div>
-                <h3 class="project-title">Apex Digital Academy</h3>
+                <h3 class="project-title">
+                  <a href="case-study-apex.html">Apex Digital Academy</a>
+                </h3>
                 <p class="project-description">
                   High-converting 4-stage sales funnel and membership ecosystem integrated with Kajabi and WordPress. Delivered 8.4% checkout completion rates and automated student onboarding for 12,800+ members.
                 </p>
@@ -426,8 +471,11 @@
                 </div>
               </div>
               <div class="project-actions">
-                <button type="button" class="btn-case-study" data-project="apex">
-                  View Full Case Study <span aria-hidden="true">→</span>
+                <a href="case-study-apex.html" class="btn-case-study">
+                  Read Case Study <span class="study-arrow" aria-hidden="true">→</span>
+                </a>
+                <button type="button" class="btn-case-study" data-project="apex" style="border-bottom-style: dashed; font-size: 0.8125rem; color: var(--text-muted);">
+                  Quick Specs 👁
                 </button>
               </div>
             </div>
@@ -456,7 +504,10 @@
           <!-- Service 01 -->
           <div class="service-card reveal-fade-up">
             <div>
-              <span class="service-number">01</span>
+              <div class="service-top-row">
+                <span class="service-number">01</span>
+                <span class="service-arrow" aria-hidden="true">↗</span>
+              </div>
               <h3 class="service-title">WordPress Development</h3>
               <p class="service-description">
                 Custom WordPress websites built from the ground up for speed, security, and effortless content management. No slow bloated themes—only clean, maintainable architecture designed to scale with your business.
@@ -474,7 +525,10 @@
           <!-- Service 02 -->
           <div class="service-card reveal-fade-up delay-1">
             <div>
-              <span class="service-number">02</span>
+              <div class="service-top-row">
+                <span class="service-number">02</span>
+                <span class="service-arrow" aria-hidden="true">↗</span>
+              </div>
               <h3 class="service-title">Website & UI/UX Design</h3>
               <p class="service-description">
                 Modern, editorial web design crafted in Figma and brought to life in pixel-perfect code. Focused on strategic typography, clean negative space, intuitive UX navigation, and establishing immediate trust with premium international buyers.
@@ -492,7 +546,10 @@
           <!-- Service 03 -->
           <div class="service-card reveal-fade-up delay-2">
             <div>
-              <span class="service-number">03</span>
+              <div class="service-top-row">
+                <span class="service-number">03</span>
+                <span class="service-arrow" aria-hidden="true">↗</span>
+              </div>
               <h3 class="service-title">WooCommerce & E-Commerce</h3>
               <p class="service-description">
                 High-converting online store experiences engineered to turn casual visitors into loyal repeat customers. Streamlined multi-step checkouts, dynamic inventory filtering, custom payment gateways, and automated cart-abandonment flows.
@@ -510,7 +567,10 @@
           <!-- Service 04 -->
           <div class="service-card reveal-fade-up">
             <div>
-              <span class="service-number">04</span>
+              <div class="service-top-row">
+                <span class="service-number">04</span>
+                <span class="service-arrow" aria-hidden="true">↗</span>
+              </div>
               <h3 class="service-title">Elementor & Crocoblock</h3>
               <p class="service-description">
                 Advanced, pixel-perfect Elementor Pro implementations utilizing Crocoblock JetEngine for complex relational databases, dynamic listings, custom post types, and interactive client portals without breaking site performance.
@@ -528,7 +588,10 @@
           <!-- Service 05 -->
           <div class="service-card reveal-fade-up delay-1">
             <div>
-              <span class="service-number">05</span>
+              <div class="service-top-row">
+                <span class="service-number">05</span>
+                <span class="service-arrow" aria-hidden="true">↗</span>
+              </div>
               <h3 class="service-title">Website Speed & SEO</h3>
               <p class="service-description">
                 Comprehensive technical performance audits, asset minification, database optimization, image compression pipelines, and Google Core Web Vitals remediation targeting 95+ PageSpeed scores and top search engine rankings.
@@ -546,7 +609,10 @@
           <!-- Service 06 -->
           <div class="service-card reveal-fade-up delay-2">
             <div>
-              <span class="service-number">06</span>
+              <div class="service-top-row">
+                <span class="service-number">06</span>
+                <span class="service-arrow" aria-hidden="true">↗</span>
+              </div>
               <h3 class="service-title">Website Maintenance & Growth</h3>
               <p class="service-description">
                 Reliable ongoing maintenance, WordPress core and plugin updates, automated cloud backups, 24/7 security monitoring, emergency troubleshooting, and continuous conversion-rate optimization support for peace of mind.
@@ -586,7 +652,7 @@
           <div class="process-line-fill" aria-hidden="true"></div>
 
           <!-- Step 01 -->
-          <div class="process-step reveal-fade-up">
+          <div class="process-step reveal-fade-up" data-step="1">
             <div class="step-indicator">01</div>
             <h3 class="step-title">Discover</h3>
             <p class="step-description">
@@ -595,7 +661,7 @@
           </div>
 
           <!-- Step 02 -->
-          <div class="process-step reveal-fade-up delay-1">
+          <div class="process-step reveal-fade-up delay-1" data-step="2">
             <div class="step-indicator">02</div>
             <h3 class="step-title">Design</h3>
             <p class="step-description">
@@ -604,7 +670,7 @@
           </div>
 
           <!-- Step 03 -->
-          <div class="process-step reveal-fade-up delay-2">
+          <div class="process-step reveal-fade-up delay-2" data-step="3">
             <div class="step-indicator">03</div>
             <h3 class="step-title">Build</h3>
             <p class="step-description">
@@ -613,7 +679,7 @@
           </div>
 
           <!-- Step 04 -->
-          <div class="process-step reveal-fade-up delay-3">
+          <div class="process-step reveal-fade-up delay-3" data-step="4">
             <div class="step-indicator">04</div>
             <h3 class="step-title">Launch</h3>
             <p class="step-description">
@@ -630,7 +696,7 @@
     <section class="section-about" id="about">
       <div class="container">
         <div class="about-split-layout">
-          <!-- Left: Studio Portrait -->
+          <!-- Left: Studio Portrait with Clip-Path Reveal -->
           <div class="about-portrait-wrapper reveal-fade-up">
             <div class="about-portrait-ambient" aria-hidden="true"></div>
             <div class="about-portrait-card">

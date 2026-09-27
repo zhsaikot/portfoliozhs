@@ -1,8 +1,17 @@
 /**
- * MD. ZIAUL HASAN — DIGITAL STUDIO PORTFOLIO
+ * MD. ZIAUL HASAN — DIGITAL STUDIO PORTFOLIO (V2 POLISHED ENGINE)
  * Production Frontend JavaScript Engine
- * Features: Luxury Motion, Custom Cursor, ScrollTrigger Observer,
- * Dynamic Case Study Drawer, Mobile Navigation, Interactive Forms
+ * Features:
+ * 1. Staggered Hero Sequence (<1s total execution, Awwwards-grade easing)
+ * 2. Desktop Tactile Custom Cursor with dynamic "VIEW" state
+ * 3. Tactile 5-8px Image Movement on Project Card hover
+ * 4. Magnetic CTA Button micro-interaction (5-8px bounds)
+ * 5. Progressive Process Timeline scroll-drawing engine
+ * 6. Clip-Path Image Reveal on About section
+ * 7. Fast Minimal Page Transitions (450ms)
+ * 8. Dynamic Case Study Drawer & Standalone Navigation
+ * 9. High-Conversion Validated Inquiry Form
+ * 10. Prefers-Reduced-Motion & Touch Graceful Degradation
  */
 
 (function () {
@@ -10,12 +19,68 @@
 
   // Check prefers-reduced-motion
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isDesktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   /* ------------------------------------------------------------------------
-     01. STICKY HEADER & SCROLL BEHAVIOR
+     01. PAGE TRANSITIONS (Subtle, 450ms, zero long loader)
+     ------------------------------------------------------------------------ */
+  const pageTransitionVeil = document.querySelector('.page-transition-veil');
+
+  if (pageTransitionVeil && !prefersReducedMotion) {
+    // Fade out veil on page load
+    window.addEventListener('pageshow', () => {
+      pageTransitionVeil.classList.remove('active');
+    });
+
+    // Intercept clicks on internal page links
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+      // Only internal full-page navigation (.html files)
+      if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
+        link.addEventListener('click', function (e) {
+          // Allow opening in new tab
+          if (e.metaKey || e.ctrlKey || link.target === '_blank') return;
+
+          e.preventDefault();
+          pageTransitionVeil.classList.add('active');
+
+          setTimeout(() => {
+            window.location.href = href;
+          }, 420);
+        });
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+     02. HERO STAGGERED ENTRANCE (< 1s execution)
      ------------------------------------------------------------------------ */
   const siteHeader = document.getElementById('siteHeader');
-  let lastScrollY = window.pageYOffset;
+  const heroSection = document.getElementById('home');
+
+  function initHeroSequence() {
+    // Step 1: Nav slides down smoothly
+    if (siteHeader) {
+      siteHeader.classList.add('header-loaded');
+    }
+
+    // Step 2-5: Hero headline line-by-line, paragraph, CTAs & status pill
+    if (heroSection) {
+      heroSection.classList.add('hero-loaded');
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(initHeroSequence, 60);
+    });
+  } else {
+    setTimeout(initHeroSequence, 60);
+  }
+
+  /* ------------------------------------------------------------------------
+     03. STICKY HEADER & SCROLL STATE
+     ------------------------------------------------------------------------ */
   let ticking = false;
 
   function updateHeader() {
@@ -25,7 +90,6 @@
     } else {
       siteHeader.classList.remove('scrolled');
     }
-    lastScrollY = currentScrollY;
     ticking = false;
   }
 
@@ -38,7 +102,7 @@
   updateHeader();
 
   /* ------------------------------------------------------------------------
-     02. MOBILE FULL-SCREEN NAVIGATION
+     04. MOBILE FULL-SCREEN NAVIGATION
      ------------------------------------------------------------------------ */
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -74,7 +138,6 @@
       });
     });
 
-    // Close on Escape key
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
         closeMobileMenu();
@@ -83,7 +146,7 @@
   }
 
   /* ------------------------------------------------------------------------
-     03. SMOOTH INTERNAL ANCHOR SCROLLING
+     05. SMOOTH INTERNAL ANCHOR SCROLLING
      ------------------------------------------------------------------------ */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -106,13 +169,11 @@
   });
 
   /* ------------------------------------------------------------------------
-     04. LUXURY CUSTOM CURSOR (DESKTOP ONLY)
+     06. DESKTOP CUSTOM CURSOR WITH "VIEW" MORPH
      ------------------------------------------------------------------------ */
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
   const ringText = document.querySelector('.cursor-ring-text');
-
-  const isDesktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   if (isDesktopPointer && !prefersReducedMotion && dot && ring) {
     document.body.classList.add('has-custom-cursor');
@@ -133,7 +194,6 @@
         ring.style.opacity = '1';
       }
 
-      // Dot follows immediately
       dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
     }, { passive: true });
 
@@ -149,10 +209,10 @@
       ring.style.opacity = '1';
     });
 
-    // Smooth lerp for outer ring
+    // Lerp smooth trailing outer ring
     function renderCursor() {
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
+      ringX += (mouseX - ringX) * 0.16;
+      ringY += (mouseY - ringY) * 0.16;
 
       ring.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%, -50%)`;
       requestAnimationFrame(renderCursor);
@@ -160,62 +220,93 @@
     renderCursor();
 
     // Hover interactions
-    const interactiveElements = document.querySelectorAll('a, button, input, select, textarea, .project-card, .service-card');
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        if (el.closest('.project-card') || el.classList.contains('project-card')) {
-          ring.classList.add('cursor-view');
-          if (ringText) ringText.textContent = 'VIEW';
-        } else {
-          ring.classList.add('cursor-hover');
-        }
-      });
+    const interactiveLinks = document.querySelectorAll('a, button, input, select, textarea');
+    interactiveLinks.forEach(el => {
+      el.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
+    });
 
-      el.addEventListener('mouseleave', () => {
-        ring.classList.remove('cursor-hover', 'cursor-view');
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        ring.classList.add('cursor-view');
+        if (ringText) ringText.textContent = 'VIEW';
+      });
+      card.addEventListener('mouseleave', () => {
+        ring.classList.remove('cursor-view');
         if (ringText) ringText.textContent = '';
       });
     });
 
-    // Magnetic CTA Button effect
+    /* ----------------------------------------------------------------------
+       07. MAGNETIC BUTTON INTERACTION (5-8px subtle pull)
+       ---------------------------------------------------------------------- */
     const magneticBtns = document.querySelectorAll('.btn-primary, .btn-secondary');
     magneticBtns.forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        btn.style.transform = `translate(${x * 0.18}px, ${y * 0.18}px)`;
+        // Dampened to maximum 6-7px
+        const moveX = Math.max(-7, Math.min(7, x * 0.18));
+        const moveY = Math.max(-7, Math.min(7, y * 0.18));
+        btn.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
       });
 
       btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0px, 0px)';
+        btn.style.transform = 'translate3d(0px, 0px, 0)';
+      });
+    });
+
+    /* ----------------------------------------------------------------------
+       08. TACTILE PROJECT IMAGE CURSOR PARALLAX (5-8px subtle movement)
+       ---------------------------------------------------------------------- */
+    projectCards.forEach(card => {
+      const media = card.querySelector('.project-media');
+      const inner = card.querySelector('.project-media-inner');
+      if (!media || !inner) return;
+
+      media.addEventListener('mousemove', (e) => {
+        const rect = media.getBoundingClientRect();
+        const xRatio = (e.clientX - rect.left) / rect.width - 0.5;
+        const yRatio = (e.clientY - rect.top) / rect.height - 0.5;
+
+        // Subtle 6px translation
+        const moveX = xRatio * 12;
+        const moveY = yRatio * 12;
+
+        inner.style.transform = `translate3d(${moveX}px, ${moveY}px, 0) scale(1.02)`;
+      });
+
+      media.addEventListener('mouseleave', () => {
+        inner.style.transform = 'translate3d(0, 0, 0) scale(1)';
       });
     });
   }
 
   /* ------------------------------------------------------------------------
-     05. HERO AMBIENT LIGHTING FOLLOWING CURSOR
+     09. HERO AMBIENT LIGHTING FOLLOWING CURSOR
      ------------------------------------------------------------------------ */
-  const heroSection = document.getElementById('home');
   const heroGlow = document.querySelector('.hero-ambient-glow');
 
-  if (heroSection && heroGlow && !prefersReducedMotion) {
+  if (heroSection && heroGlow && isDesktopPointer && !prefersReducedMotion) {
     heroSection.addEventListener('mousemove', (e) => {
       const rect = heroSection.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
-      const moveX = (x / rect.width - 0.5) * 60;
-      const moveY = (y / rect.height - 0.5) * 60;
+
+      const moveX = (x / rect.width - 0.5) * 45;
+      const moveY = (y / rect.height - 0.5) * 45;
 
       heroGlow.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
     }, { passive: true });
   }
 
   /* ------------------------------------------------------------------------
-     06. SCROLL REVEAL OBSERVER
+     10. SCROLL REVEAL & CLIP-PATH OBSERVER
      ------------------------------------------------------------------------ */
   const revealElements = document.querySelectorAll('.reveal-fade-up');
+  const aboutPortraitCard = document.querySelector('.about-portrait-card');
 
   if ('IntersectionObserver' in window && !prefersReducedMotion) {
     const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -226,18 +317,34 @@
         }
       });
     }, {
-      rootMargin: '0px 0px -60px 0px',
-      threshold: 0.1
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.12
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // About portrait clip-path reveal
+    if (aboutPortraitCard) {
+      const portraitObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            aboutPortraitCard.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      portraitObserver.observe(aboutPortraitCard);
+    }
   } else {
-    // Graceful fallback: reveal immediately
     revealElements.forEach(el => el.classList.add('is-revealed'));
+    if (aboutPortraitCard) aboutPortraitCard.classList.add('is-revealed');
   }
 
   /* ------------------------------------------------------------------------
-     07. PROCESS TIMELINE PROGRESS TRACKER
+     11. PROCESS TIMELINE PROGRESS TRACKER (Interactive Scroll Drawing)
      ------------------------------------------------------------------------ */
   const processSection = document.getElementById('process');
   const processLineFill = document.querySelector('.process-line-fill');
@@ -248,16 +355,16 @@
       const rect = processSection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      if (rect.top <= windowHeight * 0.7 && rect.bottom >= 0) {
+      if (rect.top <= windowHeight * 0.75 && rect.bottom >= 0) {
         const totalTravel = rect.height;
-        const currentProgress = Math.min(Math.max((windowHeight * 0.7 - rect.top) / totalTravel, 0), 1);
-        
+        const currentProgress = Math.min(Math.max((windowHeight * 0.75 - rect.top) / totalTravel, 0), 1);
+
         processLineFill.style.width = `${currentProgress * 100}%`;
 
-        // Highlight steps
+        // Highlight steps progressively
         processSteps.forEach((step, idx) => {
           const stepThreshold = idx / (processSteps.length - 1);
-          if (currentProgress >= stepThreshold * 0.8) {
+          if (currentProgress >= stepThreshold * 0.78) {
             step.classList.add('active');
           } else {
             step.classList.remove('active');
@@ -271,19 +378,20 @@
   }
 
   /* ------------------------------------------------------------------------
-     08. CASE STUDY DATA & INTERACTIVE DRAWER
+     12. DYNAMIC CASE STUDY DRAWER MODAL
      ------------------------------------------------------------------------ */
   const caseStudies = {
     'luminary': {
       title: 'The Luminary Club',
-      subtitle: 'Luxury Private Members Portal & Bespoke Hospitality Booking Platform',
-      industry: 'Luxury Hospitality & Concierge',
+      subtitle: 'Luxury Private Member Concierge & Estate Reservation Platform',
+      industry: 'Luxury Hospitality & Estates',
       services: 'Custom WordPress Development, WooCommerce Customization, Dynamic CPTs',
       technologies: 'WordPress Core, Elementor Pro, Crocoblock JetEngine, WooCommerce, SCSS, JS',
       image: 'images/project-luminary.svg',
-      overview: 'The Luminary Club represents an ultra-high-net-worth private membership portal offering bespoke private island bookings, Michelin-starred culinary reservations, and dedicated concierge dispatch.',
-      challenge: 'The client required a private, authenticated booking flow that felt effortless while executing complex multi-criteria room and villa availability checks without page refreshes, maintaining an uncompromised luxury aesthetic and sub-second load times.',
-      solution: 'We engineered a bespoke WordPress architecture utilizing JetEngine for custom post types and relational meta fields, connected to a streamlined, headless-inspired WooCommerce checkout flow. Every interface component was handcrafted to eliminate typical ecommerce bloat.',
+      pageUrl: 'case-study-luminary.html',
+      overview: 'The Luminary Club is an ultra-high-net-worth private membership portal offering bespoke private island bookings, Michelin-starred culinary reservations, and dedicated concierge dispatch.',
+      challenge: 'The client required a private, authenticated booking flow executing complex multi-criteria room and villa availability checks without page refreshes, maintaining an uncompromised luxury aesthetic and sub-second load times.',
+      solution: 'We engineered a bespoke WordPress architecture utilizing JetEngine for custom post types and relational meta fields, connected to a streamlined, headless-inspired WooCommerce checkout flow.',
       features: [
         'Custom Member Authentication & Tier-Based Portal Access',
         'Dynamic Multi-Property Real-Time Filtering Engine (JetSmartFilters)',
@@ -300,7 +408,8 @@
       services: 'UI/UX Design, Elementor Pro Engineering, Conversion Optimization',
       technologies: 'WordPress, Elementor Pro, Vanilla JavaScript, CSS3 Animations, Core Web Vitals',
       image: 'images/project-novatech.svg',
-      overview: 'NovaTech Analytics delivers machine learning infrastructure for Fortune 500 financial institutions. The goal of this redesign was to transform a complex technical product into a clear, high-trust commercial conversion engine.',
+      pageUrl: 'case-study-novatech.html',
+      overview: 'NovaTech Analytics delivers machine learning telemetry infrastructure for Fortune 500 financial institutions. This redesign transformed a complex technical product into a clear, high-trust commercial conversion engine.',
       challenge: 'Enterprise B2B buyers were bouncing due to dense technical jargon and slow-loading legacy pages. The company needed to explain high-dimensional mathematical data in seconds while capturing qualified enterprise sales leads.',
       solution: 'Designed and developed an editorial dark-mode interface with custom interactive SVG graphs and responsive feature matrix tabs. Replaced heavy third-party plugins with custom vanilla JavaScript to guarantee a 98+ Google Lighthouse score.',
       features: [
@@ -319,6 +428,7 @@
       services: 'Full-Cycle Web Design, WordPress Custom Theme, Dynamic Grid System',
       technologies: 'WordPress, Crocoblock, Advanced Custom Fields, Custom JavaScript, CSS Grid',
       image: 'images/project-aesthetix.svg',
+      pageUrl: 'case-study-aesthetix.html',
       overview: 'A boutique European architecture practice needed a portfolio website that functioned like an exquisite museum catalogue—prioritizing negative space, razor-sharp photography, and fluid responsive transitions.',
       challenge: 'High-resolution architectural photography frequently leads to massive payload sizes and stuttering scroll behavior on mobile devices.',
       solution: 'Implemented responsive image `srcset` pipelines, progressive blur-up lazy loading, and hardware-accelerated CSS transforms. Designed an asymmetric grid layout that automatically adjusts to photograph aspect ratios without awkward cropping.',
@@ -338,6 +448,7 @@
       services: 'Brand Identity Consultation, WordPress Theme Development, Enterprise Security',
       technologies: 'WordPress, Advanced Custom Fields Pro, Tailwind/Custom CSS, REST API',
       image: 'images/project-vanguard.svg',
+      pageUrl: 'case-study-vanguard.html',
       overview: 'Vanguard Capital represents over $280M in venture assets across North America and Europe. They required an authoritative digital presence that inspires institutional trust and simplifies deal submission.',
       challenge: 'The platform needed to communicate institutional prestige, handle confidential pitch deck uploads securely, and provide an intuitive dashboard for portfolio founders.',
       solution: 'Crafted a bespoke, minimalist Swiss-inspired design system with bank-grade form encryption, strict Content Security Policies (CSP), and automated encrypted pitch uploads via WordPress REST API.',
@@ -357,6 +468,7 @@
       services: 'Funnel Architecture, Kajabi & WordPress Integration, Checkout UX',
       technologies: 'Kajabi, WordPress LMS, Stripe Elements, Video CDN Integration, CSS3',
       image: 'images/project-apex.svg',
+      pageUrl: 'case-study-apex.html',
       overview: 'Apex Digital Academy offers premier cohort-based learning for software engineers and digital architects. This project involved designing and building an end-to-end sales funnel and student learning portal.',
       challenge: 'The client struggled with low checkout completion rates and fragmented user experiences across disparate video platforms and course managers.',
       solution: 'Consolidated the learning environment into a frictionless 4-step sales funnel featuring seamless one-click Stripe checkouts, high-speed CDN video streaming, and automated student onboarding.',
@@ -377,7 +489,7 @@
 
   function openCaseStudy(projectId) {
     const data = caseStudies[projectId];
-    if (!data) return;
+    if (!data || !modalContentContainer) return;
 
     modalContentContainer.innerHTML = `
       <img src="${data.image}" alt="${data.title} Mockup" class="modal-hero-image" loading="lazy">
@@ -420,11 +532,11 @@
       <p class="modal-body-text">${data.results}</p>
 
       <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border-subtle); display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="#contact" class="btn btn-primary" onclick="window.closeCaseStudyModal()">
-          Build A Similar Project ↗
+        <a href="${data.pageUrl}" class="btn btn-primary">
+          Open Dedicated Case Study Page →
         </a>
-        <a href="https://www.upwork.com/freelancers/~010293154926636989" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-          Verify on Upwork Profile ↗
+        <a href="#contact" class="btn btn-secondary" onclick="window.closeCaseStudyModal()">
+          Build A Similar Project ↗
         </a>
       </div>
     `;
@@ -434,15 +546,15 @@
   }
 
   function closeCaseStudy() {
+    if (!modalOverlay) return;
     modalOverlay.classList.remove('active');
     document.body.style.overflow = '';
   }
 
-  // Expose to window for inline onclick handlers
   window.openCaseStudyModal = openCaseStudy;
   window.closeCaseStudyModal = closeCaseStudy;
 
-  if (modalOverlay) {
+  if (modalOverlay && modalCloseBtn) {
     modalCloseBtn.addEventListener('click', closeCaseStudy);
     modalOverlay.addEventListener('click', (e) => {
       if (e.target === modalOverlay) closeCaseStudy();
@@ -455,17 +567,17 @@
     });
   }
 
-  // Attach click listener to project cards and CTA buttons
-  document.querySelectorAll('[data-project]').forEach(trigger => {
+  document.querySelectorAll('button[data-project]').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
+      e.stopPropagation();
       const projectId = trigger.getAttribute('data-project');
       openCaseStudy(projectId);
     });
   });
 
   /* ------------------------------------------------------------------------
-     09. HIGH-CONVERSION CONTACT FORM
+     13. HIGH-CONVERSION CONTACT FORM
      ------------------------------------------------------------------------ */
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
@@ -476,14 +588,11 @@
 
       const name = document.getElementById('formName').value.trim();
       const email = document.getElementById('formEmail').value.trim();
-      const projectType = document.getElementById('formType').value;
-      const budget = document.getElementById('formBudget').value;
       const details = document.getElementById('formDetails').value.trim();
 
-      // Basic validation
       if (!name || !email || !details) {
         formStatus.className = 'form-status-alert error';
-        formStatus.textContent = 'Please fill out all required fields (Name, Email, Project Details).';
+        formStatus.textContent = 'Please fill out all required fields (Name, Business Email, Project Details).';
         return;
       }
 
@@ -494,14 +603,12 @@
         return;
       }
 
-      // UI Feedback: Sending state
       const submitBtn = contactForm.querySelector('button[type="submit"]');
       const originalBtnText = submitBtn.innerHTML;
       submitBtn.disabled = true;
       submitBtn.innerHTML = `Sending Your Inquiry...`;
       formStatus.style.display = 'none';
 
-      // Simulate sending inquiry
       setTimeout(() => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnText;
@@ -513,16 +620,15 @@
 
         contactForm.reset();
 
-        // Auto hide success after 10 seconds
         setTimeout(() => {
           formStatus.style.display = 'none';
-        }, 10000);
-      }, 900);
+        }, 12000);
+      }, 850);
     });
   }
 
   /* ------------------------------------------------------------------------
-     10. ACTIVE NAVIGATION LINK ON SCROLL
+     14. ACTIVE NAVIGATION LINK ON SCROLL
      ------------------------------------------------------------------------ */
   const sections = document.querySelectorAll('section[id]');
   const desktopNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
