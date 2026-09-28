@@ -2035,6 +2035,7 @@ select.form-control {
   background-repeat: no-repeat;
   background-position: right 16px center;
   background-size: 16px;
+  padding-right: 42px;
   cursor: pointer;
 }
 
