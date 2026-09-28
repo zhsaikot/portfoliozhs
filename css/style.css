@@ -1045,6 +1045,7 @@ body.has-cursor-view .cursor-dot {
 }
 
 .project-media {
+  width: 100%;
   position: relative;
   overflow: hidden;
   background-color: #0E0E11;
@@ -2431,7 +2432,9 @@ textarea.form-control {
   }
 
   .project-media {
-    min-height: 260px;
+    width: 100%;
+    min-height: auto;
+    aspect-ratio: 16 / 10;
   }
 
   .about-split-layout {
@@ -2652,9 +2655,10 @@ textarea.form-control {
   }
 
   .project-media {
+    width: 100%;
     aspect-ratio: 16 / 10;
-    min-height: 180px;
-    max-height: 220px;
+    min-height: auto;
+    max-height: none;
   }
 
   .project-overlay-badge {
@@ -3241,8 +3245,10 @@ textarea.form-control {
   }
 
   .project-media {
-    min-height: 165px;
-    max-height: 200px;
+    width: 100%;
+    min-height: auto;
+    max-height: none;
+    aspect-ratio: 16 / 10;
   }
 
   .project-info {
