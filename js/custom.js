@@ -442,11 +442,24 @@
         }
       });
     }, {
-      rootMargin: '0px 0px -50px 0px',
-      threshold: 0.10
+      rootMargin: '100px 0px 50px 0px',
+      threshold: 0.02
     });
 
     revealElements.forEach(el => revealObserver.observe(el));
+
+    // Instant safety check: eagerly reveal any elements already in or near viewport
+    const eagerCheck = () => {
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 200 && rect.bottom > -200) {
+          el.classList.add('is-revealed');
+        }
+      });
+    };
+    eagerCheck();
+    setTimeout(eagerCheck, 120);
+    window.addEventListener('scroll', eagerCheck, { passive: true, once: true });
   } else {
     revealElements.forEach(el => el.classList.add('is-revealed'));
   }

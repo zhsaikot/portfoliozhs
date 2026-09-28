@@ -49,7 +49,7 @@
   <text x="110" y="199" fill="#34D399" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1">KAJABI + WORDPRESS LMS + FUNNEL OPTIMIZATION</text>
 
   <!-- Hero Typography -->
-  <text x="80" y="255" fill="#F5F5F2" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="32" font-weight="800" letter-spacing="-0.5">Master High-Ticket Web Engineering & Strategy</text>
+  <text x="80" y="255" fill="#F5F5F2" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="32" font-weight="800" letter-spacing="-0.5">Master High-Ticket Web Engineering &amp; Strategy</text>
   <text x="80" y="295" fill="#A0A0A5" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="15" font-weight="400">A premier cohort-based learning platform featuring seamless video delivery and checkout funnels.</text>
 
   <!-- CTA Buttons -->

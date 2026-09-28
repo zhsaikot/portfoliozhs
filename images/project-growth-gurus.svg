@@ -93,7 +93,7 @@
     <rect x="28" y="52" width="190" height="8" rx="3" fill="#FFFFFF" opacity="0.2"/>
     <rect x="28" y="68" width="140" height="8" rx="3" fill="#FFFFFF" opacity="0.12"/>
     <text x="16" y="125" fill="#FFFFFF" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="700">Omnichannel Campaigns</text>
-    <text x="16" y="145" fill="#8E8E93" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11">Paid Acquisition & Retention</text>
+    <text x="16" y="145" fill="#8E8E93" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11">Paid Acquisition &amp; Retention</text>
   </g>
 
   <g transform="translate(790, 505)">
@@ -103,6 +103,6 @@
     <rect x="28" y="52" width="170" height="8" rx="3" fill="#FFFFFF" opacity="0.2"/>
     <rect x="28" y="68" width="110" height="8" rx="3" fill="#FFFFFF" opacity="0.12"/>
     <text x="16" y="125" fill="#FFFFFF" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="700">B2B Enterprise Portal</text>
-    <text x="16" y="145" fill="#8E8E93" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11">Lead Scoring & CRM Automation</text>
+    <text x="16" y="145" fill="#8E8E93" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="11">Lead Scoring &amp; CRM Automation</text>
   </g>
 </svg>
