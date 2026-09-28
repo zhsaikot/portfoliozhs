@@ -305,17 +305,16 @@
         return;
       }
 
-      // If user clicked directly on an anchor (e.g. .project-media or title link or case study btn)
-      // the anchor's own click handler takes care of it
-      if (e.target.closest('a')) {
+      // If user clicked directly on an interactive element (e.g. anchor link or Quick Specs button)
+      if (e.target.closest('a') || e.target.closest('button')) {
         return;
       }
 
       const targetUrl = card.getAttribute('data-url') || (card.querySelector('.project-title a') ? card.querySelector('.project-title a').getAttribute('href') : null);
       if (targetUrl) {
-        // If meta/ctrl key, open in new tab
-        if (e.metaKey || e.ctrlKey) {
-          window.open(targetUrl, '_blank');
+        // If meta/ctrl key or external URL (starts with http/https), open in new tab
+        if (e.metaKey || e.ctrlKey || targetUrl.startsWith('http://') || targetUrl.startsWith('https://')) {
+          window.open(targetUrl, '_blank', 'noopener,noreferrer');
           return;
         }
 
@@ -490,105 +489,265 @@
      12. DYNAMIC CASE STUDY DRAWER MODAL
      ------------------------------------------------------------------------ */
   const caseStudies = {
-    'luminary': {
-      title: 'The Luminary Club',
-      subtitle: 'Luxury Private Member Concierge & Estate Reservation Platform',
-      industry: 'Luxury Hospitality & Estates',
-      services: 'Custom WordPress Development, WooCommerce Customization, Dynamic CPTs',
-      technologies: 'WordPress Core, Elementor Pro, Crocoblock JetEngine, WooCommerce, SCSS, JS',
-      image: 'images/project-luminary.svg',
-      pageUrl: 'case-study-luminary.html',
-      overview: 'The Luminary Club is an ultra-high-net-worth private membership portal offering bespoke private island bookings, Michelin-starred culinary reservations, and dedicated concierge dispatch.',
-      challenge: 'The client required a private, authenticated booking flow executing complex multi-criteria room and villa availability checks without page refreshes, maintaining an uncompromised luxury aesthetic and sub-second load times.',
-      solution: 'We engineered a bespoke WordPress architecture utilizing JetEngine for custom post types and relational meta fields, connected to a streamlined, headless-inspired WooCommerce checkout flow.',
-      features: [
-        'Custom Member Authentication & Tier-Based Portal Access',
-        'Dynamic Multi-Property Real-Time Filtering Engine (JetSmartFilters)',
-        'Bespoke WooCommerce Checkout with Stripe Concierge API integration',
-        'Zero-Bloat Core Web Vitals optimization achieving 99.4% Performance grade',
-        'Fully responsive bespoke typography and editorial layouts across all viewports'
+    "growth-gurus": {
+      "title": "Growth Gurus",
+      "subtitle": "High-Impact Digital Marketing & Business Strategy Portal",
+      "industry": "Digital Growth Agency",
+      "services": "WordPress Development, Elementor Pro Engineering, Conversion Optimization",
+      "technologies": "WordPress, Elementor Pro, Lead Capture UX, Speed Optimization, Responsive UI",
+      "image": "images/project-growth-gurus.svg",
+      "pageUrl": "https://growthgurus.com/",
+      "overview": "A high-impact digital marketing and business strategy portal built to capture enterprise leads and showcase bespoke growth frameworks with sleek modern aesthetics.",
+      "challenge": "Enterprise B2B clients required immediate clarity on complex growth consulting frameworks with minimal page weight, rapid lead form execution, and high mobile responsiveness.",
+      "solution": "Engineered a modern WordPress and Elementor Pro portal featuring structured content hierarchy, optimized conversion touchpoints, high-efficiency asset loading, and zero layout shift.",
+      "features": [
+        "Interactive service breakdown with bespoke visual hierarchy",
+        "High-converting lead capture funnels optimized for mobile & desktop",
+        "Lightning-fast page load times with asset minification & caching",
+        "Fluid responsive typography and scalable vector asset presentation",
+        "Clean enterprise aesthetic communicating strategic authority"
       ],
-      results: 'Delivered an intuitive, responsive reservation flow with fast page load performance, positive stakeholder feedback, and simplified booking management.'
+      "results": "Streamlined lead acquisition pipelines, elevated brand prestige, and achieved sub-second interaction readiness across global visitor traffic."
     },
-    'novatech': {
-      title: 'NovaTech Analytics',
-      subtitle: 'B2B Enterprise Predictive Telemetry & Data Platform',
-      industry: 'Enterprise Software & SaaS',
-      services: 'UI/UX Design, Elementor Pro Engineering, Conversion Optimization',
-      technologies: 'WordPress, Elementor Pro, Vanilla JavaScript, CSS3 Animations, Core Web Vitals',
-      image: 'images/project-novatech.svg',
-      pageUrl: 'case-study-novatech.html',
-      overview: 'NovaTech Analytics delivers machine learning telemetry infrastructure for financial institutions. This redesign transformed a complex technical product into a clear, high-trust commercial web presence.',
-      challenge: 'Enterprise buyers were encountering dense technical explanations and slow-loading legacy pages. The company needed to communicate complex data clearly while capturing qualified inbound leads.',
-      solution: 'Designed and developed an editorial interface with custom vector graphs and responsive feature tabs. Replaced heavy plugins with clean, lightweight JavaScript to guarantee fast page performance.',
-      features: [
-        'Interactive telemetry data visualization built in lightweight vector SVG',
-        'Custom lead-routing inquiry funnel integrated with modern CRM endpoints',
-        'Multi-tab dynamic technical documentation and case study archive',
-        'Pixel-perfect Elementor Pro implementation with custom CSS styling',
-        'Performance-hardened asset bundling with lazy-loading and optimized styling'
+    "select-the-best": {
+      "title": "Select The Best",
+      "subtitle": "Robust Equine Nutrition E-Commerce Architecture",
+      "industry": "E-Commerce & Health",
+      "services": "WooCommerce Architecture, UI/UX Design, Payment Gateway Integration",
+      "technologies": "WordPress, WooCommerce, Elementor Pro, Payment Gateways, Cart Optimization",
+      "image": "images/project-select-the-best.svg",
+      "pageUrl": "https://selectthebest.com/",
+      "overview": "Robust e-commerce storefront engineered for an equine nutrition leader. Features structured catalog browsing, seamless cart flow, and conversion-first UI.",
+      "challenge": "Large multi-variant product catalog with dense nutritional specifications required a frictionless buying journey and accelerated mobile checkout.",
+      "solution": "Designed and implemented an intuitive WooCommerce shopping flow with streamlined variant selection, optimized payment gateways, and friction-free mobile cart navigation.",
+      "features": [
+        "Comprehensive product catalog with rapid category navigation",
+        "Streamlined multi-variant selector with instantaneous price and weight recalculation",
+        "Frictionless checkout experience supporting major card processors",
+        "High-DPI packaging photography with lazy-loading performance",
+        "Mobile-first cart optimization to eliminate checkout abandonment"
       ],
-      results: 'Significantly streamlined the enterprise inquiry process, improved mobile PageSpeed performance metrics, and simplified product comprehension.'
+      "results": "Delivered an intuitive, responsive storefront that simplifies multi-product ordering and strengthens online direct-to-consumer sales."
     },
-    'aesthetix': {
-      title: 'Studio Aesthetix',
-      subtitle: 'Minimalist Architectural Masterpieces & Spatial Portfolio',
-      industry: 'Architecture & Spatial Design',
-      services: 'Full-Cycle Web Design, WordPress Custom Theme, Dynamic Grid System',
-      technologies: 'WordPress, Crocoblock, Advanced Custom Fields, Custom JavaScript, CSS Grid',
-      image: 'images/project-aesthetix.svg',
-      pageUrl: 'case-study-aesthetix.html',
-      overview: 'A boutique architecture practice needed a portfolio website that functioned like an exquisite museum catalogue—prioritizing negative space, razor-sharp photography, and fluid responsive transitions.',
-      challenge: 'High-resolution architectural photography frequently leads to massive payload sizes and stuttering scroll behavior on mobile devices.',
-      solution: 'Implemented responsive image srcset pipelines, progressive blur-up lazy loading, and hardware-accelerated CSS transforms. Designed an asymmetric grid layout that automatically adjusts to photograph aspect ratios without awkward cropping.',
-      features: [
-        'Asymmetric responsive editorial portfolio grid with instant category filtering',
-        'Progressive high-definition image optimization pipeline with zero layout shift',
-        'Full-screen interactive project gallery with keyboard and touch swipe navigation',
-        'Custom architectural monograph case study layouts with project blueprint embeds',
-        'Fluid clamp typography scaling harmoniously from mobile to 4K displays'
+    "massiri-heights": {
+      "title": "Massiri Heights",
+      "subtitle": "Architectural Luxury Real Estate & Property Showcase",
+      "industry": "Luxury Real Estate",
+      "services": "Custom Layout Architecture, Elementor Pro Development, VIP Inquiry Funnels",
+      "technologies": "WordPress, Elementor Pro, Custom Post Types, Visual Grid, High-DPI Layouts",
+      "image": "images/project-massiri-heights.svg",
+      "pageUrl": "https://massiriheights.com/",
+      "overview": "An architectural real estate experience showcasing premier developments, high-resolution layout galleries, and VIP property inquiry workflows.",
+      "challenge": "High-net-worth real estate buyers expect ultra-refined visual aesthetics, immersive property walkthroughs, and discrete private inquiry options without slow image rendering.",
+      "solution": "Built a bespoke visual grid utilizing Elementor Pro and dynamic custom post types, combining crisp photography optimization with private booking forms.",
+      "features": [
+        "Architectural visual grid showcasing property blueprints and panoramic photography",
+        "Dynamic property listings with custom amenities and floorplan metadata",
+        "VIP private viewing inquiry workflows routed directly to concierge sales agents",
+        "Hardware-accelerated layout transitions and zero cumulative layout shift",
+        "Fluid dark luxury aesthetic matching premier architectural developments"
       ],
-      results: 'Delivered a smooth, responsive editorial browsing experience that showcases architectural works with precision across all screen sizes.'
+      "results": "Created a stunning, high-trust digital portfolio that attracts accredited investors and accelerates private viewing bookings."
     },
-    'vanguard': {
-      title: 'Vanguard Capital',
-      subtitle: 'Private Equity & Venture Growth Advisory Platform',
-      industry: 'Private Equity & Venture Capital',
-      services: 'Brand Identity Consultation, WordPress Theme Development, Enterprise Security',
-      technologies: 'WordPress, Advanced Custom Fields Pro, Tailwind/Custom CSS, REST API',
-      image: 'images/project-vanguard.svg',
-      pageUrl: 'case-study-vanguard.html',
-      overview: 'Vanguard Capital required an authoritative digital presence that inspires institutional trust and simplifies secure inquiry and proposal submission.',
-      challenge: 'The platform needed to communicate institutional prestige, handle confidential inquiry submissions securely, and provide an intuitive portfolio showcase.',
-      solution: 'Crafted a bespoke, minimalist design system with secure form validation, modern security headers, and automated inquiry routing via WordPress REST API.',
-      features: [
-        'Executive deal submission portal with encrypted file dispatch',
-        'Interactive portfolio company database with sector and stage filters',
-        'Executive insights archive with structured Schema markup',
-        'Security hardening and clean sanitization across all submission endpoints',
-        'Complete bilingual responsive design structure'
+    "avalon-limousines": {
+      "title": "Avalon Limousines",
+      "subtitle": "Luxury Concierge Chauffeur Booking & Fleet Portal",
+      "industry": "Luxury Transportation",
+      "services": "Custom WordPress Development, Fleet Catalog UI, Booking Flow Integration",
+      "technologies": "WordPress Core, Elementor Pro, Booking System, Custom Styling, Performance Audits",
+      "image": "images/project-avalon-limousines.svg",
+      "pageUrl": "https://avalonlimousines.com/",
+      "overview": "High-end concierge transportation portal featuring responsive fleet catalogs, route booking flows, and friction-free inquiry processing.",
+      "challenge": "Chauffeur reservations require real-time vehicle selection, transparent pricing criteria, and rapid reservation request submissions for corporate executive travel.",
+      "solution": "Engineered a modern fleet display with vehicle specifications and automated booking estimation inquiry forms styled with a premium executive dark theme.",
+      "features": [
+        "Interactive executive fleet showcase detailing passenger capacity and luggage specs",
+        "Automated trip reservation inquiry form with route and scheduling inputs",
+        "Custom styling and refined hover states built with lightweight CSS",
+        "Fully responsive mobile interface for on-the-go business executive booking",
+        "Rigorous performance auditing achieving smooth cross-browser rendering"
       ],
-      results: 'Delivered a polished, secure digital presence with streamlined inquiry routing and structured content presentation.'
+      "results": "Enhanced reservation completion speed, elevated brand credibility, and streamlined corporate account inquiries."
     },
-    'apex': {
-      title: 'Apex Digital Academy',
-      subtitle: 'High-Converting Video Coaching & Course Funnel Ecosystem',
-      industry: 'Knowledge Commerce & EdTech',
-      services: 'Funnel Architecture, WordPress LMS & Checkout Integration, UX Design',
-      technologies: 'WordPress LMS, Stripe Checkout, Responsive CSS3, Video Integration',
-      image: 'images/project-apex.svg',
-      pageUrl: 'case-study-apex.html',
-      overview: 'Apex Digital Academy offers cohort-based technical training. This project involved designing and building an end-to-end course landing page and student portal.',
-      challenge: 'The client struggled with low checkout completion rates and fragmented user experiences across disparate video platforms and course managers.',
-      solution: 'Consolidated the learning environment into a frictionless multi-step sales funnel featuring seamless Stripe checkouts and automated student onboarding.',
-      features: [
-        'High-converting multi-stage sales funnel with clean social proof layouts',
-        'Frictionless checkout experience with Apple Pay, Google Pay, and Stripe',
-        'Custom student curriculum dashboard with video completion progress tracking',
-        'Automated email notification sequences connected via webhooks',
-        'Fast-loading responsive video embeds with adaptive delivery'
+    "keep-moving-forward": {
+      "title": "Keep Moving Forward",
+      "subtitle": "Modern Streetwear Brand Storytelling & DTC Storefront",
+      "industry": "Apparel & Lifestyle",
+      "services": "Shopify Store Architecture, Liquid Theme Customization, Mobile UX Engineering",
+      "technologies": "Shopify, Liquid Customization, Mobile-First UX, Speed Optimization, Conversion Rate UX",
+      "image": "images/project-keep-moving-forward.svg",
+      "pageUrl": "https://www.keepmforward.com/",
+      "overview": "Modern streetwear clothing storefront focused on brand storytelling, high-speed mobile navigation, and optimized product conversion pipelines.",
+      "challenge": "Fast-moving apparel drops demand instant mobile rendering, rapid size/color selection, and frictionless single-tap checkouts.",
+      "solution": "Customized a high-performance Shopify storefront with bespoke Liquid templates, mobile-first product galleries, and accelerated checkout integrations.",
+      "features": [
+        "Bespoke Liquid template modifications tailored for apparel lookbooks",
+        "Mobile-first swipeable product galleries with high-DPI fabric zoom",
+        "Instant slide-out cart drawer with dynamic free-shipping progress indicators",
+        "Optimized script loading and asset minification for peak flash-sale traffic",
+        "Seamless Apple Pay, Shop Pay, and Google Pay 1-click purchasing"
       ],
-      results: 'Streamlined the checkout workflow, provided a unified responsive student onboarding portal, and improved course navigation clarity.'
+      "results": "Maximized mobile conversion rates during limited product drops and delivered an elevated streetwear lifestyle experience."
+    },
+    "magic-gel-usa": {
+      "title": "Magic Gel USA",
+      "subtitle": "High-Velocity Health & Wellness DTC E-Commerce Platform",
+      "industry": "Beauty & Wellness",
+      "services": "WooCommerce Optimization, Core Web Vitals Tuning, Conversion Engineering",
+      "technologies": "WordPress, WooCommerce, Core Web Vitals, Asset Minification, Checkout UX",
+      "image": "images/project-magic-gel-usa.svg",
+      "pageUrl": "https://magicgelusa.com/",
+      "overview": "High-velocity DTC e-commerce architecture built with frictionless single-page checkouts, responsive catalogs, and lightning-fast asset minification.",
+      "challenge": "High paid ad traffic required sub-second landing page speeds and distraction-free checkout flows to reduce bounce rate and maximize ROAS.",
+      "solution": "Overhauled the WooCommerce storefront with aggressive asset minification, optimized Core Web Vitals, and an express single-page checkout flow.",
+      "features": [
+        "Sub-second landing page load times meeting Google Core Web Vitals standards",
+        "Frictionless checkout layout minimizing cart abandonment",
+        "Clean product benefits and customer review trust badges",
+        "Automated image compression and CSS/JS code minification pipeline",
+        "Cross-device responsive design engineered for mobile shoppers"
+      ],
+      "results": "Accelerated mobile page load times by over 60%, driving immediate improvements in paid traffic conversion rates."
+    },
+    "glenelly-estate": {
+      "title": "Glenelly Estate",
+      "subtitle": "Editorial Winery Showcase & Global Brand Monograph",
+      "industry": "Hospitality & Winery",
+      "services": "Editorial Web Design, WooCommerce Integration, Visual Media Optimization",
+      "technologies": "WordPress, WooCommerce, High-DPI Images, Editorial Grid, Performance Tuning",
+      "image": "images/project-glenelly-estate.svg",
+      "pageUrl": "https://glenellyestate.com/",
+      "overview": "An editorial web showcase for an internationally acclaimed South African winery, integrating immersive vineyard visuals, cellar tours, and catalog browsing.",
+      "challenge": "Expressing the rich heritage and French winemaking tradition of Glenelly Estate while providing an intuitive wine catalog and cellar tour booking experience.",
+      "solution": "Crafted a bespoke editorial layout balancing rich imagery with clean typography, integrated with WooCommerce for bottle selection and visitor tour inquiries.",
+      "features": [
+        "Immersive editorial visual grid showcasing estate history and terroir",
+        "Structured wine collection catalog with vintage notes and tasting guides",
+        "Cellar door and bistro reservation inquiry modules",
+        "High-DPI responsive image optimization with zero stutter on scroll",
+        "Bilingual-ready architectural structure for international visitors"
+      ],
+      "results": "Successfully captured the prestigious international reputation of the estate and established a seamless wine tasting booking flow."
+    },
+    "elmwood-property": {
+      "title": "Elmwood Property",
+      "subtitle": "Institutional Property Development & Acquisition Portal",
+      "industry": "Real Estate Development",
+      "services": "WordPress Theme Engineering, ACF Pro Dynamic Architecture, Investor Funnels",
+      "technologies": "WordPress, ACF Pro, Dynamic Listings, Responsive Layouts, Lead Capture",
+      "image": "images/project-elmwood-property.svg",
+      "pageUrl": "https://elmwood-property.com/",
+      "overview": "Architectural property acquisition and development portal featuring clean structural layouts, interactive floorplan displays, and institutional investor inquiry funnels.",
+      "challenge": "Institutional partners and investors needed clear project metrics, development timelines, and secure direct inquiry mechanisms.",
+      "solution": "Engineered a structured development portfolio powered by Advanced Custom Fields (ACF Pro) with dynamic development stage markers and investor lead capture.",
+      "features": [
+        "ACF Pro dynamic schema for property specifications and development milestones",
+        "Clean architectural grid presenting residential and commercial portfolios",
+        "Interactive project status indicators (Acquisition, Planning, Construction, Complete)",
+        "Dedicated institutional investor and landlord inquiry forms",
+        "Crisp typographic hierarchy built with modern semantic CSS"
+      ],
+      "results": "Solidified developer credibility among commercial partners and organized portfolio assets into an easily navigable digital catalog."
+    },
+    "tarteele-quran": {
+      "title": "TarteeleQuran",
+      "subtitle": "Global Online Academy & Student Onboarding Platform",
+      "industry": "Education & LMS",
+      "services": "WordPress LMS Architecture, Trial Class Booking Flow, Student UX Design",
+      "technologies": "WordPress LMS, Elementor Pro, Schedule Booking, Responsive UI, Trust Architecture",
+      "image": "images/project-tarteele-quran.svg",
+      "pageUrl": "https://www.tarteelequran.com/",
+      "overview": "Global online educational platform featuring structured curriculum showcases, trial class scheduling, and streamlined cross-device student onboarding.",
+      "challenge": "A multinational student base across the US, UK, and Australia needed simple schedule booking, tutor credentials, and multi-currency pricing clarity.",
+      "solution": "Designed and deployed a responsive educational hub with an automated free trial scheduling form, faculty showcase, and reassuring trust architecture.",
+      "features": [
+        "Friction-free free trial scheduling workflow tailored for families and adults",
+        "Structured course curriculum breakdown with downloadable syllabus materials",
+        "Tutor credentialing profiles and interactive student testimonials",
+        "Multi-device responsive layout optimized for mobile parents booking on phones",
+        "Fast-loading server configuration with robust caching and CDN integration"
+      ],
+      "results": "Drove a significant increase in free trial registrations and established a professional, global educational brand."
+    },
+    "music-city-maid": {
+      "title": "Music City Maid Service",
+      "subtitle": "Local Home Services Instant Booking & SEO Engine",
+      "industry": "Residential Services",
+      "services": "Local SEO Strategy, Booking Calculator UX, Elementor Pro Customization",
+      "technologies": "WordPress, Booking Logic, Local Conversion UX, Responsive Design, Speed Audits",
+      "image": "images/project-music-city-maid.svg",
+      "pageUrl": "https://musiccitymaidservice.com/",
+      "overview": "Conversion-focused local service platform engineered with instantaneous booking estimators, customer reviews, and clear mobile quote flows.",
+      "challenge": "Local homeowners wanted rapid price estimates and seamless booking without having to call or wait for manual quotes.",
+      "solution": "Built an interactive quote estimator and appointment request system paired with hyper-local SEO landing pages and prominent trust ratings.",
+      "features": [
+        "Instantaneous home cleaning price estimator based on bedrooms and bathrooms",
+        "Frictionless 3-step online booking and scheduling confirmation flow",
+        "Google Review badge integrations and verified customer testimonials",
+        "Local schema markup and on-page optimization for Nashville geo-keywords",
+        "Instant click-to-call and SMS inquiry triggers for mobile users"
+      ],
+      "results": "Substantially increased daily automated booking requests and established top-tier local search visibility."
+    },
+    "ch-safety": {
+      "title": "CH Safety",
+      "subtitle": "Workplace Safety & Equipment B2B Compliance Portal",
+      "industry": "Corporate Compliance",
+      "services": "B2B Catalog Architecture, WooCommerce Customization, Accessibility UX",
+      "technologies": "WordPress, WooCommerce, Elementor Pro, B2B Inquiries, Accessibility UX",
+      "image": "images/project-ch-safety.svg",
+      "pageUrl": "https://chsafety.com.au/",
+      "overview": "Corporate compliance platform and equipment catalog built with clear trust elements, accessible navigation, and high-converting B2B inquiry funnels.",
+      "challenge": "Safety officers and enterprise procurement teams needed fast access to Australian safety standards, equipment specifications, and bulk RFQ quotes.",
+      "solution": "Engineered an accessible, high-contrast B2B portal with comprehensive catalog filtering, downloadable safety data sheets, and bulk quote request forms.",
+      "features": [
+        "Structured B2B safety equipment catalog with technical compliance criteria",
+        "Request for Quote (RFQ) workflow for bulk corporate orders",
+        "WCAG-compliant contrast ratios and accessible keyboard navigation",
+        "Instant search and filter by Australian standard ratings and industries",
+        "Mobile-optimized technical datasheets and quote confirmation notices"
+      ],
+      "results": "Streamlined enterprise procurement inquiries and strengthened corporate trust among industrial safety clients."
+    },
+    "excel-living": {
+      "title": "Excel Community Living",
+      "subtitle": "Compassionate Assisted Living & Care Resource Hub",
+      "industry": "Healthcare & Senior Care",
+      "services": "Accessible Web Design, Elementor Pro Development, Family Inquiry Funnels",
+      "technologies": "WordPress, Elementor Pro, Accessible UI, Interactive Forms, Responsive Design",
+      "image": "images/project-excel-living.svg",
+      "pageUrl": "https://excelcommunityliving.website/",
+      "overview": "Compassionate, accessible healthcare and senior living platform featuring detailed care module breakdowns, amenity showcases, and direct family inquiry funnels.",
+      "challenge": "Families navigating senior care decisions require warmth, absolute clarity, easy-to-read typography, and gentle inquiry options during stressful transitions.",
+      "solution": "Crafted a compassionate, highly readable web portal featuring clear care tiers, virtual facility photo tours, and respectful consultation forms.",
+      "features": [
+        "High-legibility typography and accessible color contrast for senior visitors and families",
+        "Comprehensive care program breakdowns (Independent Living, Assisted Living, Memory Care)",
+        "Direct confidential consultation and tour scheduling request forms",
+        "Interactive facility amenities gallery with responsive lightbox viewing",
+        "Mobile-friendly navigation with prominent emergency and direct phone contact links"
+      ],
+      "results": "Provided prospective residents and their families with a welcoming, informative portal that increased private tour bookings."
+    },
+    "kore-academy": {
+      "title": "The KORE Academy",
+      "subtitle": "Athletic Club Digital Storefront & Member Community",
+      "industry": "Fitness & Membership",
+      "services": "Shopify Storefront Design, Liquid Customization, Membership Funnels",
+      "technologies": "Shopify, Liquid Engine, Membership Funnels, Modern Grid, Conversion UX",
+      "image": "images/project-kore-academy.svg",
+      "pageUrl": "https://thekore.club/",
+      "overview": "High-energy athletic community and club storefront engineered with custom branding, membership perks showcase, and modern mobile commerce checkout.",
+      "challenge": "The club needed an electrifying, modern visual brand that represents elite performance and drives both membership sign-ups and apparel sales.",
+      "solution": "Developed a bold, modern Shopify digital storefront with fluid typography, responsive video integrations, and streamlined membership sign-up pipelines.",
+      "features": [
+        "High-impact modern design language reflecting athletic intensity and community pride",
+        "Dual funnel architecture supporting both club memberships and apparel retail",
+        "Mobile-optimized cart with frictionless checkout via Shop Pay and Apple Pay",
+        "Dynamic class schedule previews and coach biography spotlights",
+        "Fast-loading visual assets engineered for active members on mobile devices"
+      ],
+      "results": "Elevated club prestige, amplified digital retail merchandise sales, and simplified member onboarding."
     }
   };
 
@@ -641,8 +800,8 @@
       <p class="modal-body-text">${data.results}</p>
 
       <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border-subtle); display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="${data.pageUrl}" class="btn btn-primary">
-          Open Dedicated Case Study Page →
+        <a href="${data.pageUrl}" class="btn btn-primary" ${data.pageUrl.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>
+          ${data.pageUrl.startsWith('http') ? 'Visit Live Website ↗' : 'Open Dedicated Case Study Page →'}
         </a>
         <a href="#contact" class="btn btn-secondary" onclick="window.closeCaseStudyModal()">
           Build A Similar Project ↗
