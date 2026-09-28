@@ -132,7 +132,7 @@
       }
     });
 
-    mobileNavLinks.forEach(link => {
+    mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         closeMobileMenu();
       });
@@ -812,7 +812,7 @@
       <h3 class="modal-section-title">Business Outcomes & Delivery</h3>
       <p class="modal-body-text">${data.results}</p>
 
-      <div style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border-subtle); display: flex; gap: 16px; flex-wrap: wrap;">
+      <div class="modal-footer-actions" style="margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border-subtle); display: flex; gap: 16px; flex-wrap: wrap;">
         <a href="${data.pageUrl}" class="btn btn-primary" ${data.pageUrl.startsWith('http') ? 'target="_blank" rel="noopener noreferrer"' : ''}>
           ${data.pageUrl.startsWith('http') ? 'Visit Live Website ↗' : 'Open Dedicated Case Study Page →'}
         </a>
