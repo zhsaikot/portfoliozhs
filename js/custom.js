@@ -935,4 +935,63 @@
 
   window.addEventListener('scroll', highlightNavOnScroll, { passive: true });
 
+  /* ------------------------------------------------------------------------
+     15. CALENDLY HIGH-PERFORMANCE LAZY LOADER (ZERO CWV IMPACT)
+     ------------------------------------------------------------------------ */
+  function initCalendlyLazyLoader() {
+    const target = document.getElementById('calendly-wrapper');
+    const skeleton = document.getElementById('calendly-skeleton');
+
+    if (!target) return;
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Load Calendly script on demand
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = 'https://assets.calendly.com/assets/external/widget.js';
+            script.async = true;
+
+            script.onload = () => {
+              setTimeout(() => {
+                if (skeleton) skeleton.classList.add('loaded');
+              }, 800);
+            };
+
+            script.onerror = () => {
+              if (skeleton) {
+                skeleton.innerHTML = '<p style="color: var(--text-secondary); text-align: center; padding: 20px;">Unable to load booking calendar. Please refresh or <a href="mailto:zhsaikot@gmail.com" style="color: var(--accent); text-decoration: underline;">contact directly via email</a>.</p>';
+              }
+            };
+
+            document.body.appendChild(script);
+            obs.unobserve(target); // Run only once
+          }
+        });
+      }, { rootMargin: '300px 0px' });
+
+      observer.observe(target);
+    } else {
+      // Graceful fallback for legacy environments
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.onload = () => {
+        setTimeout(() => {
+          if (skeleton) skeleton.classList.add('loaded');
+        }, 800);
+      };
+      document.body.appendChild(script);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCalendlyLazyLoader);
+  } else {
+    initCalendlyLazyLoader();
+  }
+
 })();
