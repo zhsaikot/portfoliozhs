@@ -106,31 +106,51 @@
      ------------------------------------------------------------------------ */
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
+  const mobileNavClose = document.getElementById('mobileNavClose');
   const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
   function openMobileMenu() {
-    hamburger.classList.add('active');
-    hamburger.setAttribute('aria-expanded', 'true');
-    mobileMenu.classList.add('open');
+    if (hamburger) {
+      hamburger.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+    if (mobileMenu) {
+      mobileMenu.classList.add('open');
+      mobileMenu.setAttribute('aria-hidden', 'false');
+    }
     document.body.style.overflow = 'hidden';
   }
 
   function closeMobileMenu() {
-    hamburger.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-    mobileMenu.classList.remove('open');
+    if (hamburger) {
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+    if (mobileMenu) {
+      mobileMenu.classList.remove('open');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }
     document.body.style.overflow = '';
   }
 
-  if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.contains('open');
-      if (isOpen) {
+  if (mobileMenu) {
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('open');
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      });
+    }
+
+    if (mobileNavClose) {
+      mobileNavClose.addEventListener('click', (e) => {
+        e.preventDefault();
         closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    });
+      });
+    }
 
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
@@ -140,6 +160,12 @@
 
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMobileMenu();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024 && mobileMenu.classList.contains('open')) {
         closeMobileMenu();
       }
     });
