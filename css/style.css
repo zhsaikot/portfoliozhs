@@ -564,7 +564,7 @@ body.has-cursor-view .cursor-dot {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(14px, 1.8vw, 30px);
 }
 
 .nav-link {
@@ -595,6 +595,73 @@ body.has-cursor-view .cursor-dot {
 .nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
+}
+
+/* Highlighted "Book a Call" Pill in Desktop Navigation */
+.nav-link.nav-link-highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(212, 163, 89, 0.08);
+  border: 1px solid rgba(212, 163, 89, 0.3);
+  border-radius: 999px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  box-shadow: 0 0 14px rgba(212, 163, 89, 0.08);
+  transition: all var(--transition-fast);
+}
+
+.nav-link.nav-link-highlight::after {
+  display: none !important;
+}
+
+.nav-link.nav-link-highlight:hover {
+  background: rgba(212, 163, 89, 0.18);
+  border-color: var(--accent);
+  color: #FFFFFF;
+  box-shadow: 0 0 20px rgba(212, 163, 89, 0.22);
+  transform: translateY(-1px);
+}
+
+.nav-link.nav-link-highlight.active {
+  background: rgba(212, 163, 89, 0.22);
+  border-color: var(--accent);
+  color: #FFFFFF;
+  box-shadow: 0 0 20px rgba(212, 163, 89, 0.25);
+}
+
+.nav-link-highlight .nav-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulseGoldDot 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+.nav-link-highlight .nav-highlight-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(212, 163, 89, 0.16);
+  border: 1px solid rgba(212, 163, 89, 0.35);
+  padding: 2px 7px;
+  border-radius: 999px;
+  line-height: 1.2;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.nav-link.nav-link-highlight:hover .nav-highlight-badge,
+.nav-link.nav-link-highlight.active .nav-highlight-badge {
+  background: var(--accent);
+  color: #0B0B0C;
 }
 
 .header-cta {
