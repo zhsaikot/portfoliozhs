@@ -317,9 +317,38 @@
      Clicking anywhere on the project card (image, background, info)
      smoothly navigates to the project's dedicated case study page,
      while allowing the "Quick Specs" modal trigger to open normally.
+     On mobile, swipe gestures are distinguished from taps so dragging
+     between slides does not trigger navigation.
      ------------------------------------------------------------------------ */
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let isSwipingCard = false;
+
+  document.addEventListener('touchstart', (e) => {
+    if (e.touches && e.touches.length > 0) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      isSwipingCard = false;
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (e.touches && e.touches.length > 0) {
+      const diffX = Math.abs(e.touches[0].clientX - touchStartX);
+      const diffY = Math.abs(e.touches[0].clientY - touchStartY);
+      if (diffX > 10 || diffY > 10) {
+        isSwipingCard = true;
+      }
+    }
+  }, { passive: true });
+
   document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('click', function (e) {
+      // If user was swiping/dragging horizontally, do not trigger navigation
+      if (isSwipingCard) {
+        return;
+      }
+
       // If user clicked the Quick Specs button or any button inside, do nothing here
       if (e.target.closest('button[data-project]') || e.target.closest('button')) {
         return;
@@ -1014,10 +1043,224 @@
     }
   }
 
+  /* ------------------------------------------------------------------------
+     16. WORK SECTION: DESKTOP STACKING CARDS & MOBILE SLIDER CONTROLLER
+     ------------------------------------------------------------------------ */
+  function initWorkSectionExperience() {
+    const workSection = document.getElementById('work');
+    const slider = document.querySelector('.work-cards-list');
+    if (!workSection || !slider) return;
+
+    const cards = Array.from(slider.querySelectorAll('.project-card'));
+    if (!cards.length) return;
+
+    // Apply data-index to all cards
+    cards.forEach((card, i) => {
+      card.dataset.cardIndex = i;
+    });
+
+    const prevBtn = document.getElementById('workSliderPrev');
+    const nextBtn = document.getElementById('workSliderNext');
+    const pagination = document.getElementById('workSliderPagination');
+    const currentEl = document.getElementById('workSlideCurrent');
+    const totalEl = document.getElementById('workSlideTotal');
+
+    /* ----------------------------------------------------------------------
+       A. MOBILE SLIDER WITH PAGINATION (<= 992px)
+       ---------------------------------------------------------------------- */
+    let currentSlide = 0;
+
+    function buildPagination() {
+      if (!pagination) return;
+      pagination.innerHTML = '';
+      if (totalEl) {
+        totalEl.textContent = String(cards.length).padStart(2, '0');
+      }
+
+      cards.forEach((card, index) => {
+        const dot = document.createElement('button');
+        dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+        dot.setAttribute('type', 'button');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Project ${index + 1} of ${cards.length}`);
+        dot.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
+        dot.addEventListener('click', () => {
+          goToSlide(index);
+        });
+        pagination.appendChild(dot);
+      });
+    }
+
+    function goToSlide(index) {
+      const clamped = Math.max(0, Math.min(cards.length - 1, index));
+      const targetCard = cards[clamped];
+      if (targetCard && slider) {
+        slider.scrollTo({
+          left: targetCard.offsetLeft - slider.offsetLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    function getCurrentSlideIndex() {
+      if (!slider || !cards[0]) return 0;
+      const scrollLeft = slider.scrollLeft;
+      const cardWidth = cards[0].offsetWidth;
+      const gap = 16;
+      return Math.round(scrollLeft / (cardWidth + gap));
+    }
+
+    function updateActiveSlideUI() {
+      if (window.innerWidth > 992) return;
+      const activeIdx = Math.max(0, Math.min(cards.length - 1, getCurrentSlideIndex()));
+      currentSlide = activeIdx;
+
+      if (currentEl) {
+        currentEl.textContent = String(activeIdx + 1).padStart(2, '0');
+      }
+
+      if (pagination) {
+        const dots = pagination.querySelectorAll('.slider-dot');
+        dots.forEach((dot, idx) => {
+          const isActive = idx === activeIdx;
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        const activeDot = dots[activeIdx];
+        if (activeDot && pagination.scrollWidth > pagination.clientWidth) {
+          pagination.scrollTo({
+            left: activeDot.offsetLeft - (pagination.clientWidth / 2) + (activeDot.offsetWidth / 2),
+            behavior: 'smooth'
+          });
+        }
+      }
+
+      if (prevBtn) {
+        prevBtn.disabled = activeIdx === 0;
+        prevBtn.classList.toggle('is-disabled', activeIdx === 0);
+      }
+      if (nextBtn) {
+        nextBtn.disabled = activeIdx === cards.length - 1;
+        nextBtn.classList.toggle('is-disabled', activeIdx === cards.length - 1);
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+      });
+    }
+
+    let sliderTicking = false;
+    slider.addEventListener('scroll', () => {
+      if (window.innerWidth <= 992 && !sliderTicking) {
+        window.requestAnimationFrame(() => {
+          updateActiveSlideUI();
+          sliderTicking = false;
+        });
+        sliderTicking = true;
+      }
+    }, { passive: true });
+
+    buildPagination();
+    updateActiveSlideUI();
+
+    /* ----------------------------------------------------------------------
+       B. DESKTOP STACKING CARDS SCROLL ENGINE (> 992px)
+       ---------------------------------------------------------------------- */
+    let stackingTicking = false;
+    const siteHeader = document.getElementById('siteHeader');
+
+    function updateDesktopStacking() {
+      if (window.innerWidth <= 992 || prefersReducedMotion) {
+        cards.forEach(card => {
+          if (card.style.transform || card.style.filter) {
+            card.style.transform = '';
+            card.style.filter = '';
+          }
+        });
+        return;
+      }
+
+      const headerHeight = siteHeader ? siteHeader.offsetHeight : 74;
+      const stickyTop = headerHeight + 24;
+
+      for (let i = 0; i < cards.length - 1; i++) {
+        const currentCard = cards[i];
+        const nextCard = cards[i + 1];
+
+        const nextRect = nextCard.getBoundingClientRect();
+        const cardHeight = currentCard.offsetHeight || 420;
+
+        // When next card approaches sticky top
+        const distance = nextRect.top - stickyTop;
+
+        if (distance <= cardHeight && distance >= 0) {
+          // Card i+1 is overlapping Card i
+          const progress = 1 - (distance / cardHeight); // 0 to 1
+          const scale = 1 - (progress * 0.05); // 1.0 -> 0.95
+          const brightness = 1 - (progress * 0.18); // 1.0 -> 0.82
+          const translateY = progress * -6;
+          currentCard.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+          currentCard.style.filter = `brightness(${brightness})`;
+        } else if (distance < 0) {
+          // Card i+1 has passed sticky top and covers Card i
+          currentCard.style.transform = 'scale(0.95) translateY(-6px)';
+          currentCard.style.filter = 'brightness(0.82)';
+        } else {
+          // Card i+1 hasn't reached Card i yet
+          currentCard.style.transform = '';
+          currentCard.style.filter = '';
+        }
+      }
+
+      // Ensure the last card is always scale 1.0
+      const lastCard = cards[cards.length - 1];
+      if (lastCard && (lastCard.style.transform || lastCard.style.filter)) {
+        lastCard.style.transform = '';
+        lastCard.style.filter = '';
+      }
+    }
+
+    window.addEventListener('scroll', () => {
+      if (window.innerWidth > 992 && !stackingTicking) {
+        window.requestAnimationFrame(() => {
+          updateDesktopStacking();
+          stackingTicking = false;
+        });
+        stackingTicking = true;
+      }
+    }, { passive: true });
+
+    updateDesktopStacking();
+
+    /* ----------------------------------------------------------------------
+       C. RESPONSIVE RESIZE LISTENER
+       ---------------------------------------------------------------------- */
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992) {
+        updateDesktopStacking();
+      } else {
+        updateActiveSlideUI();
+      }
+    }, { passive: true });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCalendlyLazyLoader);
+    document.addEventListener('DOMContentLoaded', () => {
+      initCalendlyLazyLoader();
+      initWorkSectionExperience();
+    });
   } else {
     initCalendlyLazyLoader();
+    initWorkSectionExperience();
   }
 
 })();

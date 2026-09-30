@@ -1175,6 +1175,50 @@ body.has-cursor-view .cursor-dot {
   gap: clamp(40px, 6vw, 70px);
 }
 
+/* Desktop Stacking Cards Engine (> 992px) */
+@media (min-width: 993px) {
+  .work-cards-list {
+    gap: 0;
+    position: relative;
+    padding-bottom: 80px;
+  }
+
+  .project-card {
+    position: sticky;
+    top: calc(var(--header-height) + 24px);
+    margin-bottom: clamp(60px, 8vh, 110px);
+    transform-origin: center top;
+    will-change: transform, filter;
+    box-shadow: 0 -10px 32px rgba(0, 0, 0, 0.75), 0 16px 40px rgba(0, 0, 0, 0.5);
+    transition: border-color var(--transition-base),
+                box-shadow var(--transition-base),
+                transform 0.15s ease-out,
+                filter 0.2s ease-out;
+  }
+
+  .project-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .project-card:nth-child(1)  { z-index: 1;  --card-index: 0; }
+  .project-card:nth-child(2)  { z-index: 2;  --card-index: 1; }
+  .project-card:nth-child(3)  { z-index: 3;  --card-index: 2; }
+  .project-card:nth-child(4)  { z-index: 4;  --card-index: 3; }
+  .project-card:nth-child(5)  { z-index: 5;  --card-index: 4; }
+  .project-card:nth-child(6)  { z-index: 6;  --card-index: 5; }
+  .project-card:nth-child(7)  { z-index: 7;  --card-index: 6; }
+  .project-card:nth-child(8)  { z-index: 8;  --card-index: 7; }
+  .project-card:nth-child(9)  { z-index: 9;  --card-index: 8; }
+  .project-card:nth-child(10) { z-index: 10; --card-index: 9; }
+  .project-card:nth-child(11) { z-index: 11; --card-index: 10; }
+  .project-card:nth-child(12) { z-index: 12; --card-index: 11; }
+  .project-card:nth-child(13) { z-index: 13; --card-index: 12; }
+
+  .work-slider-controls {
+    display: none !important;
+  }
+}
+
 /* Large Horizontal Project Card */
 .project-card {
   background-color: var(--bg-card);
@@ -1207,7 +1251,7 @@ body.has-cursor-view .cursor-dot {
 .project-card.reveal-card.is-revealed {
   opacity: 1;
   transform: translate3d(0, 0, 0);
-  clip-path: inset(0 0 0 0 round var(--radius-lg));
+  clip-path: none;
 }
 
 /* Screenshot enters slightly before text */
@@ -2726,14 +2770,151 @@ textarea.form-control {
     display: flex;
   }
 
+  /* Work Section Touch Horizontal Slider */
+  .work-cards-list {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 16px;
+    padding: 8px 4px 16px;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .work-cards-list::-webkit-scrollbar {
+    display: none;
+  }
+
   .project-card {
     grid-template-columns: 1fr;
+    flex: 0 0 100%;
+    min-width: 100%;
+    max-width: 100%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    position: relative !important;
+    top: auto !important;
+    margin-bottom: 0 !important;
+    transform: none !important;
   }
 
   .project-media {
     width: 100%;
     min-height: auto;
     aspect-ratio: 16 / 10;
+  }
+
+  /* Work Mobile Slider Controls */
+  .work-slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 24px auto 0;
+    padding: 8px 16px;
+    background: rgba(20, 20, 22, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(212, 163, 89, 0.25);
+    border-radius: 999px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 1px rgba(212, 163, 89, 0.3);
+  }
+
+  .slider-nav-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    -webkit-tap-highlight-color: transparent;
+    flex-shrink: 0;
+  }
+
+  .slider-nav-btn:hover,
+  .slider-nav-btn:active {
+    background: rgba(212, 163, 89, 0.2);
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: scale(1.05);
+  }
+
+  .slider-nav-btn:disabled,
+  .slider-nav-btn.is-disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .slider-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: 190px;
+    scrollbar-width: none;
+    padding: 4px 2px;
+  }
+
+  .slider-pagination::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slider-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    -webkit-tap-highlight-color: transparent;
+    flex-shrink: 0;
+  }
+
+  .slider-dot:hover {
+    background: rgba(212, 163, 89, 0.6);
+  }
+
+  .slider-dot.active {
+    width: 18px;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 10px rgba(212, 163, 89, 0.6);
+  }
+
+  .slider-counter {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .slider-counter .counter-current {
+    color: var(--accent);
+    font-weight: 800;
+  }
+
+  .slider-counter .counter-divider {
+    margin: 0 3px;
+    opacity: 0.5;
   }
 
   .about-split-layout {
@@ -2941,7 +3122,7 @@ textarea.form-control {
 
   /* Section 03: Selected Work */
   .work-cards-list {
-    gap: 20px;
+    gap: 12px;
   }
 
   .project-card {
@@ -2950,7 +3131,7 @@ textarea.form-control {
 
   .project-card.reveal-card {
     clip-path: none;
-    transform: translate3d(0, 20px, 0);
+    transform: none !important;
   }
 
   .project-media {
