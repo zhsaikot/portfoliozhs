@@ -71,11 +71,9 @@
   }
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(initHeroSequence, 60);
-    });
+    document.addEventListener('DOMContentLoaded', initHeroSequence);
   } else {
-    setTimeout(initHeroSequence, 60);
+    initHeroSequence();
   }
 
   /* ------------------------------------------------------------------------

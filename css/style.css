@@ -498,8 +498,8 @@ body.has-cursor-view .cursor-dot {
               transform 0.6s var(--ease-out-expo),
               opacity 0.6s ease;
   border-bottom: 1px solid transparent;
-  transform: translateY(-100%);
-  opacity: 0;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .site-header.header-loaded {
@@ -1015,22 +1015,8 @@ body.has-cursor-view .cursor-dot {
 
 .hero-line-inner {
   display: block;
-  transform: translateY(105%);
-  opacity: 0;
-  transition: transform 0.8s var(--ease-out-expo), opacity 0.8s ease;
-  will-change: transform, opacity;
-}
-
-.hero-line-inner.hero-line-1 {
-  transition-delay: 0.22s;
-}
-
-.hero-line-inner.hero-line-2 {
-  transition-delay: 0.30s;
-}
-
-.hero-line-inner.hero-line-3.gold-line {
-  transition-delay: 0.40s;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .hero-loaded .hero-line-inner {
@@ -1045,11 +1031,8 @@ body.has-cursor-view .cursor-dot {
   max-width: 660px;
   margin-bottom: 40px;
   font-weight: 400;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.8s var(--ease-out-expo), opacity 0.8s ease;
-  transition-delay: 0.50s;
-  will-change: transform, opacity;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-loaded .hero-supporting-text {
@@ -1062,11 +1045,8 @@ body.has-cursor-view .cursor-dot {
   align-items: center;
   flex-wrap: wrap;
   gap: 18px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: transform 0.8s var(--ease-out-expo), opacity 0.8s ease;
-  transition-delay: 0.62s;
-  will-change: transform, opacity;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-loaded .hero-actions {
@@ -1075,11 +1055,8 @@ body.has-cursor-view .cursor-dot {
 }
 
 .hero-eyebrow-wrapper {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: transform 0.7s var(--ease-out-expo), opacity 0.7s ease;
-  transition-delay: 0.12s;
-  will-change: transform, opacity;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-loaded .hero-eyebrow-wrapper {
@@ -1089,11 +1066,8 @@ body.has-cursor-view .cursor-dot {
 
 .hero-status-wrapper {
   margin-top: 36px;
-  opacity: 0;
-  transform: translateY(15px);
-  transition: transform 0.7s var(--ease-out-expo), opacity 0.7s ease;
-  transition-delay: 0.74s;
-  will-change: transform, opacity;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero-loaded .hero-status-wrapper {
