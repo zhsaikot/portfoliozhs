@@ -56,40 +56,76 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- JSON-LD Structured Data (Schema.org) -->
+  <!-- JSON-LD Structured Data (Schema.org Extended Graph) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://mdziaulhasan.com/#website",
+        "url": "https://mdziaulhasan.com/",
+        "name": "MD. Ziaul Hasan | WordPress Developer & Web Designer",
+        "description": "High-converting WordPress websites, custom Elementor Pro architecture, WooCommerce stores, and speed optimization.",
+        "publisher": {
+          "@id": "https://mdziaulhasan.com/#person"
+        },
+        "inLanguage": "en-US"
+      },
+      {
         "@type": "Person",
         "@id": "https://mdziaulhasan.com/#person",
         "name": "MD. Ziaul Hasan",
+        "alternateName": "Ziaul Hasan",
         "jobTitle": "Senior WordPress Developer & Web Designer",
         "url": "https://mdziaulhasan.com/",
-        "image": "https://mdziaulhasan.com/assets/preview-thumbnail.jpg",
+        "image": "https://mdziaulhasan.com/assets/images/profile.jpg",
         "sameAs": [
-          "https://www.linkedin.com/in/mdziaulhasan/",
-          "https://www.upwork.com/freelancers/~010293154926636989"
+          "https://www.upwork.com/freelancers/~010293154926636989",
+          "https://www.linkedin.com/in/md-ziaul-hasan/",
+          "https://github.com/zhsaikot",
+          "https://www.instagram.com/zhsaikot",
+          "https://www.facebook.com/saikotk/"
         ],
         "knowsAbout": [
-          "WordPress",
-          "Custom Plugin Development",
+          "WordPress Core",
           "Elementor Pro",
           "WooCommerce",
           "ACF Pro",
           "JetEngine",
-          "Web Design",
-          "Speed Optimization"
+          "Core Web Vitals",
+          "Website Speed Optimization"
         ]
       },
       {
-        "@type": "WebSite",
-        "@id": "https://mdziaulhasan.com/#website",
+        "@type": "ProfessionalService",
+        "@id": "https://mdziaulhasan.com/#service",
+        "name": "MD. Ziaul Hasan - Web Development Services",
         "url": "https://mdziaulhasan.com/",
-        "name": "MD. Ziaul Hasan Portfolio",
-        "description": "Experienced WordPress Developer & Web Designer specializing in Elementor Pro, ACF, JetEngine, custom layouts, and speed optimization.",
-        "publisher": {
+        "priceRange": "$$",
+        "telephone": "+8801303387509",
+        "email": "zhsaikot@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dhaka",
+          "addressCountry": "BD"
+        },
+        "areaServed": [
+          "Worldwide",
+          "United States",
+          "United Kingdom",
+          "Australia",
+          "Canada",
+          "European Union"
+        ],
+        "serviceType": [
+          "Custom WordPress Development",
+          "Elementor Pro Theme Building",
+          "WooCommerce Online Store Development",
+          "Website Speed & Core Web Vitals Optimization",
+          "Dynamic CPT & ACF Architecture"
+        ],
+        "provider": {
           "@id": "https://mdziaulhasan.com/#person"
         }
       }
