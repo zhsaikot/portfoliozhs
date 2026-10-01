@@ -1924,6 +1924,160 @@ body.has-cursor-view .cursor-dot {
   gap: 28px;
 }
 
+/* Testimonials Carousel Slider */
+.testimonials-carousel-wrapper {
+  position: relative;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 4px;
+}
+
+.testimonials-track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px 4px 20px 4px;
+}
+
+.testimonials-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial-slide {
+  flex: 0 0 calc(33.333% - 16px);
+  scroll-snap-align: start;
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 991px) {
+  .testimonial-slide {
+    flex: 0 0 calc(50% - 12px);
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonial-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+  }
+}
+
+/* Floating Luxury Carousel Capsule Controls (Global) */
+.testimonial-slider-controls {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 18px;
+  background: rgba(20, 20, 22, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(212, 163, 89, 0.25);
+  border-radius: 999px;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 1px rgba(212, 163, 89, 0.3);
+}
+
+.slider-nav-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.slider-nav-btn:hover,
+.slider-nav-btn:active {
+  background: rgba(212, 163, 89, 0.2);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
+.slider-nav-btn:disabled,
+.slider-nav-btn.is-disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  pointer-events: none;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.slider-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  max-width: 190px;
+  scrollbar-width: none;
+  padding: 4px 2px;
+}
+
+.slider-pagination::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.slider-dot:hover {
+  background: rgba(212, 163, 89, 0.6);
+}
+
+.slider-dot.active,
+.slider-dot.is-active {
+  width: 18px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(212, 163, 89, 0.6);
+}
+
+.slider-counter {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.slider-counter .counter-current {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.slider-counter .counter-divider {
+  margin: 0 3px;
+  opacity: 0.5;
+}
+
 .testimonial-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-subtle);

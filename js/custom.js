@@ -1251,14 +1251,131 @@
     }, { passive: true });
   }
 
+  /* ------------------------------------------------------------------------
+     17. TESTIMONIALS CAROUSEL SLIDER ENGINE
+     ------------------------------------------------------------------------ */
+  function initTestimonialsCarousel() {
+    const track = document.getElementById('testimonialTrack');
+    const prevBtn = document.getElementById('testimonialPrev');
+    const nextBtn = document.getElementById('testimonialNext');
+    const pagination = document.getElementById('testimonialPagination');
+    const currentEl = document.getElementById('testimonialSlideCurrent');
+    const totalEl = document.getElementById('testimonialSlideTotal');
+    if (!track) return;
+
+    const slides = Array.from(track.querySelectorAll('.testimonial-slide'));
+    if (!slides.length) return;
+
+    if (totalEl) {
+      totalEl.textContent = String(slides.length).padStart(2, '0');
+    }
+
+    // Build interactive dots matching Work slider
+    if (pagination) {
+      pagination.innerHTML = '';
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+        dot.setAttribute('type', 'button');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Review ${idx + 1} of ${slides.length}`);
+        dot.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+        });
+        pagination.appendChild(dot);
+      });
+    }
+
+    function getStep() {
+      const slide = slides[0];
+      return slide ? slide.offsetWidth + 24 : 360;
+    }
+
+    function goToSlide(idx) {
+      const clamped = Math.max(0, Math.min(slides.length - 1, idx));
+      const target = slides[clamped];
+      if (target) {
+        track.scrollTo({
+          left: target.offsetLeft - track.offsetLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    function updateActiveUI() {
+      const scrollLeft = track.scrollLeft;
+      const step = getStep();
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      
+      let activeIdx = Math.round(scrollLeft / step);
+      if (scrollLeft >= maxScroll - 10) {
+        activeIdx = slides.length - 1;
+      }
+      activeIdx = Math.max(0, Math.min(slides.length - 1, activeIdx));
+
+      if (currentEl) {
+        currentEl.textContent = String(activeIdx + 1).padStart(2, '0');
+      }
+
+      if (pagination) {
+        const dots = pagination.querySelectorAll('.slider-dot');
+        dots.forEach((dot, i) => {
+          const isActive = i === activeIdx;
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+
+      if (prevBtn) {
+        const atStart = scrollLeft <= 5;
+        prevBtn.disabled = atStart;
+        prevBtn.classList.toggle('is-disabled', atStart);
+      }
+      if (nextBtn) {
+        const atEnd = scrollLeft >= maxScroll - 5;
+        nextBtn.disabled = atEnd;
+        nextBtn.classList.toggle('is-disabled', atEnd);
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: getStep(), behavior: 'smooth' });
+      });
+    }
+
+    let isScrolling = false;
+    track.addEventListener('scroll', () => {
+      if (!isScrolling) {
+        isScrolling = true;
+        requestAnimationFrame(() => {
+          updateActiveUI();
+          isScrolling = false;
+        });
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', updateActiveUI, { passive: true });
+    updateActiveUI();
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initCalendlyLazyLoader();
       initWorkSectionExperience();
+      initTestimonialsCarousel();
     });
   } else {
     initCalendlyLazyLoader();
     initWorkSectionExperience();
+    initTestimonialsCarousel();
   }
 
 })();

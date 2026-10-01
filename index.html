@@ -920,9 +920,12 @@
       <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 24px;">
         
         <!-- Section Header -->
-        <div style="text-align: center; margin-bottom: 56px;">
-          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(230, 173, 72, 0.08); border: 1px solid rgba(230, 173, 72, 0.25); color: #e6ad48; font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px;">
-            CLIENT REVIEWS · VERIFIED PROOF
+        <div style="text-align: center; margin-bottom: 52px;">
+          <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 14px;">
+            <span style="color: #e6ad48; font-size: 14px; line-height: 1;">•</span>
+            <span style="color: #e6ad48; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">
+              CLIENT REVIEWS &amp; VERIFIED PROOF
+            </span>
           </div>
           <h2 style="font-size: clamp(32px, 4vw, 44px); font-weight: 800; color: #ffffff; letter-spacing: -0.5px; margin: 0 0 16px 0;">
             Trusted by High-Growth Businesses
@@ -932,96 +935,165 @@
           </p>
         </div>
 
-        <!-- Testimonials Grid (3 Placeholder Cards) -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 28px;">
+        <!-- CAROUSEL WRAPPER -->
+        <div class="testimonials-carousel-wrapper" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 0 4px;">
           
-          <!-- Review Card 1 (Placeholder) -->
-          <div class="testimonial-card" style="background: #0d0e14; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; position: relative;">
-            <div>
-              <!-- Star Rating & Platform -->
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <div style="color: #e6ad48; font-size: 16px; letter-spacing: 2px;">★★★★★</div>
-                <a href="https://www.upwork.com/freelancers/~010293154926636989" target="_blank" rel="noopener" style="font-size: 12px; color: #94a3b8; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">Verified on Upwork ↗</a>
+          <!-- Carousel Track -->
+          <div id="testimonialTrack" class="testimonials-track" style="
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 10px 4px 20px 4px;
+          ">
+            
+            <!-- SLIDE 1 -->
+            <div class="testimonial-slide" style="
+              flex: 0 0 calc(33.333% - 16px);
+              scroll-snap-align: start;
+              min-width: 300px;
+            ">
+              <div class="testimonial-card" style="background: #0d0e14; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div style="color: #e6ad48; font-size: 15px; letter-spacing: 2px;">★★★★★</div>
+                    <a href="https://www.upwork.com/freelancers/~010293154926636989" target="_blank" rel="noopener" style="font-size: 12px; color: #94a3b8; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">Verified on Upwork ↗</a>
+                  </div>
+                  <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #e6ad48; background: rgba(230,173,72,0.1); padding: 4px 10px; border-radius: 6px;">Luxury Concierge Build</span>
+                  <p style="color: #e2e8f0; font-size: 14.5px; line-height: 1.7; margin: 20px 0 24px 0; font-style: italic;">
+                    "Ziaul is an elite WordPress and JetEngine developer. He took our complex booking logic and delivered a flawless, ultra-fast website ahead of schedule. Truly makes your business look expensive."
+                  </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px;">
+                  <div style="width: 42px; height: 42px; border-radius: 50%; background: #1a1d28; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #e6ad48; border: 1px solid rgba(230,173,72,0.3); font-size: 14px;">JD</div>
+                  <div>
+                    <h3 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0;">Julian D.</h3>
+                    <span style="font-size: 12.5px; color: #8890a4;">Founder, The Luminary Club · United States 🇺🇸</span>
+                  </div>
+                </div>
               </div>
-              <!-- Project Category Tag -->
-              <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #e6ad48; background: rgba(230,173,72,0.1); padding: 4px 10px; border-radius: 6px;">Luxury Concierge Build</span>
-              <!-- Review Content -->
-              <p style="color: #e2e8f0; font-size: 15px; line-height: 1.7; margin: 20px 0 24px 0; font-style: italic;">
-                "Ziaul is an elite WordPress and JetEngine developer. He took our complex booking logic and delivered a flawless, ultra-fast website ahead of schedule. Truly makes your business look expensive."
-              </p>
             </div>
-            <!-- Client Profile -->
-            <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px;">
-              <div style="width: 44px; height: 44px; border-radius: 50%; background: #1a1d28; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #e6ad48; border: 1px solid rgba(230,173,72,0.3);">
-                JD
-              </div>
-              <div>
-                <h3 style="font-size: 16px; font-weight: 700; color: #ffffff; margin: 0;">Julian D.</h3>
-                <span style="font-size: 13px; color: #8890a4;">Founder, The Luminary Club · United States 🇺🇸</span>
+
+            <!-- SLIDE 2 -->
+            <div class="testimonial-slide" style="
+              flex: 0 0 calc(33.333% - 16px);
+              scroll-snap-align: start;
+              min-width: 300px;
+            ">
+              <div class="testimonial-card" style="background: #0d0e14; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div style="color: #e6ad48; font-size: 15px; letter-spacing: 2px;">★★★★★</div>
+                    <a href="https://www.upwork.com/freelancers/~010293154926636989" target="_blank" rel="noopener" style="font-size: 12px; color: #94a3b8; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">Verified on Upwork ↗</a>
+                  </div>
+                  <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #e6ad48; background: rgba(230,173,72,0.1); padding: 4px 10px; border-radius: 6px;">Enterprise SaaS Redesign</span>
+                  <p style="color: #e2e8f0; font-size: 14.5px; line-height: 1.7; margin: 20px 0 24px 0; font-style: italic;">
+                    "Exceptional Elementor Pro work and Core Web Vitals optimization. Our page speed increased by over 40% and mobile conversion rates improved immediately. Communication was 10/10."
+                  </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px;">
+                  <div style="width: 42px; height: 42px; border-radius: 50%; background: #1a1d28; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #e6ad48; border: 1px solid rgba(230,173,72,0.3); font-size: 14px;">MK</div>
+                  <div>
+                    <h3 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0;">Marcus K.</h3>
+                    <span style="font-size: 12.5px; color: #8890a4;">Head of Growth, NovaTech Analytics · United Kingdom 🇬🇧</span>
+                  </div>
+                </div>
               </div>
             </div>
+
+            <!-- SLIDE 3 -->
+            <div class="testimonial-slide" style="
+              flex: 0 0 calc(33.333% - 16px);
+              scroll-snap-align: start;
+              min-width: 300px;
+            ">
+              <div class="testimonial-card" style="background: #0d0e14; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div style="color: #e6ad48; font-size: 15px; letter-spacing: 2px;">★★★★★</div>
+                    <a href="https://www.upwork.com/freelancers/~010293154926636989" target="_blank" rel="noopener" style="font-size: 12px; color: #94a3b8; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">Verified on Upwork ↗</a>
+                  </div>
+                  <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #e6ad48; background: rgba(230,173,72,0.1); padding: 4px 10px; border-radius: 6px;">WooCommerce &amp; Speed</span>
+                  <p style="color: #e2e8f0; font-size: 14.5px; line-height: 1.7; margin: 20px 0 24px 0; font-style: italic;">
+                    "One of the best WordPress experts I've hired. Fixed complex checkout bugs, sped up our store, and made custom layout tweaks effortlessly. Will definitely rehire for all upcoming projects."
+                  </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px;">
+                  <div style="width: 42px; height: 42px; border-radius: 50%; background: #1a1d28; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #e6ad48; border: 1px solid rgba(230,173,72,0.3); font-size: 14px;">SR</div>
+                  <div>
+                    <h3 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0;">Sarah R.</h3>
+                    <span style="font-size: 12.5px; color: #8890a4;">E-commerce Director · Australia 🇦🇺</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SLIDE 4 -->
+            <div class="testimonial-slide" style="
+              flex: 0 0 calc(33.333% - 16px);
+              scroll-snap-align: start;
+              min-width: 300px;
+            ">
+              <div class="testimonial-card" style="background: #0d0e14; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; box-sizing: border-box;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <div style="color: #e6ad48; font-size: 15px; letter-spacing: 2px;">★★★★★</div>
+                    <a href="https://www.upwork.com/freelancers/~010293154926636989" target="_blank" rel="noopener" style="font-size: 12px; color: #94a3b8; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">Verified on Upwork ↗</a>
+                  </div>
+                  <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #e6ad48; background: rgba(230,173,72,0.1); padding: 4px 10px; border-radius: 6px;">Custom Theme &amp; ACF</span>
+                  <p style="color: #e2e8f0; font-size: 14.5px; line-height: 1.7; margin: 20px 0 24px 0; font-style: italic;">
+                    "High quality code, clean communication, and very attentive to pixel-perfect design details. Ziaul transformed our sluggish website into a top-performing commercial asset."
+                  </p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px;">
+                  <div style="width: 42px; height: 42px; border-radius: 50%; background: #1a1d28; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #e6ad48; border: 1px solid rgba(230,173,72,0.3); font-size: 14px;">DL</div>
+                  <div>
+                    <h3 style="font-size: 15px; font-weight: 700; color: #ffffff; margin: 0;">David L.</h3>
+                    <span style="font-size: 12.5px; color: #8890a4;">Managing Partner, Apex Studio · Canada 🇨🇦</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
-          <!-- Review Card 2 (Placeholder) -->
-          <div class="testimonial-card" style="background: #0d0e14; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; position: relative;">
-            <div>
-              <!-- Star Rating & Platform -->
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <div style="color: #e6ad48; font-size: 16px; letter-spacing: 2px;">★★★★★</div>
-                <a href="https://www.upwork.com/freelancers/~010293154926636989" target="_blank" rel="noopener" style="font-size: 12px; color: #94a3b8; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">Verified on Upwork ↗</a>
-              </div>
-              <!-- Project Category Tag -->
-              <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #e6ad48; background: rgba(230,173,72,0.1); padding: 4px 10px; border-radius: 6px;">Enterprise SaaS Redesign</span>
-              <!-- Review Content -->
-              <p style="color: #e2e8f0; font-size: 15px; line-height: 1.7; margin: 20px 0 24px 0; font-style: italic;">
-                "Exceptional Elementor Pro work and Core Web Vitals optimization. Our page speed increased by over 40% and mobile conversion rates improved immediately. Communication was 10/10."
-              </p>
-            </div>
-            <!-- Client Profile -->
-            <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px;">
-              <div style="width: 44px; height: 44px; border-radius: 50%; background: #1a1d28; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #e6ad48; border: 1px solid rgba(230,173,72,0.3);">
-                MK
-              </div>
-              <div>
-                <h3 style="font-size: 16px; font-weight: 700; color: #ffffff; margin: 0;">Marcus K.</h3>
-                <span style="font-size: 13px; color: #8890a4;">Head of Growth, NovaTech Analytics · United Kingdom 🇬🇧</span>
-              </div>
-            </div>
-          </div>
+          <!-- Carousel Controls (Matching Work Section Capsule Design) -->
+          <div style="display: flex; justify-content: center; margin-top: 32px;">
+            <div class="testimonial-slider-controls" aria-label="Client reviews slider navigation">
+              <button class="slider-nav-btn slider-prev" id="testimonialPrev" type="button" aria-label="Previous review">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
 
-          <!-- Review Card 3 (Placeholder) -->
-          <div class="testimonial-card" style="background: #0d0e14; border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; position: relative;">
-            <div>
-              <!-- Star Rating & Platform -->
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                <div style="color: #e6ad48; font-size: 16px; letter-spacing: 2px;">★★★★★</div>
-                <a href="https://www.upwork.com/freelancers/~010293154926636989" target="_blank" rel="noopener" style="font-size: 12px; color: #94a3b8; text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.2);">Verified on Upwork ↗</a>
+              <div class="slider-pagination" id="testimonialPagination" role="tablist" aria-label="Reviews pagination">
+                <!-- Populated dynamically via JS -->
               </div>
-              <!-- Project Category Tag -->
-              <span style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #e6ad48; background: rgba(230,173,72,0.1); padding: 4px 10px; border-radius: 6px;">WooCommerce & Speed Optimization</span>
-              <!-- Review Content -->
-              <p style="color: #e2e8f0; font-size: 15px; line-height: 1.7; margin: 20px 0 24px 0; font-style: italic;">
-                "One of the best WordPress experts I've hired. Fixed complex checkout bugs, sped up our store, and made custom layout tweaks effortlessly. Will definitely rehire for all upcoming projects."
-              </p>
-            </div>
-            <!-- Client Profile -->
-            <div style="display: flex; align-items: center; gap: 14px; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px;">
-              <div style="width: 44px; height: 44px; border-radius: 50%; background: #1a1d28; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #e6ad48; border: 1px solid rgba(230,173,72,0.3);">
-                SR
+
+              <div class="slider-counter" aria-live="polite">
+                <span class="counter-current" id="testimonialSlideCurrent">01</span>
+                <span class="counter-divider">/</span>
+                <span class="counter-total" id="testimonialSlideTotal">04</span>
               </div>
-              <div>
-                <h3 style="font-size: 16px; font-weight: 700; color: #ffffff; margin: 0;">Sarah R.</h3>
-                <span style="font-size: 13px; color: #8890a4;">E-commerce Director · Australia 🇦🇺</span>
-              </div>
+
+              <button class="slider-nav-btn slider-next" id="testimonialNext" type="button" aria-label="Next review">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
             </div>
           </div>
 
         </div>
 
         <!-- Rating Summary Strip linking to Upwork -->
-        <div style="margin-top: 48px; text-align: center;">
+        <div style="margin-top: 36px; text-align: center;">
           <a href="https://www.upwork.com/freelancers/~010293154926636989" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.2s ease;">
-            <span style="color: #e6ad48;">★ 4.5 Top Rated Freelancer</span> · <span>36+ Upwork Projects & 100% Recommended</span> <span style="color: #e6ad48;">↗</span>
+            <span style="color: #e6ad48;">★ 4.5 Top Rated Freelancer</span> · <span>36+ Upwork Projects &amp; 100% Recommended</span> <span style="color: #e6ad48;">↗</span>
           </a>
         </div>
 
