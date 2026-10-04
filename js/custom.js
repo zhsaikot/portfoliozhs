@@ -826,7 +826,7 @@
     if (!data || !modalContentContainer) return;
 
     modalContentContainer.innerHTML = `
-      <img src="${data.image}" alt="${data.title} Mockup" class="modal-hero-image" loading="lazy">
+      <img src="${data.image}" alt="${data.title} - Detailed Website Case Study Architecture Preview" title="${data.title} - Detailed Website Case Study Architecture Preview" role="img" class="modal-hero-image" loading="lazy" width="1280" height="800">
       <div class="eyebrow">${data.industry}</div>
       <h2 class="modal-title">${data.title}</h2>
       <p class="modal-body-text" style="font-size: 1.15rem; color: var(--text-primary); font-weight: 500;">
