@@ -1366,16 +1366,68 @@
     updateActiveUI();
   }
 
+  /* ------------------------------------------------------------------------
+     16. DYNAMIC "BACK TO TOP" FLOATING BUTTON (50% SCROLL THRESHOLD)
+     ------------------------------------------------------------------------ */
+  function initBackToTop() {
+    const backToTopBtn = document.getElementById('backToTop');
+    if (!backToTopBtn) return;
+
+    let ticking = false;
+
+    function evaluateScrollPosition() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight || 0;
+      const clientHeight = document.documentElement.clientHeight || window.innerHeight || 0;
+      const scrollableDistance = scrollHeight - clientHeight;
+
+      // Dynamically activates only after user scrolls past 50% of the page height
+      if (scrollableDistance > 100 && scrollTop >= scrollableDistance * 0.5) {
+        backToTopBtn.classList.add('is-visible');
+      } else {
+        backToTopBtn.classList.remove('is-visible');
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(evaluateScrollPosition);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(evaluateScrollPosition);
+        ticking = true;
+      }
+    }, { passive: true });
+
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Initial check
+    evaluateScrollPosition();
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       initCalendlyLazyLoader();
       initWorkSectionExperience();
       initTestimonialsCarousel();
+      initBackToTop();
     });
   } else {
     initCalendlyLazyLoader();
     initWorkSectionExperience();
     initTestimonialsCarousel();
+    initBackToTop();
   }
 
 })();
