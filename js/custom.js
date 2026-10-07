@@ -1188,30 +1188,31 @@
       }
 
       const headerHeight = siteHeader ? siteHeader.offsetHeight : 74;
-      const stickyTop = headerHeight + 24;
+      const vhOffset = Math.min(16, Math.max(10, window.innerHeight * 0.012));
+      const getStickyTop = (idx) => headerHeight + 16 + (idx * vhOffset);
 
       for (let i = 0; i < cards.length - 1; i++) {
         const currentCard = cards[i];
         const nextCard = cards[i + 1];
 
+        const nextStickyTop = getStickyTop(i + 1);
         const nextRect = nextCard.getBoundingClientRect();
-        const cardHeight = currentCard.offsetHeight || 420;
+        const cardHeight = currentCard.offsetHeight || 480;
 
-        // When next card approaches sticky top
-        const distance = nextRect.top - stickyTop;
+        // When next card approaches its sticky top
+        const distance = nextRect.top - nextStickyTop;
 
         if (distance <= cardHeight && distance >= 0) {
           // Card i+1 is overlapping Card i
           const progress = 1 - (distance / cardHeight); // 0 to 1
-          const scale = 1 - (progress * 0.05); // 1.0 -> 0.95
-          const brightness = 1 - (progress * 0.18); // 1.0 -> 0.82
-          const translateY = progress * -6;
-          currentCard.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+          const scale = 1 - (progress * 0.04); // 1.0 -> 0.96
+          const brightness = 1 - (progress * 0.14); // 1.0 -> 0.86
+          currentCard.style.transform = `scale(${scale})`;
           currentCard.style.filter = `brightness(${brightness})`;
         } else if (distance < 0) {
-          // Card i+1 has passed sticky top and covers Card i
-          currentCard.style.transform = 'scale(0.95) translateY(-6px)';
-          currentCard.style.filter = 'brightness(0.82)';
+          // Card i+1 has passed its sticky top and covers Card i
+          currentCard.style.transform = 'scale(0.96)';
+          currentCard.style.filter = 'brightness(0.86)';
         } else {
           // Card i+1 hasn't reached Card i yet
           currentCard.style.transform = '';
