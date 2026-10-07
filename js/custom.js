@@ -1206,13 +1206,12 @@
           // Card i+1 is overlapping Card i
           const progress = 1 - (distance / cardHeight); // 0 to 1
           const scale = 1 - (progress * 0.04); // 1.0 -> 0.96
-          const brightness = 1 - (progress * 0.14); // 1.0 -> 0.86
           currentCard.style.transform = `scale(${scale})`;
-          currentCard.style.filter = `brightness(${brightness})`;
+          currentCard.style.filter = '';
         } else if (distance < 0) {
           // Card i+1 has passed its sticky top and covers Card i
           currentCard.style.transform = 'scale(0.96)';
-          currentCard.style.filter = 'brightness(0.86)';
+          currentCard.style.filter = '';
         } else {
           // Card i+1 hasn't reached Card i yet
           currentCard.style.transform = '';

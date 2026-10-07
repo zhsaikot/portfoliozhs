@@ -1149,18 +1149,34 @@ body.has-cursor-view .cursor-dot {
   gap: clamp(40px, 6vw, 70px);
 }
 
+/* Large Horizontal Project Card */
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition-base),
+              transform var(--transition-base),
+              box-shadow var(--transition-base);
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  position: relative;
+  will-change: transform, border-color;
+  cursor: pointer;
+}
+
 /* Desktop Stacking Cards Engine (> 992px) */
 @media (min-width: 993px) {
   .work-cards-list {
     gap: 0;
     position: relative;
-    padding-bottom: 120px;
+    padding-bottom: 80px;
   }
 
   .project-card {
     position: sticky;
-    top: calc(var(--header-height) + 16px + (var(--card-index, 0) * clamp(10px, 1.2vh, 16px)));
-    margin-bottom: clamp(180px, 26vh, 320px);
+    top: calc(var(--header-height) + 16px + (var(--card-index, 0) * clamp(8px, 1.2vh, 14px)));
+    margin-bottom: clamp(24px, 4vh, 48px);
     transform-origin: center top;
     will-change: transform, filter;
     box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.75), 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 1px rgba(212, 175, 55, 0.25);
@@ -1188,25 +1204,21 @@ body.has-cursor-view .cursor-dot {
   .project-card:nth-child(12) { z-index: 12; --card-index: 11; }
   .project-card:nth-child(13) { z-index: 13; --card-index: 12; }
 
+  .project-card.reveal-card {
+    opacity: 1 !important;
+    transform: none;
+    clip-path: none !important;
+  }
+
+  .project-card.reveal-card .project-media,
+  .project-card.reveal-card .project-info {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .work-slider-controls {
     display: none !important;
   }
-}
-
-/* Large Horizontal Project Card */
-.project-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: border-color var(--transition-base),
-              transform var(--transition-base),
-              box-shadow var(--transition-base);
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  position: relative;
-  will-change: transform, border-color;
-  cursor: pointer;
 }
 
 /* Staggered Scroll Reveal with Inset Clip-Path */
