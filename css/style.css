@@ -564,7 +564,8 @@ body.has-cursor-view .cursor-dot {
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 1.8vw, 30px);
+  gap: clamp(10px, 1.4vw, 24px);
+  white-space: nowrap;
 }
 
 .nav-link {
@@ -573,6 +574,7 @@ body.has-cursor-view .cursor-dot {
   color: var(--text-secondary);
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 
