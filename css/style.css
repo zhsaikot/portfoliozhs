@@ -1328,14 +1328,46 @@ body.has-cursor-view .cursor-dot {
 
 @media (max-width: 992px) {
   .plugin-feature-card {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     padding: 28px 20px;
-    gap: 32px;
+    gap: 0;
+  }
+
+  .plugin-feature-content {
+    display: contents;
+  }
+
+  .plugin-feature-eyebrow {
+    order: 1;
+  }
+
+  .plugin-feature-title {
+    order: 2;
+    margin-bottom: 20px;
+  }
+
+  .plugin-feature-visual {
+    order: 3;
+    margin-bottom: 24px;
+    width: 100%;
+  }
+
+  .plugin-feature-subtitle {
+    order: 4;
+    margin-bottom: 20px;
+  }
+
+  .plugin-feature-pills {
+    order: 5;
+    margin-bottom: 28px;
   }
 
   .plugin-feature-actions {
+    order: 6;
     flex-direction: column;
     width: 100%;
+    gap: 12px;
   }
 
   .plugin-feature-actions .btn {
