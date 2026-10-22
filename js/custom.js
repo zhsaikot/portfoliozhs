@@ -555,6 +555,26 @@
      12. DYNAMIC CASE STUDY DRAWER MODAL
      ------------------------------------------------------------------------ */
   const caseStudies = {
+    "ridex-motors": {
+      "title": "RideX Motors",
+      "subtitle": "Premier Motorcycle Showroom & Digital Inventory Platform",
+      "industry": "Automotive & Motorsports",
+      "services": "Web Application Architecture, Dynamic Inventory Filtering, Firebase Backend Integration, Bilingual UI",
+      "technologies": "Tailwind CSS, JavaScript (ES6+), Firebase Firestore, Firebase Storage, i18n Engine, Responsive Mobile UX",
+      "image": "images/project-ridex-motors.webp",
+      "pageUrl": "https://zhsaikot.github.io/ridexmotors/",
+      "overview": "RideX Motors is an elite digital showroom and second-hand motorcycle marketplace engineered for modern riders. It bridges physical showroom inventory with a lightning-fast digital purchasing and exchange experience.",
+      "challenge": "Motorcycle buyers require multi-variable search (condition, brand, pricing in BDT, location) with rapid response, verified paper confidence, and seamless communication across mobile devices.",
+      "solution": "Architected a responsive mobile-first digital showroom powered by Tailwind CSS and Firebase Firestore. Integrated instant attribute filtering, localized pricing formats, bilingual English/Bengali localization, and direct WhatsApp/call inquiry triggers.",
+      "features": [
+        "Interactive multi-attribute inventory filtering (Brand, Price Range, Condition, Location)",
+        "Dynamic brand exploration catalogs (Yamaha, Suzuki, Honda, Bajaj, Hero, TVS, Kawasaki)",
+        "Real-time Firebase Firestore database connectivity for live vehicle listings",
+        "Bilingual English/Bengali localization engine (i18n) for local market accessibility",
+        "Direct conversion touchpoints with 1-click WhatsApp and phone inquiry funnels"
+      ],
+      "results": "Sub-second live inventory filtering, 100% verified vehicle transparency, and streamlined customer inquiries across mobile and desktop devices."
+    },
     "growth-gurus": {
       "title": "Growth Gurus",
       "subtitle": "High-Impact Digital Marketing & Business Strategy Portal",
