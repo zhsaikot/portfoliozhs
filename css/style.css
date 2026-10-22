@@ -1450,6 +1450,8 @@ body.has-cursor-view .cursor-dot {
   .project-card:nth-child(14) { z-index: 14; --card-index: 13; }
   .project-card:nth-child(15) { z-index: 15; --card-index: 14; }
   .project-card:nth-child(16) { z-index: 16; --card-index: 15; }
+  .project-card:nth-child(17) { z-index: 17; --card-index: 16; }
+  .project-card:nth-child(18) { z-index: 18; --card-index: 17; }
 
   .project-card.reveal-card {
     opacity: 1 !important;

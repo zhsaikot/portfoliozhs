@@ -575,6 +575,26 @@
       ],
       "results": "Sub-second live inventory filtering, 100% verified vehicle transparency, and streamlined customer inquiries across mobile and desktop devices."
     },
+    "health-shark": {
+      "title": "Health Shark",
+      "subtitle": "Nutritionist-Crafted Healthy Food Storefront & Direct Ordering Portal",
+      "industry": "Health & Nutrition Commerce",
+      "services": "Frontend Architecture, Menu Categorization System, Firebase Backend, WhatsApp Ordering Integration",
+      "technologies": "Tailwind CSS, JavaScript (ES6+), Firebase Firestore, Firebase Storage, i18n Localization, Mobile-First UX",
+      "image": "images/project-health-shark.webp",
+      "pageUrl": "https://zhsaikot.github.io/healthshark/",
+      "overview": "Health Shark is an online healthy food storefront founded by a professional nutritionist in Dhaka. It provides homemade, immunity-boosting meals, snacks, and desserts with direct WhatsApp ordering and doorstep delivery.",
+      "challenge": "Health-conscious customers require clear nutritional transparency, ingredient breakdowns, swift category navigation, and a frictionless 1-click mobile ordering pipeline.",
+      "solution": "Built a clean, organic modern web storefront utilizing Tailwind CSS and Firebase Firestore. Integrated real-time menu browsing, dual English and Bengali language localization, and automated WhatsApp order dispatch.",
+      "features": [
+        "Dynamic food menu categorized by meals, snacks, desserts, and fresh raw ingredients",
+        "Instant WhatsApp ordering and direct phone call inquiry workflows",
+        "Real-time Firebase Firestore database backing menu items, pricing, and availability",
+        "Full bilingual English/Bengali localization engine for Dhaka metropolitan customers",
+        "Speed-optimized mobile layout with sub-second page loads and zero layout shift"
+      ],
+      "results": "Instant customer engagement with high-conversion WhatsApp ordering, transparent nutritional presentation, and 100% mobile accessibility."
+    },
     "growth-gurus": {
       "title": "Growth Gurus",
       "subtitle": "High-Impact Digital Marketing & Business Strategy Portal",
