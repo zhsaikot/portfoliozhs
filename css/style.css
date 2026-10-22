@@ -1452,6 +1452,8 @@ body.has-cursor-view .cursor-dot {
   .project-card:nth-child(16) { z-index: 16; --card-index: 15; }
   .project-card:nth-child(17) { z-index: 17; --card-index: 16; }
   .project-card:nth-child(18) { z-index: 18; --card-index: 17; }
+  .project-card:nth-child(19) { z-index: 19; --card-index: 18; }
+  .project-card:nth-child(20) { z-index: 20; --card-index: 19; }
 
   .project-card.reveal-card {
     opacity: 1 !important;

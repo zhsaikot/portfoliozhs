@@ -595,6 +595,26 @@
       ],
       "results": "Instant customer engagement with high-conversion WhatsApp ordering, transparent nutritional presentation, and 100% mobile accessibility."
     },
+    "zhfinance": {
+      "title": "ZH Finance",
+      "subtitle": "Smart Personal Wealth & Cash Flow Intelligence Platform",
+      "industry": "FinTech & Wealth Management",
+      "services": "FinTech Web App Architecture, Data Visualization & SVG Charting, State Management, PDF Reporting Engine",
+      "technologies": "Vanilla JavaScript (ES6+), CSS3 Variables, Interactive SVG Engine, LocalStorage State, PDF Generation, Dark/Light Theming",
+      "image": "images/project-zhfinance.webp",
+      "pageUrl": "https://zhsaikot.github.io/zhfinance/",
+      "overview": "ZH Finance is a modern personal wealth management and financial intelligence web application engineered to give individuals total visibility over their income, expenses, bank accounts, mobile wallets, and monthly budget allocations.",
+      "challenge": "Users needed a secure, lightning-fast personal ledger capable of computing multi-month cash flow trends, categorized spending limits, and inter-account transfers without third-party server latency or data privacy risks.",
+      "solution": "Built a high-performance client-side FinTech dashboard with responsive typography, animated SVG cash flow curves, interactive spending breakdown donut visualization, multi-account card management, and 1-click client-side PDF export.",
+      "features": [
+        "Interactive 6-month cash flow & trend forecasting chart with hover telemetry",
+        "Multi-account management (Cash Wallet, City Bank Salary, bKash / Nagad)",
+        "Visual donut chart breakdown by spending categories (Housing, Food, Bills, etc.)",
+        "Dynamic budget planner with real-time percentage progress bars and limit alerts",
+        "Instant PDF financial report generation and seamless dark/light mode switching"
+      ],
+      "results": "Sub-millisecond local ledger recalculation, zero layout shift, complete user data sovereignty, and intuitive multi-account wealth tracking."
+    },
     "growth-gurus": {
       "title": "Growth Gurus",
       "subtitle": "High-Impact Digital Marketing & Business Strategy Portal",
