@@ -1427,6 +1427,127 @@
   }
 
   /* ------------------------------------------------------------------------
+     17.5. WORDPRESS PLUGIN CAROUSEL ENGINE
+     ------------------------------------------------------------------------ */
+  function initPluginCarousel() {
+    const track = document.getElementById('pluginTrack');
+    const prevBtn = document.getElementById('pluginPrev');
+    const nextBtn = document.getElementById('pluginNext');
+    const pagination = document.getElementById('pluginPagination');
+    const currentEl = document.getElementById('pluginSlideCurrent');
+    const totalEl = document.getElementById('pluginSlideTotal');
+    if (!track) return;
+
+    const slides = Array.from(track.querySelectorAll('.plugin-slide'));
+    if (!slides.length) return;
+
+    if (totalEl) {
+      totalEl.textContent = String(slides.length).padStart(2, '0');
+    }
+
+    // Build interactive dots matching Work and Testimonial sliders
+    if (pagination) {
+      pagination.innerHTML = '';
+      slides.forEach((slide, idx) => {
+        const dot = document.createElement('button');
+        dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+        dot.setAttribute('type', 'button');
+        dot.setAttribute('role', 'tab');
+        const titleEl = slide.querySelector('.plugin-feature-title');
+        const titleText = titleEl ? titleEl.textContent.trim().replace(/\s+/g, ' ') : `Plugin ${idx + 1}`;
+        dot.setAttribute('aria-label', `Plugin ${idx + 1}: ${titleText}`);
+        dot.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        dot.addEventListener('click', () => {
+          goToSlide(idx);
+        });
+        pagination.appendChild(dot);
+      });
+    }
+
+    function getStep() {
+      const slide = slides[0];
+      return slide ? slide.offsetWidth + 28 : track.clientWidth;
+    }
+
+    function goToSlide(idx) {
+      const clamped = Math.max(0, Math.min(slides.length - 1, idx));
+      const target = slides[clamped];
+      if (target) {
+        track.scrollTo({
+          left: target.offsetLeft - track.offsetLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    function updateActiveUI() {
+      const scrollLeft = track.scrollLeft;
+      const step = getStep();
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      
+      let activeIdx = Math.round(scrollLeft / (step || 1));
+      if (scrollLeft >= maxScroll - 10) {
+        activeIdx = slides.length - 1;
+      }
+      activeIdx = Math.max(0, Math.min(slides.length - 1, activeIdx));
+
+      if (currentEl) {
+        currentEl.textContent = String(activeIdx + 1).padStart(2, '0');
+      }
+
+      if (pagination) {
+        const dots = pagination.querySelectorAll('.slider-dot');
+        dots.forEach((dot, i) => {
+          const isActive = i === activeIdx;
+          dot.classList.toggle('active', isActive);
+          dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+
+      if (prevBtn) {
+        const atStart = scrollLeft <= 5;
+        prevBtn.disabled = atStart;
+        prevBtn.classList.toggle('is-disabled', atStart);
+      }
+      if (nextBtn) {
+        const atEnd = scrollLeft >= maxScroll - 5;
+        nextBtn.disabled = atEnd;
+        nextBtn.classList.toggle('is-disabled', atEnd);
+      }
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const scrollLeft = track.scrollLeft;
+        const currentIdx = Math.round(scrollLeft / getStep());
+        goToSlide(Math.max(0, currentIdx - 1));
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const scrollLeft = track.scrollLeft;
+        const currentIdx = Math.round(scrollLeft / getStep());
+        goToSlide(Math.min(slides.length - 1, currentIdx + 1));
+      });
+    }
+
+    let isScrolling = false;
+    track.addEventListener('scroll', () => {
+      if (!isScrolling) {
+        isScrolling = true;
+        requestAnimationFrame(() => {
+          updateActiveUI();
+          isScrolling = false;
+        });
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', updateActiveUI, { passive: true });
+    updateActiveUI();
+  }
+
+  /* ------------------------------------------------------------------------
      16. DYNAMIC "BACK TO TOP" FLOATING BUTTON (50% SCROLL THRESHOLD)
      ------------------------------------------------------------------------ */
   function initBackToTop() {
@@ -1480,12 +1601,14 @@
     document.addEventListener('DOMContentLoaded', () => {
       initCalendlyLazyLoader();
       initWorkSectionExperience();
+      initPluginCarousel();
       initTestimonialsCarousel();
       initBackToTop();
     });
   } else {
     initCalendlyLazyLoader();
     initWorkSectionExperience();
+    initPluginCarousel();
     initTestimonialsCarousel();
     initBackToTop();
   }

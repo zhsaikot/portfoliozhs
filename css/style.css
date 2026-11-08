@@ -1379,6 +1379,78 @@ body.has-cursor-view .cursor-dot {
 }
 
 /* --------------------------------------------------------------------------
+   07.6 WORDPRESS PLUGIN CAROUSEL ENGINE STYLES
+   -------------------------------------------------------------------------- */
+.plugin-carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.plugin-track {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 8px 4px 16px 4px;
+}
+
+.plugin-track::-webkit-scrollbar {
+  display: none;
+}
+
+.plugin-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  max-width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  box-sizing: border-box;
+}
+
+.plugin-slide .plugin-feature-card {
+  height: 100%;
+}
+
+.plugin-slider-controls-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.plugin-slider-controls {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 18px;
+  background: rgba(20, 20, 22, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(229, 195, 120, 0.25);
+  border-radius: 999px;
+  max-width: 360px;
+  width: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 1px rgba(229, 195, 120, 0.3);
+}
+
+@media (max-width: 576px) {
+  .plugin-slider-controls-wrap {
+    margin-top: 24px;
+  }
+  .plugin-slider-controls {
+    padding: 6px 14px;
+    gap: 10px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    08. SECTION 03 — SELECTED WORK
    -------------------------------------------------------------------------- */
 .section-work {
