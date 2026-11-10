@@ -17,6 +17,15 @@
 (function () {
   'use strict';
 
+  /* ------------------------------------------------------------------------
+     00. CLEAN URL HANDLER (Removes .html from address bar seamlessly)
+     ------------------------------------------------------------------------ */
+  if (window.location.pathname.endsWith('.html')) {
+    const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '') || '/';
+    const cleanUrl = cleanPath + window.location.search + window.location.hash;
+    window.history.replaceState(null, '', cleanUrl);
+  }
+
   // Check prefers-reduced-motion
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isDesktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -32,11 +41,21 @@
       pageTransitionVeil.classList.remove('active');
     });
 
-    // Intercept clicks on internal page links
+    // Intercept clicks on internal full-page navigation links
     document.querySelectorAll('a[href]').forEach(link => {
       const href = link.getAttribute('href');
-      // Only internal full-page navigation (.html files)
-      if (href && href.endsWith('.html') && !href.startsWith('http') && !href.startsWith('#')) {
+      if (
+        href &&
+        !href.startsWith('http') &&
+        !href.startsWith('#') &&
+        !href.startsWith('mailto:') &&
+        !href.startsWith('tel:') &&
+        !href.startsWith('javascript:')
+      ) {
+        // Skip transition veil for in-page section jumps on the same page
+        const isCurrentHome = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html');
+        if (isCurrentHome && href.startsWith('/#')) return;
+
         link.addEventListener('click', function (e) {
           // Allow opening in new tab
           if (e.metaKey || e.ctrlKey || link.target === '_blank') return;
