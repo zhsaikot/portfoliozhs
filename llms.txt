@@ -13,8 +13,12 @@
 - Homepage: https://mdziaulhasan.com/
 - Book a Consultation: https://mdziaulhasan.com/book-consultation.html
 - Upwork Profile: https://www.upwork.com/freelancers/~010293154926636989
-- LinkedIn: https://www.linkedin.com/in/md-ziaul-hasan/
+- LinkedIn: https://www.linkedin.com/in/mdziaulhasan/
 - GitHub: https://github.com/zhsaikot
+
+## Featured WordPress Plugins & Tools
+- ZHS AI Alt Text Generator (Automated SEO & Accessibility Alt Text Engine): https://mdziaulhasan.com/zhs-ai-alt-text-plugin.html
+- ZHS Site Audit & SEO Diagnostics (In-depth WordPress Performance & Diagnostic Tool): https://mdziaulhasan.com/zhs-site-audit-plugin.html
 
 ## Case Studies
 - Select The Best (eCommerce & Equine Nutrition): https://mdziaulhasan.com/case-study-select-the-best.html
