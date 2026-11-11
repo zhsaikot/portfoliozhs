@@ -844,24 +844,28 @@ body.has-cursor-view .cursor-dot {
 .nav-mega-tag {
   font-size: 0.625rem;
   font-weight: 700;
-  padding: 2px 7px;
-  border-radius: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   white-space: nowrap;
   flex-shrink: 0;
+  transition: background-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.tag-new {
-  background: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.3);
-}
-
+.tag-new,
 .tag-verified {
-  background: rgba(74, 222, 128, 0.15);
-  color: #4ade80;
-  border: 1px solid rgba(74, 222, 128, 0.3);
+  background: var(--accent);
+  color: var(--text-inverse);
+  border: 1px solid var(--accent);
+  box-shadow: 0 2px 8px rgba(229, 195, 120, 0.22);
+}
+
+.nav-mega-card:hover .tag-new,
+.nav-mega-card:hover .tag-verified {
+  background: var(--accent-light);
+  border-color: var(--accent-light);
+  box-shadow: 0 3px 10px rgba(229, 195, 120, 0.32);
 }
 
 .nav-mega-card-desc {
