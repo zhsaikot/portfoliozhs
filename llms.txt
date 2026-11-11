@@ -15,12 +15,17 @@
 - Upwork Profile: https://www.upwork.com/freelancers/~010293154926636989
 - LinkedIn: https://www.linkedin.com/in/mdziaulhasan/
 - GitHub: https://github.com/zhsaikot
+- WordPress.org Profile: https://profiles.wordpress.org/zhsaikot/
 
-## Featured WordPress Plugins & Tools
-- ZHS AI Alt Text Generator (Automated SEO & Accessibility Alt Text Engine): https://mdziaulhasan.com/zhs-ai-alt-text-plugin
-- ZHS Site Audit & SEO Diagnostics (In-depth WordPress Performance & Diagnostic Tool): https://mdziaulhasan.com/zhs-site-audit-plugin
+## Official WordPress.org Plugins
+- ZHS Site Audit & SEO Diagnostics: https://mdziaulhasan.com/zhs-site-audit-plugin
+  - Description: Enterprise-grade 17-point automated technical health audit and SEO diagnostics engine built directly into the WordPress admin. Evaluates WCAG 2.4.1 accessibility, technical indexing, JSON-LD schema, and AI search readiness 100% locally with zero external API dependencies.
+  - WordPress.org Plugin: https://wordpress.org/plugins/zhs-site-audit-seo-diagnostics/
+- ZHS AI Alt Text Generator: https://mdziaulhasan.com/zhs-ai-alt-text-plugin
+  - Description: Multi-provider AI vision suite for WordPress automating image alt text generation for WCAG accessibility and Google Image SEO. Supports OpenAI (GPT-4o-mini), Google Gemini (1.5 Flash), Anthropic Claude (3.5 Sonnet), Alibaba Qwen (VL Max), and a 100% free offline category engine with non-blocking AJAX batch processing.
+  - WordPress.org Plugin: https://wordpress.org/plugins/zhs-ai-alt-text-generator/
 
 ## Case Studies
+- Growth Gurus (Business Consulting & Booking): https://mdziaulhasan.com/case-study-growthgurus
 - Select The Best (eCommerce & Equine Nutrition): https://mdziaulhasan.com/case-study-select-the-best
 - CH Safety (B2B Compliance & Safety Equipment): https://mdziaulhasan.com/case-study-chsafety
-- Growth Gurus (Business Consulting & Booking): https://mdziaulhasan.com/case-study-growthgurus
