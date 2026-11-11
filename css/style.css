@@ -2666,6 +2666,58 @@ body.has-cursor-view .cursor-dot {
   }
 }
 
+/* Technical SEO / Crawler Fallback for Booking */
+.booking-fallback {
+  margin-top: 36px;
+  padding: 28px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.booking-fallback p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.fallback-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.fallback-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-hover);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.fallback-btn:hover {
+  background: var(--accent);
+  color: var(--text-inverse);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
 /* --------------------------------------------------------------------------
    16. SECTION 10 — FINAL CTA & CONTACT / LEAD GENERATION
    -------------------------------------------------------------------------- */
