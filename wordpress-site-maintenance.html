@@ -176,7 +176,84 @@
           </div>
         </div>
 
-        <a href="/#services" class="nav-link active">Services</a>
+        <div class="nav-item-dropdown" id="servicesDropdown">
+          <a href="/#services" class="nav-link nav-link-dropdown active" id="servicesDropdownBtn" aria-haspopup="true" aria-expanded="false" aria-label="Core Engineering Services Menu">
+            <span>Services</span>
+            <svg class="nav-dropdown-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <!-- Services Mega Menu Dropdown -->
+          <div class="nav-mega-menu" role="menu" aria-label="Services Submenu">
+            <div class="nav-mega-header">
+              <span class="nav-mega-badge">Core Engineering Services</span>
+              <a href="/#services" class="nav-mega-all-link">Browse All ↗</a>
+            </div>
+
+            <div class="nav-mega-grid">
+              <!-- Service 1: Custom Website Building -->
+              <a href="/custom-website-building" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/project-growth-gurus.webp" alt="Custom Website Building" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">Custom Website Building</span>
+                    <span class="nav-mega-tag tag-verified">600+ Builds</span>
+                  </div>
+                  <p class="nav-mega-card-desc">Bespoke Elementor Pro, corporate portals &amp; WooCommerce stores.</p>
+                  <span class="nav-mega-card-footer">Explore Service <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+
+              <!-- Service 2: WordPress Speed Optimization -->
+              <a href="/wordpress-speed-optimization" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-site-audit-dashboard.webp" alt="WordPress Speed Optimization" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">Speed &amp; Core Web Vitals</span>
+                    <span class="nav-mega-tag tag-verified">95+ Speed</span>
+                  </div>
+                  <p class="nav-mega-card-desc">Sub-second load times, critical CSS extraction &amp; zero layout shifts.</p>
+                  <span class="nav-mega-card-footer">Explore Service <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+
+              <!-- Service 3: WordPress Website Maintenance -->
+              <a href="/wordpress-site-maintenance" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/project-ch-safety.webp" alt="WordPress Website Maintenance" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">Website Maintenance &amp; Care</span>
+                    <span class="nav-mega-tag tag-verified">Retainers</span>
+                  </div>
+                  <p class="nav-mega-card-desc">Weekly offsite backups, safe staging updates &amp; 24/7 uptime monitoring.</p>
+                  <span class="nav-mega-card-footer">Explore Service <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+
+              <!-- Service 4: Custom Plugin Development -->
+              <a href="/custom-plugin-development" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-ai-alt-text-banner.webp" alt="Custom Plugin Development" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">Custom Plugin Development</span>
+                    <span class="nav-mega-tag tag-verified">WP.org Author</span>
+                  </div>
+                  <p class="nav-mega-card-desc">Bespoke PHP plugins, REST API webhooks &amp; custom WP admin tools.</p>
+                  <span class="nav-mega-card-footer">Explore Service <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
         <a href="/#process" class="nav-link">Process</a>
         <a href="/#about" class="nav-link">About</a>
         <a href="/#experience" class="nav-link">Experience</a>
@@ -253,7 +330,58 @@
           </a>
         </div>
       </div>
-      <a href="/#services" class="mobile-nav-link">Services <span aria-hidden="true">→</span></a>
+      <div class="mobile-nav-item-dropdown">
+        <div class="mobile-nav-dropdown-trigger">
+          <a href="/#services" class="mobile-nav-link">Services</a>
+          <button type="button" class="mobile-dropdown-toggle-btn" aria-label="Toggle Services Submenu" aria-expanded="false">
+            <svg class="mobile-dropdown-chevron" width="12" height="8" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-nav-sublist">
+          <a href="/custom-website-building" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/project-growth-gurus.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">Custom Website Building</span>
+              <span class="mobile-subitem-tag">600+ Builds</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+          <a href="/wordpress-speed-optimization" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/zhs-site-audit-dashboard.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">Speed &amp; Core Web Vitals</span>
+              <span class="mobile-subitem-tag">95+ Speed</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+          <a href="/wordpress-site-maintenance" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/project-ch-safety.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">Website Maintenance &amp; Care</span>
+              <span class="mobile-subitem-tag">Retainers</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+          <a href="/custom-plugin-development" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/zhs-ai-alt-text-banner.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">Custom Plugin Development</span>
+              <span class="mobile-subitem-tag">WP.org Author</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+        </div>
+      </div>
       <a href="/#process" class="mobile-nav-link">Process <span aria-hidden="true">→</span></a>
       <a href="/#about" class="mobile-nav-link">About <span aria-hidden="true">→</span></a>
       <a href="/#experience" class="mobile-nav-link">Experience <span aria-hidden="true">→</span></a>
