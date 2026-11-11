@@ -1391,7 +1391,6 @@ body.has-cursor-view .cursor-dot {
   gap: 28px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -2279,7 +2278,6 @@ body.has-cursor-view .cursor-dot {
   gap: 24px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -3298,7 +3296,6 @@ textarea.form-control {
     flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
     gap: 16px;
     padding: 8px 4px 16px;
     margin: 0;
