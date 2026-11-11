@@ -2209,12 +2209,24 @@ body.has-cursor-view .cursor-dot {
 .service-arrow {
   color: var(--text-muted);
   font-size: 1.1rem;
-  transition: transform var(--transition-fast), color var(--transition-fast);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+  transition: transform var(--transition-fast), color var(--transition-fast), filter var(--transition-fast);
 }
 
 .service-card:hover .service-arrow {
   transform: translate(4px, -4px);
   color: var(--accent);
+}
+
+.service-arrow:hover {
+  color: var(--accent-light) !important;
+  transform: translate(5px, -5px) scale(1.15) !important;
+  filter: drop-shadow(0 0 6px var(--accent-glow));
 }
 
 .service-title {

@@ -35,6 +35,10 @@
   - Bespoke PHP plugin development, third-party REST API and webhook integrations, custom WooCommerce extensions, AI/LLM model connections, and custom post type architectures following official WordPress.org coding standards.
 - Custom WordPress & Elementor Pro Website Development: https://mdziaulhasan.com/custom-website-building
   - End-to-end bespoke website design and engineering for corporate brands, e-commerce stores, and dynamic directories. Pixel-perfect Elementor Pro, responsive ACF/JetEngine builds, and CRO-focused user experiences.
+- Custom WooCommerce Development & E-Commerce Engineering: https://mdziaulhasan.com/woocommerce-development
+  - High-converting WooCommerce store development, custom product builders, frictionless 1-page checkout funnels, custom payment gateway/ERP bridges, and speed optimization for high-volume catalogs.
+- Shopify Store Design, Custom Liquid & Store Maintenance: https://mdziaulhasan.com/shopify-store-development
+  - Full-cycle Shopify OS 2.0 store design, custom Liquid section architecture, mobile-first CRO product pages, third-party app integrations, and proactive monthly store maintenance retainers.
 
 ## Case Studies
 - Growth Gurus (Business Consulting & Booking): https://mdziaulhasan.com/case-study-growthgurus
