@@ -118,7 +118,54 @@
       </a>
 
       <nav class="desktop-nav" aria-label="Primary Navigation">
-        <a href="/#plugin" class="nav-link">Plugin</a>
+                <div class="nav-item-dropdown" id="pluginsDropdown">
+          <a href="/#plugin" class="nav-link nav-link-dropdown" id="pluginsDropdownBtn" aria-haspopup="true" aria-expanded="false" aria-label="WordPress Plugins Menu">
+            <span>Plugins</span>
+            <svg class="nav-dropdown-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <!-- Mega Menu Dropdown -->
+          <div class="nav-mega-menu" role="menu" aria-label="Plugins Submenu">
+            <div class="nav-mega-header">
+              <span class="nav-mega-badge">WordPress.org Official Plugins</span>
+              <a href="/#plugin" class="nav-mega-all-link">Browse Section ↗</a>
+            </div>
+
+            <div class="nav-mega-grid">
+              <!-- Plugin 1: ZHS AI Alt Text Generator -->
+              <a href="/zhs-ai-alt-text-plugin" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-ai-alt-text-dashboard.webp" alt="ZHS AI Alt Text Generator" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">ZHS AI Alt Text Generator</span>
+                    <span class="nav-mega-tag tag-new">New v1.0.0</span>
+                  </div>
+                  <p class="nav-mega-card-desc">AI-powered image alt text & SEO with OpenAI, Gemini & offline engine.</p>
+                  <span class="nav-mega-card-footer">View Details <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+
+              <!-- Plugin 2: ZHS Site Audit & SEO Diagnostics -->
+              <a href="/zhs-site-audit-plugin" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-site-audit-dashboard.webp" alt="ZHS Site Audit & SEO Diagnostics" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">ZHS Site Audit & Diagnostics</span>
+                    <span class="nav-mega-tag tag-verified">WP.org Verified</span>
+                  </div>
+                  <p class="nav-mega-card-desc">Comprehensive on-site SEO diagnostics, Core Web Vitals & security auditing.</p>
+                  <span class="nav-mega-card-footer">View Details <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
         <a href="/#work" class="nav-link">Work</a>
         <a href="/#services" class="nav-link">Services</a>
         <a href="/#about" class="nav-link">About</a>

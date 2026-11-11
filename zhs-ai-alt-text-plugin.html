@@ -746,7 +746,54 @@
 
       <!-- Desktop Navigation -->
       <nav class="desktop-nav" aria-label="Primary Navigation">
-        <a href="/#plugin" class="nav-link active">Plugin</a>
+                <div class="nav-item-dropdown" id="pluginsDropdown">
+          <a href="/#plugin" class="nav-link nav-link-dropdown active" id="pluginsDropdownBtn" aria-haspopup="true" aria-expanded="false" aria-label="WordPress Plugins Menu">
+            <span>Plugins</span>
+            <svg class="nav-dropdown-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <!-- Mega Menu Dropdown -->
+          <div class="nav-mega-menu" role="menu" aria-label="Plugins Submenu">
+            <div class="nav-mega-header">
+              <span class="nav-mega-badge">WordPress.org Official Plugins</span>
+              <a href="/#plugin" class="nav-mega-all-link">Browse Section ↗</a>
+            </div>
+
+            <div class="nav-mega-grid">
+              <!-- Plugin 1: ZHS AI Alt Text Generator -->
+              <a href="/zhs-ai-alt-text-plugin" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-ai-alt-text-dashboard.webp" alt="ZHS AI Alt Text Generator" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">ZHS AI Alt Text Generator</span>
+                    <span class="nav-mega-tag tag-new">New v1.0.0</span>
+                  </div>
+                  <p class="nav-mega-card-desc">AI-powered image alt text & SEO with OpenAI, Gemini & offline engine.</p>
+                  <span class="nav-mega-card-footer">View Details <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+
+              <!-- Plugin 2: ZHS Site Audit & SEO Diagnostics -->
+              <a href="/zhs-site-audit-plugin" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-site-audit-dashboard.webp" alt="ZHS Site Audit & SEO Diagnostics" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">ZHS Site Audit & Diagnostics</span>
+                    <span class="nav-mega-tag tag-verified">WP.org Verified</span>
+                  </div>
+                  <p class="nav-mega-card-desc">Comprehensive on-site SEO diagnostics, Core Web Vitals & security auditing.</p>
+                  <span class="nav-mega-card-footer">View Details <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
         <a href="/#work" class="nav-link">Work</a>
         <a href="/#services" class="nav-link">Services</a>
         <a href="/#process" class="nav-link">Process</a>
@@ -791,7 +838,38 @@
 
     <div class="mobile-nav-links">
       <a href="/#home" class="mobile-nav-link">Home <span aria-hidden="true">→</span></a>
-      <a href="/#plugin" class="mobile-nav-link">Plugin <span aria-hidden="true">→</span></a>
+            <div class="mobile-nav-item-dropdown">
+        <div class="mobile-nav-dropdown-trigger">
+          <a href="/#plugin" class="mobile-nav-link">Plugins</a>
+          <button type="button" class="mobile-dropdown-toggle-btn" aria-label="Toggle Plugins Submenu" aria-expanded="false">
+            <svg class="mobile-dropdown-chevron" width="12" height="8" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-nav-sublist">
+          <a href="/zhs-ai-alt-text-plugin" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/zhs-ai-alt-text-dashboard.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">ZHS AI Alt Text Generator</span>
+              <span class="mobile-subitem-tag">New v1.0.0</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+          <a href="/zhs-site-audit-plugin" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/zhs-site-audit-dashboard.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">ZHS Site Audit & Diagnostics</span>
+              <span class="mobile-subitem-tag">WP.org Verified</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+        </div>
+      </div>
       <a href="/#work" class="mobile-nav-link">Work <span aria-hidden="true">→</span></a>
       <a href="/#services" class="mobile-nav-link">Services <span aria-hidden="true">→</span></a>
       <a href="/#process" class="mobile-nav-link">Process <span aria-hidden="true">→</span></a>

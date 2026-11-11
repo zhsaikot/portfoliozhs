@@ -189,6 +189,43 @@
   }
 
   /* ------------------------------------------------------------------------
+     04B. MEGA MENU (PLUGINS DROPDOWN & MOBILE ACCORDION)
+     ------------------------------------------------------------------------ */
+  const pluginsDropdown = document.getElementById('pluginsDropdown');
+  const pluginsDropdownBtn = document.getElementById('pluginsDropdownBtn');
+
+  if (pluginsDropdown && pluginsDropdownBtn) {
+    pluginsDropdown.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        pluginsDropdown.classList.remove('is-open');
+        pluginsDropdownBtn.setAttribute('aria-expanded', 'false');
+        pluginsDropdownBtn.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!pluginsDropdown.contains(e.target)) {
+        pluginsDropdown.classList.remove('is-open');
+        pluginsDropdownBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  const mobileDropdowns = document.querySelectorAll('.mobile-nav-item-dropdown');
+  mobileDropdowns.forEach(dropdown => {
+    const toggleBtn = dropdown.querySelector('.mobile-dropdown-toggle-btn');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = dropdown.classList.contains('is-open');
+        dropdown.classList.toggle('is-open', !isOpen);
+        toggleBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    }
+  });
+
+  /* ------------------------------------------------------------------------
      05. SMOOTH INTERNAL ANCHOR SCROLLING
      ------------------------------------------------------------------------ */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
