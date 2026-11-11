@@ -4,8 +4,9 @@
 
 ## Core Capabilities
 - Custom WordPress Development & Modular Theme Architecture
-- Elementor Pro & Crocoblock / JetEngine Dynamic Systems
+- Elementor Pro & Dynamic ACF / JetEngine Systems
 - High-Converting WooCommerce Store Engineering
+- Shopify Store Creation, Liquid Theming & Ongoing Maintenance
 - Speed Optimization & Core Web Vitals Pass (90+ mobile scores)
 - Ongoing Maintenance, Security Hardening & Technical Support
 
