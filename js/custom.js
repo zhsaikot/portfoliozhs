@@ -226,6 +226,39 @@
   });
 
   /* ------------------------------------------------------------------------
+     04C. ACCORDION / FAQ COMPONENT HANDLER
+     ------------------------------------------------------------------------ */
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  faqQuestions.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const item = this.closest('.faq-item') || this.parentElement;
+      if (!item) return;
+      const isActive = item.classList.contains('active');
+
+      // Close sibling items in the same list
+      const parentList = item.closest('.faq-list') || item.parentElement;
+      if (parentList) {
+        parentList.querySelectorAll('.faq-item.active').forEach(activeItem => {
+          if (activeItem !== item) {
+            activeItem.classList.remove('active');
+            const qBtn = activeItem.querySelector('.faq-question');
+            if (qBtn) qBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      // Toggle current
+      if (isActive) {
+        item.classList.remove('active');
+        this.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('active');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ------------------------------------------------------------------------
      05. SMOOTH INTERNAL ANCHOR SCROLLING
      ------------------------------------------------------------------------ */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {

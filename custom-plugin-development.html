@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJNGFNSKQ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JJNGFNSKQ3');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Primary Meta Tags -->
+  <title>Custom WordPress Plugin Development | MD. Ziaul Hasan</title>
+  <meta name="title" content="Custom WordPress Plugin Development | MD. Ziaul Hasan">
+  <meta name="description" content="Custom WordPress plugin development, bespoke REST API integrations, WooCommerce extensions, and custom wp-admin dashboards. Published WordPress.org author.">
+  <meta name="author" content="MD. Ziaul Hasan">
+  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="lgIAs_ZY0GKRwEuuh0sWTQ_y6-qOcBJo6xFL8mRoPIk">
+  <link rel="canonical" href="https://mdziaulhasan.com/custom-plugin-development">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mdziaulhasan.com/custom-plugin-development">
+  <meta property="og:title" content="Custom WordPress Plugin Development | MD. Ziaul Hasan">
+  <meta property="og:description" content="Bespoke WordPress plugin development, custom REST API integrations, and WooCommerce extensions. Published WordPress.org author.">
+  <meta property="og:image" content="https://mdziaulhasan.com/images/zhs-ai-alt-text-banner.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://mdziaulhasan.com/custom-plugin-development">
+  <meta name="twitter:title" content="Custom WordPress Plugin Development | MD. Ziaul Hasan">
+  <meta name="twitter:description" content="Bespoke WordPress plugin development, custom REST API integrations, and WooCommerce extensions. Published WordPress.org author.">
+  <meta name="twitter:image" content="https://mdziaulhasan.com/images/zhs-ai-alt-text-banner.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/ZH.ico">
+  <link rel="apple-touch-icon" href="images/ZH.png">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD Structured Data: Service & Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://mdziaulhasan.com/#person",
+        "name": "MD. Ziaul Hasan",
+        "url": "https://mdziaulhasan.com/",
+        "jobTitle": "WordPress Developer & Technical Architect"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://mdziaulhasan.com/custom-plugin-development#service",
+        "name": "Custom WordPress Plugin Development",
+        "serviceType": "WordPress Plugin Engineering",
+        "description": "Bespoke WordPress plugin development, custom REST API and webhook integrations, WooCommerce custom checkout and pricing logic, AI/LLM automation features, and native wp-admin dashboards engineered with zero bloat.",
+        "provider": {
+          "@id": "https://mdziaulhasan.com/#person"
+        },
+        "areaServed": "Worldwide",
+        "url": "https://mdziaulhasan.com/custom-plugin-development"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mdziaulhasan.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://mdziaulhasan.com/#services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Custom Plugin Development",
+            "item": "https://mdziaulhasan.com/custom-plugin-development"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="has-custom-cursor">
+
+  <!-- Page Transition Veil -->
+  <div class="page-transition-veil" id="pageTransitionVeil" aria-hidden="true"></div>
+
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true">
+    <span class="cursor-ring-text" id="cursorRingText" aria-hidden="true"></span>
+  </div>
+
+  <!-- ========================================================================
+       SITE HEADER / NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand-link" href="/" aria-label="MD. Ziaul Hasan — Home">
+        <div class="brand-logo-mark">ZH</div>
+        <div class="brand-text">MD. Ziaul Hasan</div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="/#work" class="nav-link">Work</a>
+        <a href="/#testimonials" class="nav-link">Reviews</a>
+        
+        <!-- Plugins Mega Menu -->
+        <div class="nav-item-dropdown" id="pluginsDropdown">
+          <a href="/#plugin" class="nav-link nav-link-dropdown active" id="pluginsDropdownBtn" aria-haspopup="true" aria-expanded="false" aria-label="WordPress Plugins Menu">
+            <span>Plugins</span>
+            <svg class="nav-dropdown-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <!-- Mega Menu Dropdown -->
+          <div class="nav-mega-menu" role="menu" aria-label="Plugins Submenu">
+            <div class="nav-mega-header">
+              <span class="nav-mega-badge">WordPress.org Official Plugins</span>
+              <a href="/#plugin" class="nav-mega-all-link">Browse All ↗</a>
+            </div>
+
+            <div class="nav-mega-grid">
+              <!-- Plugin 1 -->
+              <a href="/zhs-ai-alt-text-plugin" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-ai-alt-text-dashboard.webp" alt="ZHS AI Alt Text Generator" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">ZHS AI Alt Text Generator</span>
+                    <span class="nav-mega-tag tag-new">New v1.0.0</span>
+                  </div>
+                  <p class="nav-mega-card-desc">AI-powered image alt text & SEO with OpenAI, Gemini & offline engine.</p>
+                  <span class="nav-mega-card-footer">View Details <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+
+              <!-- Plugin 2 -->
+              <a href="/zhs-site-audit-plugin" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-site-audit-dashboard.webp" alt="ZHS Site Audit & SEO Diagnostics" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">ZHS Site Audit & Diagnostics</span>
+                    <span class="nav-mega-tag tag-verified">WP.org Verified</span>
+                  </div>
+                  <p class="nav-mega-card-desc">Comprehensive on-site SEO diagnostics, Core Web Vitals & security auditing.</p>
+                  <span class="nav-mega-card-footer">View Details <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/#services" class="nav-link active">Services</a>
+        <a href="/#process" class="nav-link">Process</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#experience" class="nav-link">Experience</a>
+        <a href="/book-consultation" class="nav-link nav-link-highlight" aria-label="Book a Free 30-Min Strategy Call">
+          <span class="nav-pulse-dot" aria-hidden="true"></span>
+          <span>Book a Call</span>
+          <span class="nav-highlight-badge">Free</span>
+        </a>
+        <a href="/#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Header CTA -->
+      <div class="header-cta">
+        <a href="/book-consultation" class="btn btn-primary">
+          Start a Project <span class="btn-icon-up" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <!-- Hamburger Button for Mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Full-Screen Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-nav-top">
+      <a class="brand-link" href="/" aria-label="MD. Ziaul Hasan — Home">
+        <div class="brand-logo-mark">ZH</div>
+        <div class="brand-text">MD. Ziaul Hasan</div>
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" type="button" aria-label="Close navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav-links">
+      <a href="/#home" class="mobile-nav-link">Home <span aria-hidden="true">→</span></a>
+      <a href="/#work" class="mobile-nav-link">Work <span aria-hidden="true">→</span></a>
+      <a href="/#testimonials" class="mobile-nav-link">Reviews <span aria-hidden="true">→</span></a>
+      <div class="mobile-nav-item-dropdown">
+        <div class="mobile-nav-dropdown-trigger">
+          <a href="/#plugin" class="mobile-nav-link">Plugins</a>
+          <button type="button" class="mobile-dropdown-toggle-btn" aria-label="Toggle Plugins Submenu" aria-expanded="false">
+            <svg class="mobile-dropdown-chevron" width="12" height="8" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-nav-sublist">
+          <a href="/zhs-ai-alt-text-plugin" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/zhs-ai-alt-text-dashboard.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">ZHS AI Alt Text Generator</span>
+              <span class="mobile-subitem-tag">New v1.0.0</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+          <a href="/zhs-site-audit-plugin" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/zhs-site-audit-dashboard.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">ZHS Site Audit & Diagnostics</span>
+              <span class="mobile-subitem-tag">WP.org Verified</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <a href="/#services" class="mobile-nav-link">Services <span aria-hidden="true">→</span></a>
+      <a href="/#process" class="mobile-nav-link">Process <span aria-hidden="true">→</span></a>
+      <a href="/#about" class="mobile-nav-link">About <span aria-hidden="true">→</span></a>
+      <a href="/#experience" class="mobile-nav-link">Experience <span aria-hidden="true">→</span></a>
+      <a href="/book-consultation" class="mobile-nav-link mobile-nav-highlight">
+        <span class="highlight-title">
+          <span class="highlight-pulse" aria-hidden="true"></span>
+          Book a Call
+        </span>
+        <span class="highlight-badge">
+          Free 30-Min <span class="highlight-arrow" aria-hidden="true">→</span>
+        </span>
+      </a>
+      <a href="/#contact" class="mobile-nav-link">Contact <span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <a href="https://github.com/zhsaikot" target="_blank" rel="noopener noreferrer" class="mobile-nav-social-link">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/mdziaulhasan/" target="_blank" rel="noopener noreferrer" class="mobile-nav-social-link">LinkedIn ↗</a>
+      <a href="https://profiles.wordpress.org/zhsaikot/" target="_blank" rel="noopener noreferrer" class="mobile-nav-social-link">WordPress.org ↗</a>
+      <a href="mailto:contact@mdziaulhasan.com" class="mobile-nav-social-link">Email Direct ↗</a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <main>
+    <section class="service-hero">
+      <div class="container">
+        <div class="service-hero-header">
+          <a href="/#services" class="service-back-link">
+            <span aria-hidden="true">←</span> Return to All Services
+          </a>
+          <div class="eyebrow" style="margin-bottom: 14px;">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            WORDPRESS.ORG PUBLISHED PLUGIN ARCHITECT
+          </div>
+          <h1 class="service-hero-headline">
+            Custom WordPress Plugin & API Development
+          </h1>
+          <p class="service-hero-sub">
+            Solve custom business workflows that generic marketplace plugins cannot handle. From bespoke WooCommerce checkout rules and third-party REST API webhooks to lightweight admin dashboards and AI integrations, engineered with zero bloat and strict security.
+          </p>
+
+          <!-- Proof Strip -->
+          <div class="service-proof-strip">
+            <span class="service-proof-pill pill-accent">📦 WordPress.org Published Author</span>
+            <span class="service-proof-pill">⚡ Zero Bloat & Strict Nonces</span>
+            <span class="service-proof-pill">🔌 REST API & Webhook Integrations</span>
+            <span class="service-proof-pill">🛠️ Clean OOP PHP & WP Standards</span>
+          </div>
+
+          <!-- CTAs -->
+          <div class="service-hero-ctas">
+            <a href="/book-consultation" class="btn btn-primary" style="padding: 16px 36px; font-size: 1rem;">
+              Discuss Your Plugin Needs <span class="btn-icon-up" aria-hidden="true">↗</span>
+            </a>
+            <a href="#published-plugins" class="btn btn-secondary" style="padding: 16px 28px; font-size: 0.95rem;">
+              Explore My Published Plugins ↓
+            </a>
+          </div>
+        </div>
+
+        <!-- Featured Mockup Frame -->
+        <div class="service-mockup-frame">
+          <div class="service-mockup-header">
+            <div class="service-mockup-dots">
+              <span class="service-mockup-dot dot-red"></span>
+              <span class="service-mockup-dot dot-yellow"></span>
+              <span class="service-mockup-dot dot-green"></span>
+            </div>
+            <div class="service-mockup-title">WordPress.org Official Plugin Release • AI Alt Text Generator</div>
+            <div style="font-size: 11px; color: #38bdf8; font-weight: 700;">● Active on WordPress.org</div>
+          </div>
+          <img src="images/zhs-ai-alt-text-banner.webp" alt="ZHS AI Alt Text Generator WordPress Plugin Banner" class="service-mockup-img" width="1544" height="500">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 1: CAPABILITIES
+         ======================================================================== -->
+    <section class="service-section">
+      <div class="container">
+        <div class="service-section-header">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            ENGINEERING SCOPE
+          </div>
+          <h2 class="service-section-title">What I Can Build For Your WordPress System</h2>
+          <p class="service-section-sub">
+            Clean, maintainable, object-oriented PHP architecture that integrates flawlessly into the native WordPress dashboard without conflicting with other plugins.
+          </p>
+        </div>
+
+        <div class="service-cards-grid">
+          <!-- Card 1 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">🖥️</div>
+              <h3 class="service-card-h3">Custom Admin Dashboards</h3>
+              <p class="service-card-desc">
+                Native WordPress admin pages, custom settings panels, AJAX data tables, and intuitive UI components that match the official WordPress core styling.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">🔌</div>
+              <h3 class="service-card-h3">REST API & Webhook Bridges</h3>
+              <p class="service-card-desc">
+                Bidirectional API connections between WordPress and third-party CRMs (HubSpot, Salesforce), Stripe billing, ERP inventory systems, and automated webhook listeners.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">🛍️</div>
+              <h3 class="service-card-h3">WooCommerce Extensions</h3>
+              <p class="service-card-desc">
+                Custom pricing rules, tier-based discounts, B2B wholesale portals, multi-step checkout modifications, and bespoke payment gateway integrations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">🤖</div>
+              <h3 class="service-card-h3">AI & LLM Integrations</h3>
+              <p class="service-card-desc">
+                Integrate OpenAI (GPT-4o), Google Gemini, and Claude APIs directly into WordPress workflows for automated metadata, content categorization, and alt text generation.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">⚡</div>
+              <h3 class="service-card-h3">High-Speed Query Optimization</h3>
+              <p class="service-card-desc">
+                Custom database tables, indexed queries, transient caching, and lightweight background workers that process thousands of items without freezing the server.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">🛡️</div>
+              <h3 class="service-card-h3">WordPress.org Review Compliance</h3>
+              <p class="service-card-desc">
+                Plugin architecture built to pass official WordPress.org Plugin Review Team standards: strict nonce verification, input sanitization, and data escaping.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 2: LIVE PROOF (MY PUBLISHED WORDPRESS.ORG PLUGINS)
+         ======================================================================== -->
+    <section class="service-section" id="published-plugins">
+      <div class="container">
+        <div class="service-section-header">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            LIVE PRODUCTION PROOF
+          </div>
+          <h2 class="service-section-title">Official WordPress.org Published Plugins</h2>
+          <p class="service-section-sub">
+            Real software approved by the official WordPress.org review team and deployed across global websites.
+          </p>
+        </div>
+
+        <div class="service-case-cards">
+          <!-- Plugin 1 -->
+          <a href="/zhs-ai-alt-text-plugin" class="service-case-card">
+            <div class="service-case-thumb">
+              <img src="images/zhs-ai-alt-text-dashboard.webp" alt="ZHS AI Alt Text Generator Dashboard" width="600" height="310" loading="lazy">
+            </div>
+            <div class="service-case-content">
+              <div>
+                <span class="service-case-meta" style="color: #38bdf8;">NEW RELEASE • WORDPRESS.ORG</span>
+                <h3 class="service-case-title">ZHS AI Alt Text Generator</h3>
+                <p class="service-case-desc">
+                  Multi-provider AI vision suite for WordPress automating image alt text generation for WCAG accessibility. Connects to OpenAI, Gemini, Claude, Qwen, or runs 100% free offline.
+                </p>
+              </div>
+              <span class="service-case-link">View Plugin Architecture & Demo <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <!-- Plugin 2 -->
+          <a href="/zhs-site-audit-plugin" class="service-case-card">
+            <div class="service-case-thumb">
+              <img src="images/zhs-site-audit-dashboard.webp" alt="ZHS Site Audit & SEO Diagnostics Dashboard" width="600" height="310" loading="lazy">
+            </div>
+            <div class="service-case-content">
+              <div>
+                <span class="service-case-meta" style="color: #4ade80;">OFFICIAL PLUGIN • 100% LOCAL</span>
+                <h3 class="service-case-title">ZHS Site Audit & SEO Diagnostics</h3>
+                <p class="service-case-desc">
+                  Automated 17-point technical health audit and SEO diagnostics engine built natively into wp-admin. Evaluates technical indexing, Core Web Vitals, and JSON-LD schema with zero external dependencies.
+                </p>
+              </div>
+              <span class="service-case-link">View Plugin Architecture & Demo <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 3: FAQ ACCORDION
+         ======================================================================== -->
+    <section class="service-section">
+      <div class="container">
+        <div class="service-section-header">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            FREQUENTLY ASKED QUESTIONS
+          </div>
+          <h2 class="service-section-title">Plugin Development FAQs</h2>
+          <p class="service-section-sub">
+            Key details on code ownership, updates, performance safety, and API connectivity.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <button class="faq-question" type="button" aria-expanded="true">
+              <span>Will a custom plugin slow down my WordPress site?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Quite the opposite. Marketplace plugins often include dozens of features you never touch, loading bloated CSS and JS on every single page. A bespoke custom plugin runs only the exact PHP logic your feature requires, loading assets conditionally only on targeted admin or frontend screens.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Can you connect WordPress with our external CRM, SaaS, or payment provider?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Yes. I specialize in bidirectional REST API handshakes, webhooks, and secure tokenized authentication. Whether you need to push new WooCommerce orders to your ERP or pull live pricing from an external feed, it runs cleanly in the background.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Will the custom plugin survive future WordPress core updates?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Yes. Every plugin is authored strictly adhering to standard WordPress Core APIs (`add_action`, `add_filter`, `wp_remote_post`, `WP_REST_Controller`). We never use deprecated functions or unstable database hacks, guaranteeing forward compatibility with PHP 8.2+ and major WordPress releases.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Do I own the full source code once the plugin is delivered?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              100% yes. You receive the complete, unminified, well-documented source code with zero licensing locks or hidden callbacks. You have full ownership to modify, extend, or distribute the plugin as you wish under standard GPLv2 licensing.
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             BOTTOM CTA CARD
+             ==================================================================== -->
+        <div class="service-cta-card">
+          <div class="eyebrow" style="margin-bottom: 12px;">BESPOKE FUNCTIONALITY FOR YOUR BUSINESS</div>
+          <h2 class="service-cta-headline">Have a Custom Feature or Integration Idea?</h2>
+          <p class="service-cta-sub">
+            Let's discuss your requirements on a 30-minute technical discovery call. We'll map out the architecture, define database models, and deliver a zero-bloat solution tailored to your system.
+          </p>
+          <div class="service-cta-buttons">
+            <a href="/book-consultation" class="btn btn-primary" style="padding: 16px 36px; font-size: 1rem;">
+              Book Plugin Discovery Call <span class="btn-icon-up" aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="service-cta-fallback">
+            Prefer direct messaging? <a href="https://wa.me/8801743912140" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a> or <a href="mailto:contact@mdziaulhasan.com">Email Direct ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       SITE FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">
+        <div>© 2026 MD. Ziaul Hasan. All rights reserved.</div>
+        <div style="color: var(--text-muted); font-size: 0.8125rem; margin-top: 2px;">WordPress Developer · Web Designer</div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="/#work" class="footer-link">Work</a>
+        <a href="/#services" class="footer-link">Services</a>
+        <a href="/#about" class="footer-link">About</a>
+        <a href="/privacypolicy.html" class="footer-link">Privacy Policy</a>
+        <a href="/book-consultation" class="footer-link">Book a Call</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
+    <svg class="back-to-top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/custom.js"></script>
+</body>
+</html>

@@ -25,6 +25,16 @@
   - Description: Multi-provider AI vision suite for WordPress automating image alt text generation for WCAG accessibility and Google Image SEO. Supports OpenAI (GPT-4o-mini), Google Gemini (1.5 Flash), Anthropic Claude (3.5 Sonnet), Alibaba Qwen (VL Max), and a 100% free offline category engine with non-blocking AJAX batch processing.
   - WordPress.org Plugin: https://wordpress.org/plugins/zhs-ai-alt-text-generator/
 
+## Dedicated Services
+- WordPress Speed & Core Web Vitals Optimization: https://mdziaulhasan.com/wordpress-speed-optimization
+  - Comprehensive performance engineering: asset minification, critical CSS extraction, database query cleanup, WebP media optimization, and CDN/server cache configuration to achieve 95+ mobile PageSpeed and sub-second load times.
+- Proactive WordPress Maintenance & Security Retainers: https://mdziaulhasan.com/wordpress-site-maintenance
+  - Complete monthly website care: automated offsite cloud backups, safe staging-tested core/plugin updates, 24/7 uptime monitoring, security firewall hardening, and priority technical support.
+- Custom WordPress Plugin & API Development: https://mdziaulhasan.com/custom-plugin-development
+  - Bespoke PHP plugin development, third-party REST API and webhook integrations, custom WooCommerce extensions, AI/LLM model connections, and custom post type architectures following official WordPress.org coding standards.
+- Custom WordPress & Elementor Pro Website Development: https://mdziaulhasan.com/custom-website-building
+  - End-to-end bespoke website design and engineering for corporate brands, e-commerce stores, and dynamic directories. Pixel-perfect Elementor Pro, responsive ACF/JetEngine builds, and CRO-focused user experiences.
+
 ## Case Studies
 - Growth Gurus (Business Consulting & Booking): https://mdziaulhasan.com/case-study-growthgurus
 - Select The Best (eCommerce & Equine Nutrition): https://mdziaulhasan.com/case-study-select-the-best

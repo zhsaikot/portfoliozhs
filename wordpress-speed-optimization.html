@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJNGFNSKQ3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JJNGFNSKQ3');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Primary Meta Tags -->
+  <title>WordPress Speed & Core Web Vitals Optimization | MD. Ziaul Hasan</title>
+  <meta name="title" content="WordPress Speed & Core Web Vitals Optimization | MD. Ziaul Hasan">
+  <meta name="description" content="Fix failed Core Web Vitals (LCP, INP, CLS), eliminate slow Elementor loading times, and achieve 95+ Google PageSpeed on mobile and desktop without breaking design.">
+  <meta name="author" content="MD. Ziaul Hasan">
+  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="lgIAs_ZY0GKRwEuuh0sWTQ_y6-qOcBJo6xFL8mRoPIk">
+  <link rel="canonical" href="https://mdziaulhasan.com/wordpress-speed-optimization">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mdziaulhasan.com/wordpress-speed-optimization">
+  <meta property="og:title" content="WordPress Speed & Core Web Vitals Optimization | MD. Ziaul Hasan">
+  <meta property="og:description" content="Fix failed Core Web Vitals (LCP, INP, CLS) and achieve 95+ Google PageSpeed on WordPress & Elementor. Engineered by MD. Ziaul Hasan.">
+  <meta property="og:image" content="https://mdziaulhasan.com/images/zhs-site-audit-dashboard.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://mdziaulhasan.com/wordpress-speed-optimization">
+  <meta name="twitter:title" content="WordPress Speed & Core Web Vitals Optimization | MD. Ziaul Hasan">
+  <meta name="twitter:description" content="Fix failed Core Web Vitals (LCP, INP, CLS) and achieve 95+ Google PageSpeed on WordPress & Elementor. Engineered by MD. Ziaul Hasan.">
+  <meta name="twitter:image" content="https://mdziaulhasan.com/images/zhs-site-audit-dashboard.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/ZH.ico">
+  <link rel="apple-touch-icon" href="images/ZH.png">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD Structured Data: Service & Breadcrumbs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://mdziaulhasan.com/#person",
+        "name": "MD. Ziaul Hasan",
+        "url": "https://mdziaulhasan.com/",
+        "jobTitle": "WordPress Developer & Technical Architect"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://mdziaulhasan.com/wordpress-speed-optimization#service",
+        "name": "WordPress Speed & Core Web Vitals Optimization",
+        "serviceType": "Web Performance Optimization",
+        "description": "Comprehensive WordPress and WooCommerce speed optimization focusing on Google Core Web Vitals (LCP, INP, CLS), Critical CSS inlining, asset deferral, database queries, and 95+ mobile PageSpeed scores.",
+        "provider": {
+          "@id": "https://mdziaulhasan.com/#person"
+        },
+        "areaServed": "Worldwide",
+        "url": "https://mdziaulhasan.com/wordpress-speed-optimization"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mdziaulhasan.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://mdziaulhasan.com/#services"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "WordPress Speed Optimization",
+            "item": "https://mdziaulhasan.com/wordpress-speed-optimization"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="has-custom-cursor">
+
+  <!-- Page Transition Veil -->
+  <div class="page-transition-veil" id="pageTransitionVeil" aria-hidden="true"></div>
+
+  <!-- Custom Cursor Elements -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true">
+    <span class="cursor-ring-text" id="cursorRingText" aria-hidden="true"></span>
+  </div>
+
+  <!-- ========================================================================
+       SITE HEADER / NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand-link" href="/" aria-label="MD. Ziaul Hasan — Home">
+        <div class="brand-logo-mark">ZH</div>
+        <div class="brand-text">MD. Ziaul Hasan</div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <a href="/#work" class="nav-link">Work</a>
+        <a href="/#testimonials" class="nav-link">Reviews</a>
+        
+        <!-- Plugins Mega Menu -->
+        <div class="nav-item-dropdown" id="pluginsDropdown">
+          <a href="/#plugin" class="nav-link nav-link-dropdown" id="pluginsDropdownBtn" aria-haspopup="true" aria-expanded="false" aria-label="WordPress Plugins Menu">
+            <span>Plugins</span>
+            <svg class="nav-dropdown-chevron" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+
+          <!-- Mega Menu Dropdown -->
+          <div class="nav-mega-menu" role="menu" aria-label="Plugins Submenu">
+            <div class="nav-mega-header">
+              <span class="nav-mega-badge">WordPress.org Official Plugins</span>
+              <a href="/#plugin" class="nav-mega-all-link">Browse All ↗</a>
+            </div>
+
+            <div class="nav-mega-grid">
+              <!-- Plugin 1 -->
+              <a href="/zhs-ai-alt-text-plugin" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-ai-alt-text-dashboard.webp" alt="ZHS AI Alt Text Generator" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">ZHS AI Alt Text Generator</span>
+                    <span class="nav-mega-tag tag-new">New v1.0.0</span>
+                  </div>
+                  <p class="nav-mega-card-desc">AI-powered image alt text & SEO with OpenAI, Gemini & offline engine.</p>
+                  <span class="nav-mega-card-footer">View Details <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+
+              <!-- Plugin 2 -->
+              <a href="/zhs-site-audit-plugin" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb">
+                  <img src="images/zhs-site-audit-dashboard.webp" alt="ZHS Site Audit & SEO Diagnostics" width="78" height="48" loading="lazy">
+                </div>
+                <div class="nav-mega-card-body">
+                  <div class="nav-mega-card-header">
+                    <span class="nav-mega-card-title">ZHS Site Audit & Diagnostics</span>
+                    <span class="nav-mega-tag tag-verified">WP.org Verified</span>
+                  </div>
+                  <p class="nav-mega-card-desc">Comprehensive on-site SEO diagnostics, Core Web Vitals & security auditing.</p>
+                  <span class="nav-mega-card-footer">View Details <span class="nav-arrow">→</span></span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/#services" class="nav-link active">Services</a>
+        <a href="/#process" class="nav-link">Process</a>
+        <a href="/#about" class="nav-link">About</a>
+        <a href="/#experience" class="nav-link">Experience</a>
+        <a href="/book-consultation" class="nav-link nav-link-highlight" aria-label="Book a Free 30-Min Strategy Call">
+          <span class="nav-pulse-dot" aria-hidden="true"></span>
+          <span>Book a Call</span>
+          <span class="nav-highlight-badge">Free</span>
+        </a>
+        <a href="/#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Header CTA -->
+      <div class="header-cta">
+        <a href="/book-consultation" class="btn btn-primary">
+          Start a Project <span class="btn-icon-up" aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <!-- Hamburger Button for Mobile -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Full-Screen Mobile Navigation Overlay -->
+  <div class="mobile-nav-overlay" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-nav-top">
+      <a class="brand-link" href="/" aria-label="MD. Ziaul Hasan — Home">
+        <div class="brand-logo-mark">ZH</div>
+        <div class="brand-text">MD. Ziaul Hasan</div>
+      </a>
+      <button class="mobile-nav-close" id="mobileNavClose" type="button" aria-label="Close navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav-links">
+      <a href="/#home" class="mobile-nav-link">Home <span aria-hidden="true">→</span></a>
+      <a href="/#work" class="mobile-nav-link">Work <span aria-hidden="true">→</span></a>
+      <a href="/#testimonials" class="mobile-nav-link">Reviews <span aria-hidden="true">→</span></a>
+      <div class="mobile-nav-item-dropdown">
+        <div class="mobile-nav-dropdown-trigger">
+          <a href="/#plugin" class="mobile-nav-link">Plugins</a>
+          <button type="button" class="mobile-dropdown-toggle-btn" aria-label="Toggle Plugins Submenu" aria-expanded="false">
+            <svg class="mobile-dropdown-chevron" width="12" height="8" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+              <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+        <div class="mobile-nav-sublist">
+          <a href="/zhs-ai-alt-text-plugin" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/zhs-ai-alt-text-dashboard.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">ZHS AI Alt Text Generator</span>
+              <span class="mobile-subitem-tag">New v1.0.0</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+          <a href="/zhs-site-audit-plugin" class="mobile-nav-subitem">
+            <div class="mobile-subitem-thumb">
+              <img src="images/zhs-site-audit-dashboard.webp" alt="" width="44" height="28" loading="lazy">
+            </div>
+            <div class="mobile-subitem-text">
+              <span class="mobile-subitem-title">ZHS Site Audit & Diagnostics</span>
+              <span class="mobile-subitem-tag">WP.org Verified</span>
+            </div>
+            <span class="mobile-subitem-arrow">→</span>
+          </a>
+        </div>
+      </div>
+      <a href="/#services" class="mobile-nav-link">Services <span aria-hidden="true">→</span></a>
+      <a href="/#process" class="mobile-nav-link">Process <span aria-hidden="true">→</span></a>
+      <a href="/#about" class="mobile-nav-link">About <span aria-hidden="true">→</span></a>
+      <a href="/#experience" class="mobile-nav-link">Experience <span aria-hidden="true">→</span></a>
+      <a href="/book-consultation" class="mobile-nav-link mobile-nav-highlight">
+        <span class="highlight-title">
+          <span class="highlight-pulse" aria-hidden="true"></span>
+          Book a Call
+        </span>
+        <span class="highlight-badge">
+          Free 30-Min <span class="highlight-arrow" aria-hidden="true">→</span>
+        </span>
+      </a>
+      <a href="/#contact" class="mobile-nav-link">Contact <span aria-hidden="true">→</span></a>
+    </div>
+
+    <div class="mobile-nav-footer">
+      <a href="https://github.com/zhsaikot" target="_blank" rel="noopener noreferrer" class="mobile-nav-social-link">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/mdziaulhasan/" target="_blank" rel="noopener noreferrer" class="mobile-nav-social-link">LinkedIn ↗</a>
+      <a href="https://profiles.wordpress.org/zhsaikot/" target="_blank" rel="noopener noreferrer" class="mobile-nav-social-link">WordPress.org ↗</a>
+      <a href="mailto:contact@mdziaulhasan.com" class="mobile-nav-social-link">Email Direct ↗</a>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       HERO SECTION
+       ======================================================================== -->
+  <main>
+    <section class="service-hero">
+      <div class="container">
+        <div class="service-hero-header">
+          <a href="/#services" class="service-back-link">
+            <span aria-hidden="true">←</span> Return to All Services
+          </a>
+          <div class="eyebrow" style="margin-bottom: 14px;">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            HIGH-PERFORMANCE CORE WEB VITALS SPECIALIST
+          </div>
+          <h1 class="service-hero-headline">
+            WordPress Speed & Core Web Vitals Optimization
+          </h1>
+          <p class="service-hero-sub">
+            Transform bloated, sluggish WordPress and Elementor sites into sub-second powerhouses. Fix failed Core Web Vitals (LCP, INP, CLS) and achieve green 95+ mobile PageSpeed scores without breaking design, disabling plugins, or losing visual fidelity.
+          </p>
+
+          <!-- Proof Strip -->
+          <div class="service-proof-strip">
+            <span class="service-proof-pill pill-accent">⚡ 95+ Mobile PageSpeed Score</span>
+            <span class="service-proof-pill">⏱ Sub-1s Visual Load Times</span>
+            <span class="service-proof-pill">📐 Zero Layout Shift (CLS 0.000)</span>
+            <span class="service-proof-pill">🟢 100% Core Web Vitals Pass</span>
+          </div>
+
+          <!-- CTAs -->
+          <div class="service-hero-ctas">
+            <a href="/book-consultation" class="btn btn-primary" style="padding: 16px 36px; font-size: 1rem;">
+              Book a Free Speed Audit <span class="btn-icon-up" aria-hidden="true">↗</span>
+            </a>
+            <a href="#case-studies" class="btn btn-secondary" style="padding: 16px 28px; font-size: 0.95rem;">
+              View Verified Case Studies ↓
+            </a>
+          </div>
+        </div>
+
+        <!-- Featured Dashboard Mockup -->
+        <div class="service-mockup-frame">
+          <div class="service-mockup-header">
+            <div class="service-mockup-dots">
+              <span class="service-mockup-dot dot-red"></span>
+              <span class="service-mockup-dot dot-yellow"></span>
+              <span class="service-mockup-dot dot-green"></span>
+            </div>
+            <div class="service-mockup-title">Google Lighthouse • 100 Performance Score • Verified Production Audit</div>
+            <div style="font-size: 11px; color: var(--accent); font-weight: 700;">Sub-Second Paint</div>
+          </div>
+          <img src="images/zhs-site-audit-dashboard.webp" alt="WordPress Core Web Vitals and Site Speed Diagnostics Dashboard" class="service-mockup-img" width="1240" height="477">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 1: WHAT SLOWS DOWN WORDPRESS
+         ======================================================================== -->
+    <section class="service-section">
+      <div class="container">
+        <div class="service-section-header">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            DIAGNOSTIC ROOT CAUSES
+          </div>
+          <h2 class="service-section-title">What Is Actually Slowing Down Your WordPress Site?</h2>
+          <p class="service-section-sub">
+            Generic caching plugins rarely solve deep structural bottlenecks. Real speed engineering requires eliminating the fundamental architectural issues dragging down your metrics.
+          </p>
+        </div>
+
+        <div class="service-cards-grid">
+          <!-- Card 1 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">🌳</div>
+              <h3 class="service-card-h3">Bloated Page Builder DOM</h3>
+              <p class="service-card-desc">
+                Elementor Pro, Divi, and heavy builders generate deeply nested <code>&lt;div&gt;</code> hierarchies that stall the browser's render engine and drive up Interaction to Next Paint (INP) latency.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">⚡</div>
+              <h3 class="service-card-h3">Render-Blocking CSS & JS</h3>
+              <p class="service-card-desc">
+                Multiple unminified stylesheet requests, synchronous font files, and third-party trackers prevent the browser from painting above-the-fold content, inflating First Contentful Paint (FCP).
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">🖼️</div>
+              <h3 class="service-card-h3">Unoptimized Media & Shifts</h3>
+              <p class="service-card-desc">
+                Heavy PNGs and uncompressed JPEGs lacking explicit width/height ratios trigger dramatic Cumulative Layout Shifts (CLS) while keeping hero Largest Contentful Paint (LCP) painfully slow.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="service-detail-card">
+            <div>
+              <div class="service-card-icon-badge">🗄️</div>
+              <h3 class="service-card-h3">Database Bloat & High TTFB</h3>
+              <p class="service-card-desc">
+                Massive autoloaded <code>wp_options</code> datasets, transient accumulations, and unindexed SQL queries cause slow server execution times (Time to First Byte &gt; 1.2s).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 2: 5-STEP OPTIMIZATION PROCESS
+         ======================================================================== -->
+    <section class="service-section">
+      <div class="container">
+        <div class="service-section-header">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            PROVEN METHODOLOGY
+          </div>
+          <h2 class="service-section-title">My 5-Step Performance Engineering Framework</h2>
+          <p class="service-section-sub">
+            A surgical, non-destructive process that leaves your design 100% intact while stripping away every millisecond of unnecessary overhead.
+          </p>
+        </div>
+
+        <div class="service-steps-grid">
+          <div class="service-step-card">
+            <span class="service-step-num">01</span>
+            <h3 class="service-step-title">Deep CDP Profiling</h3>
+            <p class="service-step-text">
+              We audit your site using Chrome DevTools Protocol, real mobile devices, and WebPageTest to isolate long tasks, render blockers, and layout shift culprits.
+            </p>
+          </div>
+
+          <div class="service-step-card">
+            <span class="service-step-num">02</span>
+            <h3 class="service-step-title">Critical CSS & Deferral</h3>
+            <p class="service-step-text">
+              Extract exact above-the-fold CSS, inline it into the head, and asynchronously defer all remaining styles and non-critical scripts without breaking page functionality.
+            </p>
+          </div>
+
+          <div class="service-step-card">
+            <span class="service-step-num">03</span>
+            <h3 class="service-step-title">Media Modernization</h3>
+            <p class="service-step-text">
+              Convert image assets to ultra-lean WebP/AVIF formats, enforce explicit aspect ratios, and configure eager priority loading for the LCP hero element.
+            </p>
+          </div>
+
+          <div class="service-step-card">
+            <span class="service-step-num">04</span>
+            <h3 class="service-step-title">Database & Object Cache</h3>
+            <p class="service-step-text">
+              Cleanse bloated wp_options autoload tables, purge orphan post revisions, and configure persistent Redis or Memcached object caching for instant dynamic queries.
+            </p>
+          </div>
+
+          <div class="service-step-card">
+            <span class="service-step-num">05</span>
+            <h3 class="service-step-title">Edge CDN & Caching</h3>
+            <p class="service-step-text">
+              Deploy Cloudflare Edge Cache, Brotli compression, and optimized HTTP/3 network handshakes to deliver content to global visitors with sub-50ms latency.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 3: VERIFIED CASE STUDIES
+         ======================================================================== -->
+    <section class="service-section" id="case-studies">
+      <div class="container">
+        <div class="service-section-header">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            MEASURABLE COMMERCIAL IMPACT
+          </div>
+          <h2 class="service-section-title">Real Speed Results from Live Client Websites</h2>
+          <p class="service-section-sub">
+            Real clients whose bounce rates dropped, search rankings climbed, and conversions increased following our performance overhaul.
+          </p>
+        </div>
+
+        <div class="service-case-cards">
+          <!-- Case Study 1 -->
+          <a href="/case-study-growthgurus" class="service-case-card">
+            <div class="service-case-thumb">
+              <img src="images/project-growth-gurus.webp" alt="Growth Gurus Case Study" width="600" height="338" loading="lazy">
+            </div>
+            <div class="service-case-content">
+              <div>
+                <span class="service-case-meta">Consulting & Strategy Portal</span>
+                <h3 class="service-case-title">Growth Gurus</h3>
+                <p class="service-case-desc">
+                  Re-engineered an Elementor Pro platform from a 42 mobile score to an instant 98/100, dropping LCP from 4.8s down to 0.7s and maximizing consultation bookings.
+                </p>
+              </div>
+              <span class="service-case-link">Read Full Case Study <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+
+          <!-- Case Study 2 -->
+          <a href="/case-study-select-the-best" class="service-case-card">
+            <div class="service-case-thumb">
+              <img src="images/project-select-the-best.webp" alt="Select The Best Case Study" width="600" height="338" loading="lazy">
+            </div>
+            <div class="service-case-content">
+              <div>
+                <span class="service-case-meta">High-Volume WooCommerce Store</span>
+                <h3 class="service-case-title">Select The Best</h3>
+                <p class="service-case-desc">
+                  Eliminated checkout bottlenecks and cart abandonment for a major nutrition eCommerce brand, cutting page weight by 68% and passing all Core Web Vitals metrics.
+                </p>
+              </div>
+              <span class="service-case-link">Read Full Case Study <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 4: FAQ ACCORDION
+         ======================================================================== -->
+    <section class="service-section">
+      <div class="container">
+        <div class="service-section-header">
+          <div class="eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            FREQUENTLY ASKED QUESTIONS
+          </div>
+          <h2 class="service-section-title">Speed Optimization FAQs</h2>
+          <p class="service-section-sub">
+            Straightforward answers about our process, guarantees, design safety, and hosting requirements.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <!-- FAQ 1 -->
+          <div class="faq-item active">
+            <button class="faq-question" type="button" aria-expanded="true">
+              <span>Will speed optimization break my site design, Elementor layouts, or tracking tags?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Zero design breaks. We test every optimization on an isolated staging clone before touching production. All layouts, custom fonts, animations, forms, and marketing pixels (Google Analytics, Meta Pixel, Google Tag Manager) remain 100% operational and verified.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Why is custom engineering better than simply installing a free caching plugin?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              One-click caching plugins often introduce JavaScript errors, CSS FOUC (flash of unstyled content), and broken layout shifts. Our service performs code-level optimization: isolating render-blocking elements, extracting exact critical CSS, pruning autoload database queries, and deferring non-essential scripts based on your specific plugin stack.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>How fast will my site be, and do you guarantee passing Core Web Vitals?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Most client sites achieve 90+ to 100 PageSpeed scores with sub-second visual load times and CLS below 0.01. If your hosting infrastructure supports it, we guarantee a green passing Core Web Vitals assessment on Google Lighthouse and PageSpeed Insights.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              <span>Do I need to migrate to a new hosting provider?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              In over 90% of cases, no. Efficient code architecture, object caching, and Cloudflare edge routing can solve almost all speed bottlenecks on your current host. If your host has an unresolvable server response time (TTFB &gt; 1.5s), I will provide clear migration guidance.
+            </div>
+          </div>
+        </div>
+
+        <!-- ====================================================================
+             BOTTOM CTA CARD
+             ==================================================================== -->
+        <div class="service-cta-card">
+          <div class="eyebrow" style="margin-bottom: 12px;">STOP LOSING CLIENTS TO SLOW LOADING SPEEDS</div>
+          <h2 class="service-cta-headline">Ready to Make Your WordPress Site Lightning Fast?</h2>
+          <p class="service-cta-sub">
+            Book a free 30-minute technical performance call. I'll inspect your live URL, uncover your exact Core Web Vitals bottlenecks, and provide a clear plan to achieve 95+ mobile scores.
+          </p>
+          <div class="service-cta-buttons">
+            <a href="/book-consultation" class="btn btn-primary" style="padding: 16px 36px; font-size: 1rem;">
+              Book Free Speed Consultation <span class="btn-icon-up" aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <div class="service-cta-fallback">
+            Prefer direct messaging? <a href="https://wa.me/8801743912140" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a> or <a href="mailto:contact@mdziaulhasan.com">Email Direct ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       SITE FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-copy">
+        <div>© 2026 MD. Ziaul Hasan. All rights reserved.</div>
+        <div style="color: var(--text-muted); font-size: 0.8125rem; margin-top: 2px;">WordPress Developer · Web Designer</div>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="/#work" class="footer-link">Work</a>
+        <a href="/#services" class="footer-link">Services</a>
+        <a href="/#about" class="footer-link">About</a>
+        <a href="/privacypolicy.html" class="footer-link">Privacy Policy</a>
+        <a href="/book-consultation" class="footer-link">Book a Call</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
+    <svg class="back-to-top-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/custom.js"></script>
+</body>
+</html>
